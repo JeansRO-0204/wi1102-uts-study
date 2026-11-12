@@ -86,7 +86,7 @@ function Reader({ lesson, section }: { lesson: Lesson; section?: string }) {
   const sec = lesson.sections[idx]
   const top = useRef<HTMLDivElement>(null)
   useEffect(() => { if (!atFinish && sec) setLast(lesson.deck, sec.id) }, [lesson.deck, sec, atFinish])
-  useEffect(() => { top.current?.scrollIntoView({ block: 'start' }); document.querySelector('.main')?.scrollTo({ top: 0 }) }, [section, lesson.deck])
+  useEffect(() => { top.current?.scrollIntoView({ block: 'start' }); document.getElementById('scroller')?.scrollTo({ top: 0 }) }, [section, lesson.deck])
   const done = useMemo(() => new Set(prog?.done ?? []), [prog])
   const v = pct(lesson, prog)
   const isLast = idx === lesson.sections.length - 1

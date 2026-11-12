@@ -90,8 +90,8 @@ export default function App() {
           {route.page === 'progress' && <div className="pr-fill"><Progress /></div>}
           {route.page === 'bank' && <BankBrowser id={route.id} />}
           {route.page === 'sandbox' && <Sandbox />}
-          {route.page === 'learn' && <Learn key={route.id ?? ''} deck={route.id} section={route.sec} />}
-          {route.page === 'library' && <Library key={route.id ?? ''} src={route.id} page={route.n} />}
+          {route.page === 'learn' && <div className="pr-fill" id="scroller"><Learn key={route.id ?? ''} deck={route.id} section={route.sec} /></div>}
+          {route.page === 'library' && <div className="pr-fill" id="scroller"><Library key={route.id ?? ''} src={route.id} page={route.n} /></div>}
         </Suspense></main>
       </div>
       <PageLightbox at={page} onClose={() => setPage(null)} onNav={(n) => setPage((s) => (s ? { ...s, page: n } : s))} />
