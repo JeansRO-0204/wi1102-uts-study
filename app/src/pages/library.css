@@ -45,3 +45,8 @@
   .lib-hit img { width: 84px; }
 }
 .lib-bar a.btn, .lib-card, .lib-hit { text-decoration: none; }
+.lib-links { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0 4px; }
+.lib-link { flex: 1 1 260px; display: flex; flex-direction: column; gap: 2px; padding: 10px 14px; border-radius: 12px; background: var(--card, #fff); border: 1px solid var(--line); color: inherit; text-decoration: none; }
+.lib-link b { color: var(--accent); font-size: 14px; }
+.lib-link small { font-size: 12.5px; }
+.lib-link:hover { border-color: var(--accent); }

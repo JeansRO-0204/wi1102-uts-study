@@ -9,6 +9,7 @@ import { FLASHCARDS } from '../bank'
 import { Ring, SOURCE_LABEL, go, pct, setPreset, tr } from '../practice/ui'
 import '../practice/practice.css'
 import './pages.css'
+import { ExternalLinks } from './Library'
 
 const EXAM = new Date(2026, 10, 14, 8, 0, 0) // Sat 14 Nov 2026
 function daysLeft() { const t = new Date(); t.setHours(0, 0, 0, 0); const e = new Date(EXAM); e.setHours(0, 0, 0, 0); return Math.round((e.getTime() - t.getTime()) / 86400000) }
@@ -61,7 +62,9 @@ export default function Home() {
         <a className="pr-mode" href="#/ujian"><b>{tr(lang, 'Ujian simulasi', 'Mock exam')}</b><p>{tr(lang, 'Berwaktu, bisa dicetak, lalu nilai diri.', 'Timed, printable, then self-mark.')}</p></a>
         <a className={'pr-mode' + (due ? ' accent' : '')} href="#/kartu"><b>{tr(lang, 'Kartu', 'Flashcards')}</b><p>{due ? `${due} ${tr(lang, 'jatuh tempo hari ini', 'due today')}` : tr(lang, 'Leitner 1·2·4·8 hari.', 'Leitner 1·2·4·8 days.')}</p></a>
         <a className="pr-mode" href="#/sintaks"><b>{tr(lang, 'Sintaks', 'Syntax')}</b><p>{tr(lang, 'Kartu Python ⇄ pseudocode ⇄ flowchart.', 'Python ⇄ pseudocode ⇄ flowchart cards.')}</p></a>
+        <a className="pr-mode" href="#/library"><b>{tr(lang, 'Pustaka', 'Library')}</b><p>{tr(lang, 'Semua slide, praktikum & soal, bisa dicari.', 'Every slide deck, practicum and paper, searchable.')}</p></a>
       </div>
+      <ExternalLinks />
       <div className="pg-sources"><h3>{tr(lang, 'Bank per sumber', 'Bank by source')}</h3>
         <div className="row-wrap">{[...bySource].map(([k, v]) => <span key={k} className="chip">{SOURCE_LABEL[k as keyof typeof SOURCE_LABEL] ?? k} · {v}</span>)}</div></div>
     </div>

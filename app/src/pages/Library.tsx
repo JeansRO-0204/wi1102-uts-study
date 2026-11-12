@@ -44,6 +44,22 @@ const DOCS: Doc[] = [
   { src: 'UTS_KU1102_2021', title: 'KU1102 UTS 2021', group: 'older', lang: 'id' },
   { src: 'KU1102_LatihanSoal_2019', title: 'KU1102 Practice Problems 2019', group: 'older', lang: 'id' },
 ]
+/** Outside resources, shown on Home and the Library. */
+export const LINKS = [
+  { href: 'https://acads.steik-site.com/academic', title: 'Acads STEI-K 2025', desc: 'Academic division site: materials and exam prep for the cohort' },
+  { href: 'https://drive.google.com/drive/folders/1ZBKbmyllppje4GJrv8rCi2YrTtjtOImO', title: 'Computational Thinking course Drive', desc: 'Official slides, past papers and practice sets (Google Drive)' },
+]
+export function ExternalLinks() {
+  return (
+    <div className="lib-links">
+      {LINKS.map((l) => (
+        <a key={l.href} className="lib-link" href={l.href} target="_blank" rel="noopener noreferrer">
+          <b>{l.title} <span aria-hidden>↗</span></b><small className="muted">{l.desc}</small>
+        </a>
+      ))}
+    </div>
+  )
+}
 const docOf = (src: string) => DOCS.find((d) => d.src === src)
 
 interface Index { pdfs: string[]; counts: Record<string, number>; dims: Record<string, [number, number] | null>; pages: [string, number, string][] }
@@ -81,6 +97,7 @@ function Shelves() {
           <p className="muted">{DOCS.length} documents · {DOCS.reduce((s, d) => s + countOf(ix, d.src), 0) || '…'} pages. Search every page, or open a document to read it.</p>
         </div>
       </div>
+      <ExternalLinks />
       <div className="lib-search">
         <input type="search" placeholder="Search all materials, e.g. KAMUS, while, return, decomposition…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search all materials" autoFocus />
         <select value={group} onChange={(e) => setGroup(e.target.value as '' | GroupId)} aria-label="Collection">
