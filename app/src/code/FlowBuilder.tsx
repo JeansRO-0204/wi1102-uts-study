@@ -5,6 +5,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { Flowchart, FlowBlock } from '../types'
 import { FlowView } from './FlowView'
+import { FlowMermaid } from './FlowMermaid'
 import { flowToPython } from './flow.ts'
 import * as O from './flowOps.ts'
 import './flow.css'
@@ -510,7 +511,21 @@ function Editor({ value, onChange }: { value: Flowchart; onChange: (f: Flowchart
   )
 }
 
+type FlowMode = 'blocks' | 'mermaid'
+const MODE_KEY = 'bk.flowMode'
+const readMode = (): FlowMode => { try { return localStorage.getItem(MODE_KEY) === 'mermaid' ? 'mermaid' : 'blocks' } catch { return 'blocks' } }
+
 export function FlowBuilder({ value, onChange, readOnly }: { value: Flowchart; onChange: (f: Flowchart) => void; readOnly?: boolean }) {
+  const [mode, setModeState] = useState<FlowMode>(readMode)
+  const setMode = (m: FlowMode) => { setModeState(m); try { localStorage.setItem(MODE_KEY, m) } catch { /* ignore */ } }
   if (readOnly) return <div className="fb fb-ro"><FlowView flow={value} /></div>
-  return <Editor value={value} onChange={onChange} />
+  return (
+    <div className="fb-wrap">
+      <div className="seg fb-mode" role="tablist" aria-label="Flowchart input">
+        <button type="button" role="tab" aria-selected={mode === 'blocks'} className={mode === 'blocks' ? 'on' : ''} onClick={() => setMode('blocks')}>Drag &amp; drop</button>
+        <button type="button" role="tab" aria-selected={mode === 'mermaid'} className={mode === 'mermaid' ? 'on' : ''} onClick={() => setMode('mermaid')}>Mermaid text</button>
+      </div>
+      {mode === 'blocks' ? <Editor value={value} onChange={onChange} /> : <FlowMermaid value={value} onChange={onChange} />}
+    </div>
+  )
 }

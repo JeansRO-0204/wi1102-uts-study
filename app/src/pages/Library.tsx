@@ -10,13 +10,14 @@ import './library.css'
 interface Doc { src: string; title: string; group: GroupId; lang: 'en' | 'id'; note?: string }
 type GroupId = 'slides' | 'practicum' | 'practice' | 'past' | 'older'
 const GROUPS: { id: GroupId; title: string; blurb: string }[] = [
-  { id: 'slides', title: 'Lecture slides', blurb: 'WI1102 decks, in English. Decks 03 and 07–09 are not in the library yet.' },
+  { id: 'slides', title: 'Lecture slides', blurb: 'WI1102 decks, in English (the course intro is in Indonesian). Decks 03 and 07–09 are not in the library yet.' },
   { id: 'practicum', title: 'Practicum', blurb: 'Python module and the four practicum sheets, in English.' },
-  { id: 'practice', title: 'Practice sets & mocks', blurb: 'Exercise sheets and mock exams. Mocks are unofficial.' },
+  { id: 'practice', title: 'Practice sets & mocks', blurb: 'Exercise sheets, tutor-made sets and mock exams. Tutor sets and mocks are unofficial.' },
   { id: 'past', title: 'Past papers', blurb: 'Previous WI1102 exams and the official marking guide.' },
   { id: 'older', title: 'Older KU1102 papers', blurb: 'From the predecessor course. Partly out of scope for WI1102.' },
 ]
 const DOCS: Doc[] = [
+  { src: 'D00_CourseIntro', title: '00 · Course Introduction', group: 'slides', lang: 'id' },
   { src: 'D01_ComputationalThinking', title: '01 · Computational Thinking', group: 'slides', lang: 'en' },
   { src: 'D02_AlgorithmicThinking', title: '02 · Algorithmic Thinking', group: 'slides', lang: 'en' },
   { src: 'D04_BasicStructure', title: '04 · Basic Structure of a Procedural Program', group: 'slides', lang: 'en' },
@@ -30,18 +31,24 @@ const DOCS: Doc[] = [
   { src: 'Praktikum3_LoopArray', title: 'Practicum 3 · Loops & Arrays', group: 'practicum', lang: 'en' },
   { src: 'Praktikum4_Subprogram', title: 'Practicum 4 · Subprograms', group: 'practicum', lang: 'en' },
   { src: 'D05_ExtraExercises', title: 'Deck 05 Extra Exercises', group: 'practice', lang: 'en' },
+  { src: 'D04_LatihanPython', title: 'Week 4 Python Exercises (Latihan Python)', group: 'practice', lang: 'id' },
+  { src: 'D06_ArrayExercises', title: 'Deck 06 Array Exercises', group: 'practice', lang: 'id' },
   { src: 'Latihan-1', title: 'Exercise Set 1 (Latihan 1)', group: 'practice', lang: 'id' },
   { src: 'Latihan-2', title: 'Exercise Set 2 (Latihan 2)', group: 'practice', lang: 'id' },
   { src: 'Mock_AcadsFTI25', title: 'Mock · Acads FTI 2025', group: 'practice', lang: 'id', note: 'unofficial' },
   { src: 'Mock_Pengkom', title: 'Mock · Pengkom', group: 'practice', lang: 'id', note: 'unofficial' },
   { src: 'Mock_Gemini', title: 'Mock · Gemini-generated', group: 'practice', lang: 'id', note: 'unofficial' },
   { src: 'TUBAY_STEI25', title: 'TUBAY STEI 2025', group: 'practice', lang: 'id', note: 'unofficial' },
+  { src: 'Tutor_Orkhan', title: 'Tutor set · Python programming (Orkhan)', group: 'practice', lang: 'id', note: 'unofficial' },
+  { src: 'Tutor_ObjekAneh', title: 'Tutor problem · Objek Aneh', group: 'practice', lang: 'id', note: 'unofficial' },
   { src: 'UTS_CT_TahunLalu', title: 'UTS · Previous year (with answers)', group: 'past', lang: 'id' },
   { src: 'UTS2024_PetunjukPenilaian_BagII', title: 'UTS 2024 · Marking guide, Part II', group: 'past', lang: 'id' },
   { src: 'UTS2025_attempt_scan', title: 'UTS 2025 · Marked attempt (scan)', group: 'past', lang: 'id', note: 'images only' },
   { src: 'UTS_KU1102_2018', title: 'KU1102 UTS 2018', group: 'older', lang: 'id' },
   { src: 'UTS_KU1102_2019', title: 'KU1102 UTS 2019', group: 'older', lang: 'id' },
   { src: 'UTS_KU1102_2021', title: 'KU1102 UTS 2021', group: 'older', lang: 'id' },
+  { src: 'UTS_KU1102_2022', title: 'KU1102 UTS 2022 (programming stream)', group: 'older', lang: 'id' },
+  { src: 'UTS_KU1102_2023', title: 'KU1102 UTS 2023 (programming stream)', group: 'older', lang: 'id' },
   { src: 'KU1102_LatihanSoal_2019', title: 'KU1102 Practice Problems 2019', group: 'older', lang: 'id' },
 ]
 /** Outside resources, shown on Home and the Library. */

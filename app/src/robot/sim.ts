@@ -47,7 +47,7 @@ const fail = (line: number, msg: string): never => { throw new RobotError(line, 
 
 function tokenize(src: string): Tok[] {
   const out: Tok[] = []
-  const lines = src.replace(/\r/g, '').split('\n')
+  const lines = src.replace(/\r/g, '').replace(/°/g, ' ').split('\n') // "90°" = "90"
   for (let li = 0; li < lines.length; li++) {
     const lineNo = li + 1
     let raw = lines[li]
@@ -96,8 +96,10 @@ type Node =
 const REPEAT_WORDS = ['repeat', 'ulangi', 'ulang', 'loop', 'rep']
 const RODY_CMDS: Record<string, 'U' | 'D' | 'W'> = { up: 'U', down: 'D', walk: 'W', naik: 'U', turun: 'D', jalan: 'W', melangkah: 'W' }
 const LADY_FWD = ['forward', 'fwd', 'fd', 'maju', 'foward', 'forwad', 'foreward']
-const LADY_LEFT = ['left', 'kiri']
-const LADY_RIGHT = ['right', 'kanan']
+const LADY_LEFT = ['left', 'kiri', 'turnleft', 'belokkiri', 'lt']
+const LADY_RIGHT = ['right', 'kanan', 'turnright', 'belokkanan', 'rt']
+/** "Turn Left" / "Belok kanan": the first word is only a prefix */
+const TURN_PREFIX = ['turn', 'belok', 'putar', 'hadap']
 const SKIP_WORDS = ['times', 'kali', 'time', 'do', 'lakukan', 'end', 'endrepeat', 'done', 'then', 'steps', 'langkah', 'meter', 'unit', 'to', 'the', 'a']
 
 function lev(a: string, b: string): number {
@@ -304,8 +306,19 @@ function parseProgram(src: string, dialect: Dialect, param: string): { nodes: No
     if (t.k === 'sym' && t.v === '(') { const st = t; const b = parseGroup(); return postfix(b, st.line, toks[pos - 1]) }
     if (t.k !== 'id') return parseStatement()
     pos++
-    const w = t.v
+    let w = t.v
+    if (TURN_PREFIX.includes(w) && peek()?.k === 'id' && peek()!.line === t.line && (LADY_LEFT.includes(peek()!.v) || LADY_RIGHT.includes(peek()!.v))) w = toks[pos++].v
     let nodes: Node[] | null = null
+    /** optional angle after a turn ("TurnLeft 90", "Right 180°"): number of quarter turns */
+    const turns = (line: number): number => {
+      const a = peek()
+      if (!a || a.k !== 'num' || a.line !== line) return 1
+      const deg = Number(a.v)
+      if (deg % 90 !== 0 || deg < 0) return fail(line, `turns go in steps of 90 degrees, not ${a.v}.`)
+      pos++
+      while (peek() && peek()!.line === line && ((peek()!.k === 'sym' && peek()!.v === '°') || (peek()!.k === 'id' && ['deg', 'degree', 'degrees', 'derajat'].includes(peek()!.v)))) pos++
+      return deg / 90
+    }
 
     if (REPEAT_WORDS.includes(w)) {
       usesRepeat = true
@@ -319,8 +332,11 @@ function parseProgram(src: string, dialect: Dialect, param: string): { nodes: No
     if (allowRody && RODY_CMDS[w]) { commands++; nodes = [{ t: 'cmd', c: RODY_CMDS[w], line: t.line }] }
     else if (!allowRody && RODY_CMDS[w]) return fail(t.line, `"${w}" is a Robot Rody command, but this question uses Ladybug (Forward N, Left, Right, Repeat N).`)
     else if (allowLady && LADY_FWD.includes(w)) { commands++; nodes = [{ t: 'cmd', c: 'F', arg: optArg(t.line), line: t.line }] }
-    else if (allowLady && LADY_LEFT.includes(w)) { commands++; nodes = [{ t: 'cmd', c: 'L', line: t.line }] }
-    else if (allowLady && LADY_RIGHT.includes(w)) { commands++; nodes = [{ t: 'cmd', c: 'R', line: t.line }] }
+    else if (allowLady && (LADY_LEFT.includes(w) || LADY_RIGHT.includes(w))) {
+      commands++
+      const c = LADY_LEFT.includes(w) ? 'L' : 'R'
+      nodes = Array.from({ length: turns(t.line) % 4 || 4 }, () => ({ t: 'cmd' as const, c, line: t.line }))
+    }
     else if (!allowLady && (LADY_FWD.includes(w) || LADY_LEFT.includes(w) || LADY_RIGHT.includes(w))) {
       return fail(t.line, `"${w}" is a Ladybug command, but this question uses Robot Rody (up, down, walk, repeat n).`)
     } else if (allowLady && w === 'f') { commands++; nodes = [{ t: 'cmd', c: 'F', arg: optArg(t.line), line: t.line }] }

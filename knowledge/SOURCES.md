@@ -8,16 +8,23 @@ Page images: `app/public/pages/<src>/NNN.jpg` (1-based, 3 digits). Text: `knowle
 | older | `UTS_KU1102_2018` | 6 | 1644 |  |
 | older | `UTS_KU1102_2019` | 8 | 2340 |  |
 | older | `UTS_KU1102_2021` | 6 | 1408 |  |
+| older | `UTS_KU1102_2022` | 7 | 1740 |  |
+| older | `UTS_KU1102_2023` | 6 | 1105 |  |
 | past | `UTS2024_PetunjukPenilaian_BagII` | 12 | 3812 |  |
 | past | `UTS2025_attempt_scan` | 9 | 0 | **scanned: read images** |
 | past | `UTS_CT_TahunLalu` | 28 | 4762 |  |
+| practice | `D04_LatihanPython` | 6 | 305 |  |
 | practice | `D05_ExtraExercises` | 39 | 2884 |  |
+| practice | `D06_ArrayExercises` | 4 | 206 |  |
 | practice | `Latihan-1` | 6 | 1488 |  |
 | practice | `Latihan-2` | 4 | 1151 |  |
 | practice | `Mock_AcadsFTI25` | 8 | 1088 |  |
 | practice | `Mock_Gemini` | 5 | 1177 |  |
 | practice | `Mock_Pengkom` | 10 | 1190 |  |
 | practice | `TUBAY_STEI25` | 7 | 106 | **scanned: read images** |
+| practice | `Tutor_ObjekAneh` | 1 | 207 |  |
+| practice | `Tutor_Orkhan` | 7 | 1336 |  |
+| slides | `D00_CourseIntro` | 14 | 642 |  |
 | slides | `D01_ComputationalThinking` | 27 | 1657 |  |
 | slides | `D02_AlgorithmicThinking` | 28 | 1617 |  |
 | slides | `D04_BasicStructure` | 54 | 3873 |  |

@@ -133,3 +133,19 @@
 .fb-pal-list button:active { background: var(--accent-soft); }
 .fb-empty { font-size: 13px; color: var(--muted); padding: 4px 2px; }
 @media (max-width: 480px) { .fb-in, .fb-pop-in { font-size: 16px; } .fb-row { grid-template-columns: minmax(0, 1fr); } }
+
+/* mode switch + Mermaid text mode */
+.fb-wrap { display: grid; gap: 10px; min-width: 0; }
+.fb-mode { justify-self: start; }
+.fm { display: grid; gap: 10px; min-width: 0; container-type: inline-size; }
+.fm-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; align-items: start; }
+.fm-src { display: grid; gap: 8px; min-width: 0; }
+.fm-src > .btn { justify-self: start; }
+.fm-preview { min-width: 0; border: 1px solid var(--line); border-radius: 12px; padding: 10px; background: var(--fill-2); overflow: auto; max-height: 640px; }
+.fm-empty { padding: 30px 10px; text-align: center; font-size: 13px; }
+.fm-help table { border-collapse: collapse; font-size: 12.5px; margin: 6px 0; }
+.fm-help td { padding: 3px 10px 3px 0; vertical-align: top; }
+.fm-help code { font-size: 12px; }
+.fm-help p { font-size: 12.5px; margin: 4px 0 0; }
+.fm-warn { list-style: none; margin: 0; padding: 6px 10px; border-radius: 10px; background: rgba(255, 159, 10, .12); color: #a05a00; font-size: 12.5px; display: grid; gap: 2px; }
+@container (max-width: 720px) { .fm-grid { grid-template-columns: minmax(0, 1fr); } }

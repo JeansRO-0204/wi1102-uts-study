@@ -1136,6 +1136,468 @@ b. Tuliskan program yang menerima masukan banyaknya tahun, misalnya x (bilangan 
    Catatan:
    Tidak boleh menggunakan array atau fungsi/prosedur
 
+# SOURCE UTS_KU1102_2022 (older, 7 pages)
+
+
+## [UTS_KU1102_2022 h1]
+
+UTS KU1102/Pengenalan Komputasi                           NIM: _________________________________
+Tanggal: 5 November 202 Waktu: 120 menit                 Nama: _________________________________
+Halaman 1 dari 7                                         Kelas: _________________________________
+
+
+                       UJIAN TENGAH SEMESTER
+                    KU1102/PENGENALAN KOMPUTASI
+                             SEM. 1 2022/2022
+                                    STREAM PEMROGRAMAN
+
+HARI, TANGGAL             : SABTU, 5 NOVEMBER 2022
+PUKUL                     : 09.00 – 11.00 WIB
+SIFAT UJIAN               : INDIVIDUAL DAN CLOSED BOOK
+DURASI                    : 120 MENIT
+FAK./SEK.                 : FITB, FMIPA, FTTM, FTMD, FTSL, FTI, SITH, STEI
+
+BACALAH PETUNJUK INI SEBELUM UJIAN DIMULAI :
+
+1. JANGAN BUKA HALAMAN BERIKUTNYA SEBELUM UJIAN DIMULAI!
+2. Persiapan Ujian:
+     a. Di atas meja hanya ada alat tulis dan identitas diri.
+     b. Ujian ini bersifat individual dan closed book.
+3. SETELAH UJIAN DIMULAI:
+    a. Cek apakah Anda sudah mendapatkan 7 lembar soal yaitu dari halaman 1 s.d.7. Jika Anda tidak
+        mendapatkan lembar yang benar, tukarkan kepada pengawas.
+    b. Lembar soal adalah sekaligus lembar jawaban. Tidak disediakan lembar jawaban terpisah.
+    c. Tuliskan NIM, Nama, dan Kelas, pada tiap lembar soal pada tempat di pojok kanan atas.
+    d. Baca dulu semua soal berikut semua petunjuknya sebelum mengerjakan. Baca semua instruksi
+        dengan sebaik-baiknya.
+    e. Kerjakan dulu soal yang Anda anggap mudah.
+    f. Tuliskan jawaban soal pada tempat-tempat yang disediakan sesuai instruksi soal. Jika Anda
+        membutuhkan tambahan tempat untuk menjawab, gunakan halaman-halaman kosong yang ada pada
+        lembar soal sesuai petunjuk dan jangan lupa menuliskan nomor soal dengan jelas. Jika Anda
+        membutuhkan lembar corat-coret, gunakan juga halaman-halaman kosong yang tersisa pada pada
+        lembar soal.
+4. Tidak ada pertanyaan untuk semua soal. Buat asumsi sendiri jika ada soal yang menurut Anda
+   tidak jelas dan tuliskan asumsi Anda bersama jawaban Anda.
+5. Sebelum memulai ujian, tanda tanganilah pernyataan di bawah ini.
+
+Dengan ini, saya menyatakan bahwa saya mengerjakan ujian ini secara jujur, tanpa bantuan yang tidak dibenarkan. Jika
+nantinya terbukti bahwa pernyataan saya ini tidak benar, maka saya bersedia menerima semua konsekuensinya sesuai
+aturan kuliah dan peraturan ITB.
+
+Bandung, 5 November 2022
+
+
+
+
+Nama:
+NIM:
+
+                       SELAMAT MENGERJAKAN. SEMOGA SUKSES. ☺
+
+## [UTS_KU1102_2022 h2]
+
+UTS KU1102/Pengenalan Komputasi                        NIM: _________________________________
+Tanggal: 5 November 202 Waktu: 120 menit              Nama: _________________________________
+Halaman 2 dari 7                                      Kelas: _________________________________
+
+Bagian A. Computing System, Network, and Impact of Computing
+
+Untuk soal 1 s.d. 3, tuliskan jawaban secara singkat, padat, tapi dengan jelas. Gunakan Bahasa
+Indonesia yang baik dan benar. Jangan lupa memberikan nomor soal dengan jelas.
+
+Soal 1
+Kecanduan game adalah salah satu problem remaja masa kini. Sebutkan (minimal 3) cara atau kiat untuk
+menghindari kecanduan game.
+
+
+Soal 2
+Dengan perkembangan teknologi dalam jaringan komputer, banyak aplikasi yang dikembangkan saat ini
+berbasis web. Sebutkan dua aplikasi berbasis web yang bisa digunakan untuk mendukung kerja dalam
+bidang keilmuan Fakultas/ Sekolah Anda, dan jelaskan dengan singkat bagaimana aplikasi tersebut
+mendukung kerja.
+
+
+Soal 3
+Suatu hari saat akan praktikum Pengenalan Komputasi, Anda menemukan komputer yang akan digunakan
+masih hidup dan pada browser, masih terlihat aplikasi media sosial terbuka. Anda mengenal pemilik akun
+yang sedang aktif pada aplikasi tersebut dan dia kebetulan adalah orang yang sangat tidak Anda sukai. Orang
+tersebut sering menggunakan akun media sosial ini untuk menyebarkan berita bohong (hoax). Anda berpikir,
+jika Anda melakukan sesuatu pada akun tersebut, misalnya mengirimkan pesan yang tidak pantas,
+menghapus file dan gambar, dan lain-lain., banyak orang yang akan merasa senang, bahkan berterima kasih
+pada Anda ☺Lagipula salah dia sendiri tidak log-out dengan baik dari aplikasi tersebut di komputer umum.
+Apa yang akan Anda lakukan?
+
+Tuliskan jawaban soal Bagian A di bawah ini atau di halaman kosong di balik hlm. 2 secara singkat, padat, tapi
+dengan argumen yang jelas. Gunakan Bahasa Indonesia yang baik dan benar. Jangan lupa memberikan nomor
+soal dengan jelas.
+
+## [UTS_KU1102_2022 h3]
+
+UTS KU1102/Pengenalan Komputasi                       NIM: _________________________________
+Tanggal: 5 November 202 Waktu: 120 menit             Nama: _________________________________
+Halaman 3 dari 7                                     Kelas: _________________________________
+
+Bagian B. Berpikir Komputasional & Algoritmik
+
+Soal 4
+Sebuah robot mini bergerak dari titik A menuju titik B pada lintasan yang telah disediakan. Berikut adalah
+daftar perintah yang dapat dilakukan oleh robot.
+
+ Perintah                      Arti
+ Forward                       Maju 1 langkah
+ TurnLeft d                    Berputar/rotasi sebesar d derajat ke kiri. Asumsi 0 <= d <= 360. Jika d = 0
+                               atau 360, maka robot tidak berubah arah.
+ TurnRight d                   Berputar/rotasi sebesar d derajat ke kanan. Asumsi 0 <= d <= 360. Jika d = 0
+                               atau 360, maka robot tidak berubah arah.
+ Repeat n (perintah)           Mengulang perintah sebanyak n kali. Asumsikan: n >= 0. Jika n = 0, maka
+                               perintah tidak dilakukan sama sekali.
+
+
+
+
+Beberapa informasi tambahan:
+   ● Asumsi: Di awal, robot berada di posisi A dan robot menghadap ke kanan/timur (perhatikan
+       gambar di atas).
+   ● Lintasan yang dibentuk/dilewati oleh robot hanya boleh berada di dalam area denah saja.
+   ● Jika robot harus melalui lintasan dengan penghalang/obstacle, maka robot harus melewatinya
+       dengan membentuk lintasan parabolik.
+   ● Robot menerima rangkaian perintah yang dituliskan dalam urutan yang masing-masing dipisahkan
+       sebuah koma (kecuali untuk perintah terakhir, lihat contoh di bawah). Rangkaian perintah dapat
+       dituliskan menyamping, atau dapat juga dituliskan ke bawah, dan dapat juga dikombinasikan dengan
+       spasi dan indentasi untuk memperjelas penulisan.
+   ● Parameter perintah pada perintah repeat terdiri atas perintah-perintah yang bisa dijalankan oleh
+       robot dan bisa terdiri atas lebih dari 1 perintah.
+
+Contoh:
+ No. Perintah                                    Arti                           Ilustrasi gerakan
+ 1    forward, turn L 45, forward,               Pertama-tama robot maju 1
+       turn R 45
+                                                 langkah (ke kanan), lalu
+                                                 berputar ke kiri 45 derajat,
+       Alternatif penulisan:
+       forward,                                  lalu maju 1 langkah, dan
+       turn L 45,                                selanjutnya berputar ke
+       forward,                                  kanan 45 derajat.
+       turn R 45
+                                                                                Catatan: setiap segmen garis
+                                                                                diasumsikan sebesar 1 satuan
+                                                                                gerakan
+
+## [UTS_KU1102_2022 h4]
+
+UTS KU1102/Pengenalan Komputasi                       NIM: _________________________________
+Tanggal: 5 November 202 Waktu: 120 menit             Nama: _________________________________
+Halaman 4 dari 7                                     Kelas: _________________________________
+
+ 2     repeat 180 (forward, turn L 1)           Robot mengulang
+                                                sebanyak 180 kali: maju 1
+       Alternatif penulisan:                    langkah dan berputar 1
+       repeat 180 (forward,
+                   turn L 1)
+                                                derajat ke kiri.
+                                                Ini akan membuat robot
+                                                menggambar setengah
+                                                lingkaran.
+
+
+
+
+Tugas Anda:
+   a. Gambarkan lintasan terpendek yang mungkin dilewati robot untuk begerak dari titik A ke B.
+   b. Tuliskan urutan perintah untuk membuat lintasan robot pada soal (a)
+
+Tuliskan jawaban Bagian B di bawah ini atau di halaman kosong di balik hlm. 3 dan 4 (jangan lupa
+memberikan nomor soal dengan jelas).
+
+## [UTS_KU1102_2022 h5]
+
+UTS KU1102/Pengenalan Komputasi                          NIM: _________________________________
+Tanggal: 5 November 202 Waktu: 120 menit                Nama: _________________________________
+Halaman 5 dari 7                                        Kelas: _________________________________
+
+Bagian C. Algoritma dan Pemrograman
+
+Untuk soal Bagian C:
+    ● Buatlah program dalam bahasa pemrograman sesuai dengan yang diajarkan di kelas.
+    ● Bonus (hanya dinilai jika program dibuat, tidak perlu dibuat jika beresiko kehabisan waktu):
+Buatlah flowchart/pseudocode untuk persoalan tersebut (pilih salah satu saja sesuai yang ditekankan di
+kelas).
+
+Soal 5
+Spektrum optik adalah spektrum yang kontinyu sehingga tidak ada batas yang jelas antara satu warna dengan
+warna yang lainnya. Meskipun demikian, manusia dapat memberikan batas kira-kira untuk warna-warna
+spektrum yang berbeda-beda. Tabel berikut memberikan rentang panjang gelombang dari suatu warna yang
+dilihat oleh mata manusia normal. Data disesuaikan untuk kepentingan soal.
+
+ Warna     Panjang gelombang (dalam nm)
+ Ungu      380 - 450
+ Biru      451 - 495
+ Hijau     496 - 570
+ Kuning    571 - 590
+ Jingga    591 - 620
+ Merah     621 - 750
+
+Buatlah sebuah program yang menerima masukan berupa panjang gelombang dalam nm (bertipe integer) dan
+menuliskan ke layar warna sesuai dengan panjang gelombangnya sesuai dengan deskripsi di atas. Jika masukan di luar
+rentang yang telah didefinisikan, dituliskan pesan kesalahan “Warna tidak terdefinisi”.
+
+Contoh masukan dan keluaran:
+ Masukan Panjang Gelombang              Keluaran
+ 495                               Biru
+ 250                               Warna tidak terdefinisi
+
+Tuliskan jawaban Soal 5 di bawah ini atau di halaman kosong di balik hlm. 5 (jangan lupa memberikan nomor
+soal dengan jelas).
+
+## [UTS_KU1102_2022 h6]
+
+UTS KU1102/Pengenalan Komputasi                       NIM: _________________________________
+Tanggal: 5 November 202 Waktu: 120 menit             Nama: _________________________________
+Halaman 6 dari 7                                     Kelas: _________________________________
+
+Soal 6
+Salah satu cara sederhana untuk memeriksa apakah sebuah bilangan bulat positif ( > 1 ) merupakan bilangan
+prima atau bukan adalah dengan membagi bilangan tersebut dengan bilangan 1 hingga bilangan itu sendiri.
+Jika bilangan tersebut habis dibagi dengan bilangan selain 1 dan bilangan itu sendiri, maka bilangan tersebut
+bukan bilangan prima. Sebaliknya jika bilangan tersebut tidak habis dibagi dengan bilangan selain 1 dan
+bilangan itu sendiri, maka termasuk bilangan prima.
+Buatlah program yang menerima input sebuah bilangan bulat positif (misal n, dengan asumsi n > 1),
+kemudian program memeriksa apakah bilang tersebut prima atau bukan dengan menggunakan pengulangan
+pada program. Jika bilangan tersebut prima, maka ditampilkan ke layar bahwa bilangan tersebut prima; jika
+bukan maka ditampilkan ke layar bahwa bilangan tersebut bukan prima. Format tampilan pada layar bebas.
+
+Contoh masukan dan keluaran:
+ Masukan                       Keluaran
+ 4          4 bukan bilangan prima
+ 2          2 adalah bilangan prima
+ 307        307 adalah bilangan prima
+
+Tuliskan jawaban Soal 6 di bawah ini atau di halaman kosong di balik hlm. 6 (jangan lupa memberikan nomor
+soal dengan jelas).
+
+## [UTS_KU1102_2022 h7]
+
+UTS KU1102/Pengenalan Komputasi                        NIM: _________________________________
+Tanggal: 5 November 202 Waktu: 120 menit              Nama: _________________________________
+Halaman 7 dari 7                                      Kelas: _________________________________
+
+Soal 7
+Terdapat dua buah array of integer D1 dan D2. Himpunan domain nilai pada tiap elemen D1 dan D2 adalah
+{-1,1}. D1 adalah data hasil observasi, dan D2 adalah data hasil prediksi, dan keduanya memiliki jumlah
+elemen yang sama. Buatlah program yang meminta masukan dari pengguna banyaknya elemen array berupa
+bilangan bulat positif (misal N, asumsi N > 0), kemudian program akan meminta pengguna mengisi array D1
+dan array D2 sejumlah N elemen, dengan setiap elemen pasti berisi -1 atau 1 (asumsi masukan pengguna
+selalu benar). Indeks elemen array mulai dari 0 (nol). Program akan menghitung:
+ a. TP: banyaknya elemen D1 indeks ke-i yang bernilai 1 dan banyaknya elemen D2 indeks ke-i yang juga
+     bernilai 1 (D1[i] = D2[i] = 1)
+ b. TN: banyaknya elemen D1 indeks ke-i yang bernilai -1 dan banyaknya elemen D2 indeks ke-i yang
+     juga bernilai -1 (D1[i] = D2[i] = -1)
+ c. FP: banyaknya elemen D1 indeks ke-i yang bernilai -1 dan banyaknya elemen D2 indeks ke-i yang
+     bernilai 1 (D1[i] = -1 dan D2[i] = 1)
+ d. FN: banyaknya elemen D1 indeks ke-i yang bernilai 1 dan banyaknya elemen D2 indeks ke-i yang
+     bernilai -1 (D1[i] = 1 dan D2[i] = -1)
+                                                     𝑇𝑇𝑇𝑇+𝑇𝑇𝑇𝑇
+ e. Nilai akurasi dengan formula: 𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝑖𝑖 =
+                                               𝑇𝑇𝑇𝑇+𝑇𝑇𝑇𝑇+𝐹𝐹𝐹𝐹+𝐹𝐹𝐹𝐹
+
+Program akan menampilkan nilai TP, TN, FP, FN, dan akurasi ke layar. Contoh masukan dan keluaran:
+                      Masukan                                     Keluaran
+ N = 10                                        TP = 3
+ D1 = [1, -1, -1, 1, -1, 1, 1, -1, -1, 1]      TN = 3
+ D2 = [1, -1, 1, -1, 1, -1, 1, -1, -1, 1]      FP = 2
+                                               FN = 2
+                                               Akurasi = 0.6
+
+
+Catatan: elemen array yang dibandingkan antara D1 dan D2 selalu elemen dengan indeks yang sama.
+
+Tuliskan jawaban Soal 7 di bawah ini atau di halaman kosong di balik hlm. 7 (jangan lupa memberikan nomor
+soal dengan jelas).
+
+# SOURCE UTS_KU1102_2023 (older, 6 pages)
+
+
+## [UTS_KU1102_2023 h1]
+
+                       UJIAN TENGAH SEMESTER
+                    KU1102/PENGENALAN KOMPUTASI
+                                      SEM. 1 2013/2024
+                                 STREAM PEMROGRAMAN
+
+HARI, TANGGAL​ : SABTU, 25 OKTOBER 2023
+SIFAT UJIAN​   : INDIVIDUAL DAN CLOSED BOOK
+DURASI​    ​   : 120 MENIT
+BAHASA​    ​   : PYTHON
+FAK./SEK.​ ​   : FITB, FMIPA, FTTM, FTMD, STEI
+
+Bagian A. Computing System, Network, and Impact of Computing (25%)
+
+Untuk soal 1 s.d. 3, tuliskan jawaban secara singkat, padat, tapi dengan jelas dan dengan argumen
+yang jelas. Gunakan Bahasa Indonesia yang baik dan benar. Jangan lupa memberikan nomor soal
+dengan jelas.
+
+Soal 1
+Jelaskan apa yang disebut green computing. Berikan 2 (dua) contoh perilaku kebiasaan yang mendukung
+green computing yang dapat Anda lakukan sebagai mahasiswa.
+
+Soal 2
+Perkembangan teknologi jaringan komputer menyebabkan munculnya berbagai aplikasi baik yang
+berbasis web (web application) maupun berbasis mobile (mobile application).
+    a.​ Jelaskan perbedaan aplikasi web dan mobile dalam aspek cara pengaksesan aplikasi.
+    b.​ Sebutkan masing-masing 1 (satu) contoh aplikasi web dan aplikasi mobile yang dapat digunakan
+        untuk mendukung pelaksanaan kegiatan perkuliahan atau kegiatan mahasiswa dan jelaskan
+        bagaimana bentuk dukungannya.
+
+Soal 3
+Saat ini ChatGPT sebagai implementasi Artificial Intelligence telah menjadi perangkat yang sering
+digunakan, termasuk oleh mahasiswa, misalnya untuk memberikan jawaban atas pertanyaan untuk tugas
+atau membuat tulisan tentang suatu topik tertentu. Jelaskan apakah batasan penggunaan ChatGPT yang
+etis dalam konteks etika sebagai mahasiswa akademisi.
+
+## [UTS_KU1102_2023 h2]
+
+Bagian B. Berpikir Komputasional & Algoritmik (25%)
+
+Soal 4
+Robot Dorami mendapat tugas dari Doraemon menggambar bentuk-bentuk yang menarik di taman. Salah
+satu bentuk yang harus dibuatnya adalah seperti yang di bawah ini. Doraemon akan memberikan sebuah
+bilangan bulat N, dan Dorami harus membuat bentuk yang sesuai seperti contoh berikut. N > 0, jadi
+Dorami bisa membuat bentuk-bentuk dengan pola yang sama yang lain, tidak hanya terbatas pada
+contoh-contoh di bawah ini (pikirkan bagaimana pola untuk nilai N lain).
+
+
+
+
+Tugas Anda: Jika diberikan sebuah N, tuliskan rangkaian perintah yang harus dilakukan Dorami untuk
+membuat bentuk di atas.
+Beberapa informasi tambahan yang harus diperhatikan:
+   ●​ Asumsi: Di awal, Dorami menghadap ke kanan pada posisi a (seperti gambar di atas). Bentuk
+       dibuat mulai posisi a ke posisi b.
+   ●​ Rangkaian perintah dituliskan dalam urutan yang masing-masing dipisahkan sebuah koma
+       (kecuali untuk perintah terakhir). Rangkaian perintah dapat dituliskan menyamping, dapat juga
+       dituliskan ke bawah, dan dapat dikombinasikan dengan spasi dan indentasi untuk memperjelas
+       penulisan. Lihat contoh di bawah.
+   ●​ Parameter perintah pada perintah repeat terdiri atas perintah-perintah yang bisa dijalankan
+       oleh robot dan bisa terdiri atas lebih dari 1 perintah.
+
+## [UTS_KU1102_2023 h3]
+
+Pembahasan Soal 4
+ Repeat 3 (
+       Repeat n-1 (Forward, TurnLeft 90, Forward, TurnRight 90),
+       Forward,
+       TurnRight 90
+ )
+ Repeat n-1 (Forward, TurnLeft 90, Forward, TurnRight 90),
+ TurnLeft 90
+Misal N = 2, maka langkahnya:
+(FLFR FR) - (FLFR FR) - (FLFR FR) - (FLFR)
+REPEAT 3 ( REPEAT N-1 (FLFR) FR)
+REPEAT N-1 (FLFR) L
+*ada banyak cara, ini hanya salah satunya
+
+## [UTS_KU1102_2023 h4]
+
+Bagian C. Algoritma dan Pemrograman (50% + bonus 10%)
+
+Soal 5
+Tuliskan program untuk menghitung dan mencetak tagihan listrik bulanan pelanggan sebuah
+perusahaan listrik. Program menerima masukan kelompok ekonomi pelanggan (string) dan jumlah unit
+penggunaan listrik (dalam KWH, bilangan bulat >= 0) yang ditagihkan untuk bulan tersebut dan
+menampilkan total tagihan listrik yang harus dibayarkan pelanggan. Ada 3 (tiga) jenis kelompok ekonomi
+pelanggan, yaitu rendah, sedang, tinggi. Tagihan listrik dihitung berdasarkan tabel biaya berikut:
+
+    Jumlah unit penggunaan          Biaya per KWH (dalam Rp)               Subsidi (dalam %)
+      listrik (dalam KWH)
+
+            0 s.d. 250                           100                                0
+
+           251 s.d. 500                          150                                5
+
+          501 s.d. 1000                          200                                5
+
+             > 1000                              250                               10
+
+Subsidi adalah pengurangan yang diberikan terhadap total biaya tagihan yang diberikan sebesar x% dari
+total tagihan tanpa subsidi. Kelompok ekonomi rendah mendapatkan subsidi pada setiap kelompok biaya
+di atas, kelompok ekonomi sedang hanya mendapatkan subsidi untuk penggunaan listrik > 1000 KWH,
+sedangkan kelompok ekonomi tinggi tidak mendapatkan subsidi apa pun.
+
+Contoh input-output:
+                              INPUT                                             OUTPUT
+
+ Kelompok ekonomi                  Jumlah penggunaan (KWH)           Total Biaya Tagihan
+
+ rendah                            250                               25000
+
+ rendah                            900                               171000
+
+ sedang                            900                               180000
+
+ sedang                            2000                              450000
+
+ tinggi                            2000                              500000
+
+## [UTS_KU1102_2023 h5]
+
+Soal 6
+Sebuah perusahaan Fintech "Pilus Aja" (Pinjam Dulu Saja) menawarkan jasa peminjaman finansial
+dengan "bunga ringan". Sebagai pemerhati pinjol (pinjaman online), Anda menemukan fakta bahwa
+bunga yang ditawarkan bersifat compound interest atau bunga berbunga, per hari. Untuk melakukan
+analisa pinjol itu, buatlah sebuah program yang digunakan untuk menghitung dan menampilkan berapa
+besar uang pinjaman (dalam rupiah) yang harus dibayarkan pada saat jatuh tempo, dengan masukan
+berupa pinjaman awal (dalam rupiah), bunga (dalam persen), dan lama pinjaman (dalam hari). Asumsikan
+besaran uang, hari, dan bunga adalah bilangan riil positif.
+
+Contoh: pinjaman awal = 1000 rupiah, bunga = 10% per hari, dan lama pinjaman = 10 hari, maka
+Hari ke-1: bunga 10% dari 1000 rupiah = 100 rupiah, total pinjaman = 1100 rupiah
+Hari ke-2: bunga 10% dari 1100 rupiah = 110 rupiah, total pinjaman = 1210 rupiah
+
+
+Soal 7
+Sebuah program digunakan untuk pengundian pemenang hadiah sebuah acara hiburan. Pertama-tama
+disimpan dulu data kupon. Ditemukan ada sejumlah N kupon (N > 0) dan setiap kupon diberi nomor 0
+s.d. N-1. Contoh N = 50 buah kupon, ada kupon nomor 0 s.d. 49. Dikarenakan kupon telah dibagikan ke
+setiap orang, untuk setiap kupon disimpan nomor identitas pemiliknya. Contoh kupon no. 1 dimiliki orang
+dengan nomor identitas 1234, kupon no. 10 dimiliki orang dengan nomor identitas 9827. Dipastikan
+setiap kupon dimiliki oleh orang yang berbeda dan nomor identitas tidak terurut sesuai dengan urutan
+nomor kupon.
+
+Penarikan undian dilakukan dengan cara yang tidak biasa. Pembawa acara hiburan akan menyebutkan 2
+(dua) buah angka, misalnya X dan Y, dan pemenang undian adalah semua orang dengan nomor identitas
+dalam rentang X-Y s.d. X+Y. Selanjutnya ditampilkan pasangan nomor kupon dan nomor identitas setiap
+orang yang memenangkan undian secara berderet ke bawah. Jika tidak ada pemenang undian, maka
+diberikan pesan "Tidak ada pemenang undian".
+
+Contoh data kupon: N = 5
+ No Identitas       9827            1944             5052             2011             1234
+
+ No Kupon           0               1                2                3                4
+
+
+Contoh:
+     X             Y                Pemenang Undian                            Keterangan
+
+ 2000         100          1 1944 3 2011                             X-Y = 1900; X+Y = 2100
+
+ 1000         500          4 1234                                    X-Y = 500; X+Y = 1500
+
+ 1000         50           Tidak ada pemenang undian                 X-Y = 950; X+Y = 1050
+
+ 1000         0            Tidak ada pemenang undian                 X-Y = 1000; X+Y = 1000
+
+## [UTS_KU1102_2023 h6]
+
+Buatlah program di atas. Program menerima masukan N kupon (asumsikan N > 0, tidak perlu diperiksa)
+dan selanjutnya program menerima N buah data nomor identitas pemilik kupon (asumsikan
+masing-masing adalah integer > 0). Program kemudian menerima masukan nilai X dan Y (asumsikan
+masing-masing integer >= 0) dan selanjutnya menuliskan daftar kupon dan nomor identitas pemenang
+undian seperti deskripsi di atas.
+
+Petunjuk: daftar kupon dan nomor identitas pemilik disimpan sebagai array of integer dengan ukuran N.
+
+Tuliskan jawaban Soal 7 di bawah ini atau di halaman kosong di balik hlm. 7.
+
 # SOURCE UTS2024_PetunjukPenilaian_BagII (past, 12 pages)
 
 
@@ -3042,6 +3504,103 @@ pikiran yang harus muncul adalah alokasikan suatu pekerjaan ke pembuat yang
 paling cepat. Ini adalah ide utama dari langkah yang Anda lakukan untuk
 menyelesaikan permasalahan ini.
 
+# SOURCE D04_LatihanPython (practice, 6 pages)
+
+
+## [D04_LatihanPython h1]
+
+                                Latihan Python
+                                                           1
+                                      Minggu-4
+                                         By: Maya Nabila
+
+
+
+
+WI1102 Berpikir Komputasional
+
+> (little or no text layer: read the page image app/public/pages/D04_LatihanPython/001.jpg)
+
+## [D04_LatihanPython h2]
+
+Perintah                                                               2
+
+Untuk soal-soal berikut berlatihlah untuk membuat:
+• Flowchart (sesuai ketentuan).
+• Program Python yang bersesuaian dengan permasalahan yang diberikan
+  (sesuai struktur pemograman).
+
+
+
+
+WI1102 Berpikir Komputasional
+
+## [D04_LatihanPython h3]
+
+Soal 1: Beli kelereng                                                   3
+
+vSebuah toko menjual kelereng. Tabel        Warna      Harga 1 butir (dalam
+   di samping adalah tabel harga kelereng   kelereng   ratusan rupiah)
+   berdasarkan warnanya.
+vSeorang anak membeli kelereng
+   sejumlah m kelereng merah, h kelereng    Merah      10
+   hijau, dan k kelereng kuning.
+   Asumsikan m >= 0, h >= 0, k >= 0.
+                                            Hijau      15
+vHitunglah berapa yang harus
+   dibayarkan anak itu.
+                                            Kuning     20
+
+WI1102 Berpikir Komputasional
+
+## [D04_LatihanPython h4]
+
+Soal 2: Tagihan listrik                                                             4
+
+Pak Dani menggunakan listrik di        Catatan konversi:
+rumahnya dengan daya 1300 watt.        • 1 kWh = penggunaan daya 1000 watt selama 1 jam
+Dalam sebulan, ia mencatat total       • Input: jumlah kWh per bulan
+penggunaan listrik sebesar x kWh       • Output: total tagihan listrik
+(kilowatt-jam). Biaya listrik
+dikenakan sebesar Rp. 1.444,70 per
+kWh.
+Buatlah program untuk menghitung
+total tagihan listrik Pak Dani dalam
+sebulan.
+
+WI1102 Berpikir Komputasional
+
+## [D04_LatihanPython h5]
+
+Soal 3: Konversi Waktu                                           5
+
+Seseorang ingin menghitung total durasi dari beberapa kegiatan
+yang berlangsung selama jam, menit, dan detik.
+Buatlah program yang menerima masukan dalam satuan jam,
+menit, dan detik, kemudian mengubahnya ke dalam total detik.
+
+Contoh:
+Input: 1 jam, 45 menit, 30 detik → Output: 6330 detik
+
+
+
+WI1102 Berpikir Komputasional
+
+## [D04_LatihanPython h6]
+
+ Soal 4: Kasir sederhana                                                           6
+
+Sebuah warung makan menyediakan tiga   Buatlah program kasir sederhana yang:
+jenis menu:                            • Meminta jumlah pesanan untuk setiap menu
+• Nasi Goreng – Rp 18.000              • Menghitung total harga pesanan
+• Mie Goreng – Rp 15.000               • Meminta input uang pembayaran dari pembeli
+• Es Teh Manis – Rp 5.000              • Menentukan apakah uang cukup atau tidak
+                                       • Jika cukup, tampilkan kembaliannya
+                                       • Jika tidak cukup, tampilkan jumlah
+                                         kekurangannya
+
+ WI1102 Berpikir Komputasional
+
 # SOURCE D05_ExtraExercises (practice, 39 pages)
 
 
@@ -3784,6 +4343,87 @@ while         # DECLARATIONS
               print("Mati satu tinggal induknya")
 
  20/09/2026              WI1102/Computational Thinking          39
+
+# SOURCE D06_ArrayExercises (practice, 4 pages)
+
+
+## [D06_ArrayExercises h1]
+
+Array dan Pemrosesannya
+        – PHYTON
+    Tim Penyusun Materi WI1102 Berpikir Komputasional
+            Institut Teknologi Bandung © 2025
+
+## [D06_ArrayExercises h2]
+
+                                                                           2
+
+
+
+
+               LATIHAN          Untuk setiap soal latihan, buatlah:
+
+
+                   (PR)         • flowchart;
+                                • kode program dalam Python
+
+
+
+
+WI1102/Berpikir Komputasional                                         10/6/25
+
+## [D06_ArrayExercises h3]
+
+                                                           3
+
+
+
+             ØJudul: Mencari Huruf dalam Array
+             • Soal:
+               Sebuah array huruf dengan nama variable
+               “alfabet” diisi berdasarkan masukan sebanyak N
+               kali.
+             • Kemudian lakukan input untuk mencari suatu huruf
+               dalam array alfabet tersebut.
+             • Buat program untuk mencari apakah huruf yang
+               dimasukkan user ada di array atau tidak.
+PR-1           Recc: Gunakan pencarian dengan while loop.
+             • Jika huruf ada → tampilkan indeks
+               kemunculannya.
+             • Jika huruf tidak ada → tampilkan pesan bahwa
+               huruf tidak termuat pada array.
+             • Contoh array Panjang 7:
+               alfabet = ['A','B','C','D','E','F','G’].
+               Akan dicari huruf ”C”, maka keluar informasi
+               bahwa huruf C pada array alfabet ada pada
+               indeks ke-2.
+
+ 06/10/25   WI1102/Berpikir Komputasional
+
+## [D06_ArrayExercises h4]
+
+                                                                     4
+
+
+
+
+             ØJudul: Mencari Mencari Nilai Ganjil
+              Pertama
+             ØSoal:
+              Diberikan sebuah array nilai = [12, 24, 18,
+              21, 36, 45,…].
+             ØBuat program Python untuk mencari
+PR-2          elemen pertama yang ganjil beserta
+              indeksnya.
+              Hasilnya “Angka ganjil pertama Adalah 21
+              pada indeks ke-3”.
+             ØJika tidak ada angka ganjil, cetak pesan
+              bahwa tidak ada nilai ganjil.
+             Ø Catt: Pada soal ini, silahkan definisikan array-nya
+               sendiri dengan panjang 12.
+
+
+ 06/10/25   WI1102/Berpikir Komputasional
 
 # SOURCE Latihan-1 (practice, 6 pages)
 
@@ -5173,10 +5813,578 @@ rentang yang beririsan.
 
                                                7
 
+# SOURCE Tutor_ObjekAneh (practice, 1 pages)
+
+
+## [Tutor_ObjekAneh h1]
+
+                                      Objek Aneh
+
+Di suatu ruangan, terdapat sejumlah objek yang memiliki suhu yang berbeda-beda. Dalam
+ekspedisi kali ini, Revan memiliki tugas untuk menemukan sekumpulan objek yang aneh (bisa
+hanya 1 atau lebih). Sekumpulan objek dikatakan aneh jika rata-rata suhunya mendekati 15°C
+dan seluruhnya bersebelahan.
+   -​ Jika ada dua atau lebih pilihan kumpulan objek, pilih kumpulan objek dengan banyak
+       objek paling sedikit.
+   -​ Jika banyaknya masih sama, pilih kumpulan objek paling awal (indeks paling kecil).
+Bantulah Revan menentukan range objek tersebut dan suhu rata-ratanya
+
+Test Case 1
+ Masukkan banyak objek: 6
+ Masukkan suhu objek 1: -51
+ Masukkan suhu objek 2: 38
+ Masukkan suhu objek 3: 32
+ Masukkan suhu objek 4: -22
+ Masukkan suhu objek 5: 70
+ Masukkan suhu objek 6: -20
+ Kumpulan objek aneh adalah objek 3 hingga 6 dengan suhu rata-rata 15.
+
+
+Test Case 2
+ Masukkan banyak objek: 5
+ Masukkan suhu objek 1: 35
+ Masukkan suhu objek 2: 31
+ Masukkan suhu objek 3: -27
+ Masukkan suhu objek 4: 35
+ Masukkan suhu objek 5: 80
+ Kumpulan objek aneh adalah objek 1 hingga 3 dengan suhu rata-rata 13.
+
+
+Test Case 3
+ Masukkan banyak objek: 3
+ Masukkan suhu objek 1: 14
+ Masukkan suhu objek 2: -20
+ Masukkan suhu objek 3: 48
+ Kumpulan objek aneh adalah objek 1 dengan suhu rata-rata 14.
+
+# SOURCE Tutor_Orkhan (practice, 7 pages)
+
+
+## [Tutor_Orkhan h1]
+
+Latihan Soal UTS Berpikir Komputasional                               Orkhan/STEIK’25
+
+
+ Latihan Soal UTS Berpikir Komputasional
+                            Bab Pemrograman Python
+                                   26 November 2025
+
+
+Intro
+Halo, ini soal-soal pemrograman python yang aku buat untuk latihan UTS.
+Soal-soal ini terinspirasi dari soal-soal TLX, Kaggle, dan modul berkom.
+Buat ngerjain soal-soal ini, aku saranin untuk pikirin dulu algonya gimana, bikin pseudo-
+code / flowchart (opsional), terus baru coding solusinya.
+
+Rincian fokus materi per soal:
+  1. Input/Output, Operator.
+  2. Percabangan (Conditionals).
+  3. Looping (Perulangan).
+  4. Array / List.
+  5. Function with returns (Fungsi).
+  6. Void function (Prosedur).
 
 
 
 
+                       Semangat dan selamat mengerjakan soal!
+
+
+
+
+                          ”Eh berkom gaboleh pake append?”
+                                 - Maba ITB 2025
+
+
+
+
+                                           1
+
+## [Tutor_Orkhan h2]
+
+Latihan Soal UTS Berpikir Komputasional                            Orkhan/STEIK’25
+
+
+Problem 1
+Anda merupakan mahasiswa prodi teknik peternakan lele. Suatu hari anda bertemu Mas
+Roy, seorang peternak lele veteran. Anda bertanya kepada Mas Roy:
+Roy, cara antum jagain kolam lele gimana sih?
+Kolamnya ane kunci, terus kasih password. Tapi ane ganti-ganti passwordnya tiap se-
+minggu.
+Terinspirasi dari Mas Roy, anda memasang gembok digital dengan password di peternakan
+kolam anda. Anda memiliki sebanyak 3 password, yang akan anda rotasikan setiap X hari,
+mulai dari password pertama sampai ketiga. Anggap mulai di hari ke-1.
+Buatlah program yang akan mengeluarkan password di hari ke-Y !.
+Note: Jangan gunakan if-else.
+
+Test Case
+
+ Masukkan password pertama : abcdef
+ Masukkan password kedua : bumi300
+ Masukkan password ketiga : passwordketiga
+ Masukkan hari rotasi : 8
+ Ingin melihat password di hari ke ? : 27
+ abcdef
+
+
+ Masukkan password pertama : boysboys
+ Masukkan password kedua : yellyell
+ Masukkan password ketiga : forzasmansa
+ Masukkan hari rotasi : 25
+ Ingin melihat password di hari ke ? : 67
+ forzasmansa
+
+
+ Masukkan password pertama : prajogo
+ Masukkan password kedua : superman
+ Masukkan password ketiga : pangestu
+ Masukkan hari rotasi : 1
+ Ingin melihat password di hari ke ? :          32
+ superman
+
+
+
+
+                                          2
+
+## [Tutor_Orkhan h3]
+
+Latihan Soal UTS Berpikir Komputasional                           Orkhan/STEIK’25
+
+
+Problem 2
+Rara merupakan siswi di SMA Menengah Atas 5 Agartha. Pada hari senin, Rara menda-
+patkan materi dari guru matematikanya, Bu Siro, sebagai berikut :
+Bilangan dua pangkat merupakan bilangan bulat yang dapat dinyatakan dalam bentuk
+2N . N merupakan bilangan bulat.
+Rara, sebagai siswi yang penasaran, ingin mengetahui apakah suatu bilangan dapat di-
+bilang dua pangkat. Rara meminta tolong kepadamu untuk membuatkan program yang
+memenuhi keinginannya.
+“Tolongin Rara dong!”, ucap Rara.
+
+Test Case
+
+ Masukkan bilangan yang ingin dicek:          4
+ Ya
+
+
+ Masukkan bilangan yang ingin dicek:          5
+ Tidak
+
+
+ Masukkan bilangan yang ingin dicek:          67
+ Tidak
+
+
+ Masukkan bilangan yang ingin dicek:          128
+ Ya
+
+
+ Masukkan bilangan yang ingin dicek:          32768
+ Ya
+
+
+
+
+                                          3
+
+## [Tutor_Orkhan h4]
+
+Latihan Soal UTS Berpikir Komputasional                            Orkhan/STEIK’25
+
+
+Problem 3
+Adik anda yang bernama Ber baru saja mempelajari bilangan prima di sekolahnya. Ia
+sangat suka dengan bilangan prima. Setiap bangun tidur, ia selalu menulis bilangan-
+bilangan prima ke- tanggal, bulan, dan jam dia bangun. (ex. Bilangan prima ke-26, 10,
+dan 21).
+Suatu pagi anda memergoki Ber menulis angka prima sesaat setelah dia bangun tidur.
+Anda melihat Ber menulis 69, yang mana bilangan tersebut bukan merupakan bilangan
+prima. Ber bersikukuh bahwa 69 merupakan bilangan prima, anda menjelaskan panjang
+lebar mengapa 69 bukan bilangan prima.
+Akhirnya, Ber meminta anda menulis program untuk mengetahui apakah suatu bilangan
+prima atau bukan. Bantu adik anda!
+“Bantuin dong, nanti aku beliin bojot aa deh!”, ucap Ber.
+
+Test Case
+
+ Masukkan jumlah bilangan yang ingin dicek:         7
+ Bilangan ke-1: 2
+ Bilangan ke-2: 8
+ Bilangan ke-3: 9
+ Bilangan ke-4: 6
+ Bilangan ke-5: 71
+ Bilangan ke-6: 67
+ Bilangan ke-7: 93
+ Ya, Tidak, Tidak, Tidak, Ya, Ya, Tidak
+
+
+ Masukkan jumlah bilangan yang ingin dicek: 10
+ Bilangan ke-1: 90
+ Bilangan ke-2: 87
+ Bilangan ke-3: 55
+ Bilangan ke-4: 23
+ Bilangan ke-5: 21
+ Bilangan ke-6: 7
+ Bilangan ke-7: 99
+ Bilangan ke-8: 76
+ Bilangan ke-9: 88
+ Bilangan ke-10: 98729
+ Tidak, Tidak, Tidak, Ya, Tidak, Ya, Tidak, Tidak, Tidak, Ya
+
+
+
+
+                                          4
+
+## [Tutor_Orkhan h5]
+
+Latihan Soal UTS Berpikir Komputasional                            Orkhan/STEIK’25
+
+
+Problem 4
+Seusai dibagikan nilai UTS, Bang Ling menyelenggarakan pesta besar-besaran, dalam
+rangka syukuran nilai UTS Pengantar Prinsip Keberlanjutannya yang 100. Ling meng-
+undang sebanyak N teman, dan semua teman Ling datang ke pesta.
+Ling merupakan orang yang sangat menyukai ketepatan waktu, sehingga teman-temannya
+yang datang setelah setengah dari total temannya akan ditandai. Uniknya, temannya yang
+terakhir tidak akan ditandai.
+Ling yang sibuk mengatur pesta, meminta anda untuk membuat program yang mengoto-
+matisasi penandaan temannya. Bantulah Ling!
+“Bantuin.”, ucap Ling
+Note: Urutan teman yang memasuki pesta sesuai dengan urutan input.
+
+Test Case
+
+ Masukkan jumlah teman yang datang :          5
+ Masukkan teman ke-1: Jang
+ Masukkan teman ke-2: Jung
+ Masukkan teman ke-3: Nos
+ Masukkan teman ke-4: Nil
+ Masukkan teman ke-5: Reb
+ Teman yang ditandai: Nos, Nil
+
+
+ Masukkan jumlah teman yang datang :          13
+ Masukkan teman ke-1: A
+ Masukkan teman ke-2: B
+ Masukkan teman ke-3: C
+ Masukkan teman ke-4: D
+ Masukkan teman ke-5: E
+ Masukkan teman ke-6: F
+ Masukkan teman ke-7: G
+ Masukkan teman ke-8: H
+ Masukkan teman ke-9: I
+ Masukkan teman ke-10: J
+ Masukkan teman ke-11: K
+ Masukkan teman ke-12: L
+ Masukkan teman ke-13: M
+
+ Teman yang ditandai:     G,H,I,J,K,L
+
+
+
+
+                                          5
+
+## [Tutor_Orkhan h6]
+
+Latihan Soal UTS Berpikir Komputasional                              Orkhan/STEIK’25
+
+
+Problem 5
+Selayaknya individu yang berkuliah di ITB, sudah pasti anda merasa jenuh akan semua
+hal yang dilemparkan oleh ITB, baik itu kuis, tubes, anggota kelompok yang main tinggal,
+UTS ataupun UAS. Oleh karena itu, anda terbang ke Las Vegas untuk melepas penat.
+Sesampainya di Las Vegas, anda bertemu dengan Tuan Suy di Grand Vegas Casino.
+Tuan Suy merupakan penjudi pemula yang sedang mempelajari aturan dari permainan
+blackjack. Aturan dari permainan tersebut adalah sebagai berikut:
+Aturan Singkat:
+   • Pemain dibagikan dua kartu. Dealer dibagikan satu
+   • Pemain dapat meminta kartu lain (hit) sebanyak yang diinginkan. Jika jumlah
+     kartunya melebihi 21, ia langsung kalah dalam ronde tersebut..
+   • Dealer kemudian membagikan kartu tambahan sampai memenuhi 2 kondisi berikut:
+     1. Jumlah kartu dealer melebihi 21, yang berarti pemain memenangkan ronde ter-
+     sebut.
+     2. Jumlah kartu dealer lebih besar atau sama dengan 17. Jika total kartu pemain
+     lebih besar dari dealer, pemain menang. Jika tidak, dealer menang (bahkan jika
+     seri).
+   • Nilai kartu adalah sebagai berikut :
+   • As : 1/11 — Kartu Angka : Sesuai dengan Nilai Angka — K,Q,J : 10
+Buatlah program untuk menentukan hand mana yang lebih baik antara dua kondisi.
+
+Test Case
+
+ Masukkan jumlah kartu di hand 1: 5
+ Masukkan kartu ke-1 di hand 1: K
+ Masukkan kartu ke-2 di hand 1: 1
+ Masukkan kartu ke-3 di hand 1: 3
+ Masukkan kartu ke-4 di hand 1: 2
+ Masukkan kartu ke-5 di hand 1: 4
+ Masukkan jumlah kartu di hand 2: 3
+ Masukkan kartu ke-1 di hand 2: J
+ Masukkan kartu ke-2 di hand 2: 10
+ Masukkan kartu ke-3 di hand 2: A
+ Hand yang lebih baik adalah hand 2!
+
+
+
+
+                                            6
+
+## [Tutor_Orkhan h7]
+
+Latihan Soal UTS Berpikir Komputasional                              Orkhan/STEIK’25
+
+
+Problem 6
+Tuan Tuy memiliki seorang teman yang berasal dari Mesir, bernama Zubayr Al-Hadid.
+Zubayr sudah berada di Jatinangor selama 3 tahun, dan dia rindu suasana di kampung
+halamannya.
+Sebagai teman yang baik, Tuan Tuy mencoba untuk menggambar piramida untuk teman-
+nya, tetapi ia tidak bisa menggambar dan ia merupakan orang yang sangat pemalas. The
+catch is, piramida yang ingin ia gambarkan diisi oleh angka N pada baris ke-N. The catch
+is, tiap angka yang sama dengan atau diatas akan diganti dengan huruf X.
+Teringat bahwa ia memiliki teman yang bisa mengotomatisasi pekerjaan tersebut, ia me-
+nelepon anda. Bantulah Tuan Tuy membuat piramida!
+“Plis bantuin gua, plis banget inimah.”, ucap Tuy.
+Note: Buatlah sebuah fungsi tanpa return (prosedur) untuk mengotomatisasi pekerjaan
+tersebut.
+
+Test Case
+
+ Masukkan tinggi piramida :       5
+     1
+    2 2
+   3 3 3
+  4 4 4 4
+ 5 5 5 5 5
+
+
+ Masukkan tinggi piramida :       13
+             1
+            2 2
+           3 3 3
+          4 4 4 4
+         5 5 5 5 5
+        6 6 6 6 6 6
+       7 7 7 7 7 7 7
+      8 8 8 8 8 8 8 8
+     9 9 9 9 9 9 9 9 9
+    X X X X X X X X X X
+   X X X X X X X X X X X
+  X X X X X X X X X X X X
+ X X X X X X X X X X X X X
+
+
+
+
+                                           7
+
+
+
+
+
+
+# SOURCE D00_CourseIntro (slides, 14 pages)
+
+
+## [D00_CourseIntro h1]
+
+PENGANTAR KULIAH
+WI1102 BERPIKIR
+KOMPUTASIONAL
+TIM PENYUSUN MATERI WI1102 BERPIKIR KOMPUTASIONAL
+INSTITUT TEKNOLOGI BANDUNG © 2024
+
+## [D00_CourseIntro h2]
+
+                  • Beban: 2 SKS = 90 jam dalam 1 semester
+                  • Jadwal pertemuan tatap muka: Senin, pukul
+                     13.00-14.50
+
+WI1102 BERPIKIR   • Ruang: Gedung Utama – U.313
+KOMPUTASIONAL     • Pengajar:
+KELAS 35                ▪ 1. Tricya Esterina Widagdo, S.T., M.Sc.
+                        ▪ 2. Dr. Maya Nabila, S.Si., M.Si.
+
+
+
+
+01/09/2025        WI1102/BERPIKIR KOMPUTASIONAL                     2
+
+## [D00_CourseIntro h3]
+
+                    1. Mahasiswa memahami konsep dan
+                    mampu mempraktekkan proses berpikir
+                    komputasional yang tepat dan terarah
+                    untuk pemecahan masalah.
+CAPAIAN
+PEMBELAJARAN
+MATA KULIAH         2. Mahasiswa mampu mendayagunakan
+                    teknik berpikir komputasional untuk
+                    menganalisis permasalahan baru, dan
+                    menghasilkan solusi atas permasalahan
+                    tersebut.
+
+               WI1102/BERPIKIR KOMPUTASIONAL    01/09/2025   3
+
+## [D00_CourseIntro h4]
+
+BAHAN KAJIAN
+
+
+
+                  1                         2                            3
+  Konsep dasar                  Transformasi solusi             Dampak dan tren
+  computational thinking        computational thinking          computing pada domain
+  (abstraksi, algoritma,        ke kakas komputasi              fakultas/sekolah
+  dekomposisi,                  • Di kelas ini akan diajarkan
+  pengenalan pola)                dengan menggunakan
+                                  bahasa pemrograman Python
+
+
+
+WI1102/BERPIKIR KOMPUTASIONAL                                            01/09/2025     4
+
+## [D00_CourseIntro h5]
+
+RENCANA PEMBELAJARAN
+ Minggu                              Topik             Materi
+1                Konsep dasar computational thinking   Konsep dasar computational thinking
+2                                                      Algorithmic Thinking
+3                                                      Latihan
+4                Transformasi solusi computational     Python: Struktur dasar program
+5                thinking ke kakas komputasi           Python: Analisis Kasus dan Pengulangan
+6                                                      Python: Array
+7-9                                                    Projek I
+10                                                     Python: Subprogram
+11               Dampak dan tren computing pada domain fakultas/sekolah
+12-14            Transformasi solusi computational     Projek II
+                 thinking ke kakas komputasi
+
+
+     WI1102/BERPIKIR KOMPUTASIONAL                                                           01/09/2025   5
+
+## [D00_CourseIntro h6]
+
+                                BAHASA PEMROGRAMAN
+
+• Python
+      • Bahasa programming tingkat tinggi dan cukup populer, di-release oleh Guido
+         van Rossum pada tahun 1991
+      • Download/akses:
+          • https://www.python.org/downloads/
+          • Google Colab: https://colab.research.google.com/
+
+
+
+WI1102/BERPIKIR KOMPUTASIONAL                                          01/09/2025    6
+
+## [D00_CourseIntro h7]
+
+  PUSTAKA
+• David D. Riley, Kenny A. Hunt: “Computational Thinking for the Modern Problem Solver”, CRC Press,
+  2014
+• Buku-buku dan online resources mengenai Python a.l.:
+    • Eric Matthes, “Python Crash Course, 3rd Edition: A Hands-On, Project-Based Introduction to Programming”, No
+       Starch Press, 2016
+    • Paul Barry, “Head-First Python, 2nd edition”, O’Reilly, 2016
+    • Python 3.13.7 documentation: https://docs.python.org/3/
+• Buku-buku dan online sources mengenai Scratch a.l.:
+    • Majed Marji, “Learn to Program with Scratch: A Visual Introduction to Programming with Games, Art, Science,
+       and Math”, No Starch Press, 2014
+    • Jane Chisholm, “Coding for Beginners: Using Scratch”, Usborne, 2015
+    • Scratch Documentation Booklet: https://ctrlshift.mste.illinois.edu/files/2015/08/ScratchDocBooklet.pdf
+  WI1102/BERPIKIR KOMPUTASIONAL                                                                 01/09/2025     7
+
+## [D00_CourseIntro h8]
+
+AKSES MATERIAL KULIAH
+
+• Edunex, course WI1102 Computational Thinking [WI1102-1]
+   Institut Teknologi Bandung (itb.ac.id)
+     • Semua mahasiswa yang terdaftar di kelas WI1102-30 di web akademik otomati ter-
+         enrole di course ini pada Edunex
+
+
+• Komunikasi kelas menggunakan MS Teams WI1102-1 Berpikir Komputasional
+   K35
+    • Team code: s1fozgm
+WI1102/BERPIKIR KOMPUTASIONAL                                             01/09/2025    8
+
+## [D00_CourseIntro h9]
+
+PENILAIAN
+
+• Ujian Tengah Semester
+• Kuis/Latihan soal/Tugas mingguan
+• Projek I
+• Projek II
+
+• Untuk dapat nilai yang bagus, harus memiliki nilai di semua komponen.
+• Jika terbukti melakukan kecurangan akademik, akan mendapatkan nilai E secara
+   otomatis
+WI1102/BERPIKIR KOMPUTASIONAL                                       01/09/2025   9
+
+## [D00_CourseIntro h10]
+
+KOMPONEN PENILAIAN DAN BOBOT
+Komponen Penilaian                Materi                                                   Bobot
+Ujian Tengah Semester             Konsep berpikir komputasional                            35%
+(UTS)                             Transformasi konsep computationa
+Projek I                          Penerapan konsep computational thinking pada persoalan   25%
+                                  yang ditentukan dengan memanfaatkan tools yang
+                                  ditentukan
+Projek II                         Penerapan konsep computational thinkin pada persoalan    25%
+                                  baru dengan memfaatkan tools yang ditentukan
+Kuis                              Dampak dan tren computing pada domain                    5%
+                                  fakultas/sekolah
+Praktikum                         Keterampilan menggunakan tools                           10%
+Tugas Kelas                                                                                2.5%
+
+
+
+  WI1102/BERPIKIR KOMPUTASIONAL                                                            01/09/2025   10
+
+## [D00_CourseIntro h11]
+
+ATURAN PERKULIAHAN
+
+• Untuk mendapatkan nilai A, harus memiliki nilai di semua komponen
+• Susulan UTS diberikan hanya untuk kasus emergency dengan pemberitahuan sebelumnya kepada dosen kelas
+   dan melampirkan menggunakan surat keterangan yang sah (surat keterangan sakit dari dokter, surat
+   undangan kegiatan, surat dari wali/orang tua untuk musibah, dll.)
+• Susulan Praktikum diberikan maksimum hanya untuk 1 praktikum
+• Tidak ada susulan untuk Projek dan komponen lain
+
+• Jika terbukti melakukan kecurangan akademik, akan mendapatkan nilai E secara otomatis di perkuliahan
+   ini
+         • Baca Peraturan Rektor ITB No. 708/IT1.A/PER/2022 tentang Pelanggaran Peraturan Akademik dan Kemahasiswaan ITB
+WI1102/BERPIKIR KOMPUTASIONAL                                                                             01/09/2025       11
+
+## [D00_CourseIntro h12]
+
+WI1102/BERPIKIR KOMPUTASIONAL   01/09/2025   12
+
+> (little or no text layer: read the page image app/public/pages/D00_CourseIntro/012.jpg)
+
+## [D00_CourseIntro h13]
+
+WI1102/BERPIKIR KOMPUTASIONAL   01/09/2025   13
+
+> (little or no text layer: read the page image app/public/pages/D00_CourseIntro/013.jpg)
+
+## [D00_CourseIntro h14]
+
+                                Semangat menempuh
+                                 hidup baru sebagai
+                                  mahasiswa ITB!!!
+
+
+WI1102/BERPIKIR KOMPUTASIONAL                         01/09/2025   14
+
+> (little or no text layer: read the page image app/public/pages/D00_CourseIntro/014.jpg)
 
 # SOURCE D01_ComputationalThinking (slides, 27 pages)
 
