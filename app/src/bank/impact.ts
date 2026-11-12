@@ -1,0 +1,651 @@
+// Bagian I practice bank for D11 "Dampak Teknologi Computing" (id prefix imp-).
+// All items are written for this site (generated, unofficial) but grounded strictly in the D11 slides
+// (knowledge/corpus.md, src D11_ComputingImpact). Page numbers = page-image numbers (NNN.jpg).
+// Facts not on the slides are marked "(pengetahuan umum)".
+import type { BankFile, Flashcard, Problem } from '../types'
+
+const SRC = 'D11_ComputingImpact'
+type Opt = [text: string, ok: boolean, why: string, en: string, whyEn: string]
+
+/** Build one Bagian-I style item: a Problem with a single mcq-multi part. */
+const mc = (
+  n: number, topic: string, pages: number[], stem: string, opts: Opt[], explanation: string,
+  en: { stem: string; explanation: string },
+): Problem => {
+  const nn = String(n).padStart(2, '0')
+  return {
+    id: `imp-i-${nn}`,
+    archetype: 'mcq-multi',
+    source: { lang: 'id', kind: 'generated', src: SRC, label: `Latihan ${nn}`, pages, official: false },
+    title: `Latihan Bagian I no. ${nn} – ${topic}`,
+    en: { title: `Part I practice no. ${nn} – ${topic}` },
+    minutes: 3,
+    parts: [{
+      id: `imp-i-${nn}-1`, kind: 'mcq-multi', decks: ['D11'], topic, difficulty: 2,
+      stem, options: opts.map((o) => o[0]), correct: opts.map((o) => o[1]), why: opts.map((o) => o[2]),
+      explanation, refs: pages.map((page) => ({ src: SRC, page })),
+      en: { stem: en.stem, options: opts.map((o) => o[3]), why: opts.map((o) => o[4]), explanation: en.explanation },
+    }],
+  }
+}
+
+const fc = (id: string, topic: string, front: string, back: string, pages: number[], enFront: string, enBack: string): Flashcard => ({
+  id: `imp-fc-${id}`, decks: ['D11'], topic, front, back, refs: pages.map((page) => ({ src: SRC, page })),
+  en: { front: enFront, back: enBack },
+})
+
+const problems: Problem[] = [
+  mc(1, 'Digital world & lifelong learning', [3, 4],
+    'Mana sajakah yang **benar** terkait dunia digital sebagai sumber belajar seumur hidup?',
+    [
+      ['Ensiklopedia, kamus, atlas, dan referensi medis dapat diakses dalam bentuk digital melalui Internet, aplikasi smartphone, maupun CD/DVD.', true, 'Slide 4 menyebut referensi tersedia digital via Internet, aplikasi smartphone, dan CD/DVD.', 'Encyclopedias, dictionaries, atlases and medical references are available digitally via the Internet, smartphone apps or CD/DVD.', 'Slide 4 says references are available digitally via the Internet, smartphone apps and CD/DVD.'],
+      ['Internet menyediakan blog, forum, website, dan beragam media untuk belajar apa pun, di mana pun, sehingga memudahkan pembelajaran jarak jauh.', true, 'Slide 4: blog, forum, website, dan beragam media; memfasilitasi distance learning.', 'The Internet offers blogs, forums, websites and many media to learn anything anywhere, enabling distance learning.', 'Slide 4: blogs, forums, websites and many media; facilitates distance learning.'],
+      ['Edutainment memisahkan pendidikan dari hiburan karena keduanya saling bertolak belakang.', false, 'Slide 4: edutainment justru menggabungkan (combines) pendidikan dengan hiburan.', 'Edutainment separates education from entertainment because they contradict each other.', 'Slide 4: edutainment actually combines education with entertainment.'],
+      ['Dunia digital hanya menjadi sumber belajar yang terbatas, sehingga materi sulit dijangkau.', false, 'Slide 4: dunia digital adalah sumber belajar yang tak habis-habisnya (inexhaustible) dan mudah diakses.', 'The digital world is only a limited source of learning, so materials are hard to reach.', 'Slide 4: the digital world is an inexhaustible and easily accessible source of learning.'],
+    ],
+    'Dunia digital = sumber belajar tak terbatas, materi mudah diakses, memudahkan belajar jarak jauh; edutainment = pendidikan + hiburan.',
+    { stem: 'Which statements are **correct** about the digital world as a source of lifelong learning?', explanation: 'The digital world is an inexhaustible, easily accessible learning source that supports distance learning; edutainment combines education and entertainment.' }),
+
+  mc(2, 'Digital world & lifelong learning', [3],
+    'Mana sajakah yang tepat tentang "The Digital World"?',
+    [
+      ['PC, termasuk laptop, tidak lagi sekadar peralatan kantor tetapi juga perangkat hiburan.', true, 'Slide 3: PC/laptop bukan lagi sekadar peralatan kantor, juga perangkat hiburan.', 'PCs, including laptops, are no longer just office equipment but also entertainment devices.', 'Slide 3: PCs/laptops are no longer just office equipment but also entertainment devices.'],
+      ['Cyberspace adalah dunia baru yang dapat dimasuki siapa saja tanpa dibatasi ruang dan waktu.', true, 'Slide 3: cyberspace dapat dimasuki siapa pun, tidak dibatasi waktu atau ruang.', 'Cyberspace is a new world anyone can enter, unconstrained by time or space.', 'Slide 3: anyone can enter cyberspace, unconstrained by time or space.'],
+      ['Yang memasuki dunia virtual adalah mesin dan bot, bukan manusia.', false, 'Slide 3: manusia (human beings) lah yang memasuki dunia virtual itu.', 'It is machines and bots, not humans, who enter the virtual world.', 'Slide 3: it is human beings who enter the virtual world.'],
+      ['Kemajuan komputasi hanya mengubah cara kerja di kantor, bukan cara hidup kita.', false, 'Slide 3: kemajuan komputasi telah mengubah cara kita hidup (how we live).', 'Computing advances only changed office work, not how we live.', 'Slide 3: advances in computing have changed how we live.'],
+    ],
+    'Komputer menjadi alat penting di semua profesi dan hiburan; cyberspace dimasuki manusia tanpa batas ruang-waktu.',
+    { stem: 'Which statements are correct about "The Digital World"?', explanation: 'Computers are essential in every profession and for entertainment; cyberspace is entered by humans without limits of time or space.' }),
+
+  mc(3, 'Dependence in daily life', [8],
+    'Mana sajakah yang termasuk **potensi ancaman** teknologi komputasi dalam kehidupan sehari-hari menurut slide?',
+    [
+      ['Risiko "kecanduan" (addiction) dan "kekerasan" (violence).', true, 'Slide 8 mencantumkan risiko addiction dan violence.', 'The risks of "addiction" and "violence".', 'Slide 8 lists the risks of addiction and violence.'],
+      ['Pencurian identitas (identity theft).', true, 'Slide 8: identity theft.', 'Identity theft.', 'Slide 8: identity theft.'],
+      ['Ancaman terhadap privasi.', true, 'Slide 8: threats to privacy.', 'Threats to privacy.', 'Slide 8: threats to privacy.'],
+      ['Meningkatnya biaya belanja online dan layanan antar.', false, 'Belanja online & delivery di slide 8 adalah contoh ketergantungan, bukan ancaman yang tercantum; ancamannya hanya tiga di atas.', 'Rising cost of online shopping and delivery.', 'Online shopping and delivery on slide 8 are examples of dependence, not listed threats; the only threats are the three above.'],
+    ],
+    'Ancaman pada slide 8: kecanduan dan kekerasan, pencurian identitas, dan ancaman privasi. Belanja online, streaming, dan pesan transportasi adalah contoh ketergantungan.',
+    { stem: 'Which items are listed as **potential threats** of computing technology in daily life?', explanation: 'Slide 8 lists addiction and violence, identity theft and privacy threats; online shopping and booking are examples of dependency.' }),
+
+  mc(4, 'Impact on work', [5],
+    'Mana sajakah yang merupakan dampak teknologi *computing* di dunia kerja menurut slide?',
+    [
+      ['Efisiensi berbagai pekerjaan manusia meningkat.', true, 'Slide 5: computing brings efficiency to various human tasks.', 'Efficiency in many human tasks increases.', 'Slide 5: computing brings efficiency to various human tasks.'],
+      ['Otomasi berbasis IT membuka banyak peluang kerja baru.', true, 'Slide 5: automation driven by IT unlocks a vast array of new job opportunities.', 'IT-driven automation opens many new job opportunities.', 'Slide 5: automation driven by IT unlocks a vast array of new job opportunities.'],
+      ['Globalisasi menciptakan "tenaga kerja dunia" dan membuka pasar skala global.', true, 'Slide 5: globalization creates a "worldwide workforce" and global markets.', 'Globalization creates a "worldwide workforce" and opens global markets.', 'Slide 5: globalization creates a "worldwide workforce" and global markets.'],
+      ['Teknologi komputasi tidak mengancam pekerjaan mana pun karena mesin tidak bisa menggantikan manusia.', false, 'Slide 5: penggunaan teknologi dapat mengancam pekerjaan yang bisa digantikan mesin.', 'Computing does not threaten any job because machines cannot replace humans.', 'Slide 5: technology use can threaten jobs that machines can replace.'],
+    ],
+    'Dampaknya dua arah: efisiensi, peluang kerja baru, globalisasi, tetapi juga ancaman bagi pekerjaan yang dapat digantikan mesin.',
+    { stem: 'Which are impacts of computing technology on the workplace according to the slides?', explanation: 'Effects go both ways: efficiency, new jobs and globalization, but also a threat to jobs machines can replace.' }),
+
+  mc(5, 'Automation, globalisation, outsourcing', [34],
+    'Mana sajakah yang tepat tentang otomasi dan lapangan pekerjaan?',
+    [
+      ['Banyak analis memprediksi otomasi akan menyebabkan pengangguran massal dan bencana ekonomi.', true, 'Slide 34: many analysts predicted massive unemployment and economic disaster.', 'Many analysts predicted automation would cause massive unemployment and economic disaster.', 'Slide 34: many analysts predicted massive unemployment and economic disaster.'],
+      ['Analis lain menyatakan komputer akan menciptakan banyak sekali peluang kerja baru.', true, 'Slide 34: others said computers would generate countless new job opportunities.', 'Others said computers would generate countless new job opportunities.', 'Slide 34: others said computers would generate countless new job opportunities.'],
+      ['Otomasi pekerjaan sudah tidak lagi menjadi isu penting karena orang terbiasa melihat komputer di tempat kerja.', false, 'Slide 34: job automation masih isu penting bagi jutaan pekerja yang pekerjaannya terancam mesin.', 'Job automation is no longer an important issue because people are used to computers at work.', 'Slide 34: job automation is still an important issue for millions of workers whose jobs are threatened by machines.'],
+      ['Semua analis sepakat bahwa otomasi tidak berdampak pada jumlah pekerjaan.', false, 'Slide 34 menyebut dua pandangan berbeda; tidak ada konsensus "tanpa dampak".', 'All analysts agree automation has no effect on the number of jobs.', 'Slide 34 gives two different views; there is no consensus of "no impact".'],
+    ],
+    'Ada dua pandangan analis (pengangguran massal vs peluang baru) dan otomasi tetap isu penting.',
+    { stem: 'Which statements are correct about automation and jobs?', explanation: 'Analysts were divided (mass unemployment vs new opportunities) and job automation remains an important issue.' }),
+
+  mc(6, 'Automated factories & offices', [31, 32, 33],
+    'Mana sajakah yang benar tentang pabrik dan kantor yang terotomasi?',
+    [
+      ['Robot dipakai untuk tugas manual tertentu seperti pengecatan, pengelasan, dan pekerjaan lini perakitan yang berulang.', true, 'Slide 32: robots for painting, welding, repetitive assembly-line jobs.', 'Robots do specific manual tasks such as painting, welding and repetitive assembly-line jobs.', 'Slide 32: robots for painting, welding, repetitive assembly-line jobs.'],
+      ['Komputer melacak inventaris, mengatur waktu pengiriman suku cadang, mengendalikan kualitas produksi, memantau keausan mesin, dan menjadwalkan perawatan.', true, 'Slide 32 menyebut semua fungsi ini.', 'Computers track inventory, time part deliveries, control quality, monitor wear and schedule maintenance.', 'Slide 32 menyebut semua fungsi ini.'],
+      ['Otomasi mengurangi waktu menganggur bahan dan mesin serta mengurangi pemborosan fasilitas, bahan baku, dan tenaga kerja.', true, 'Slide 32: reduces idle time and waste in facilities, raw materials, labor.', 'Automation reduces idle time of materials and machines and waste in facilities, raw materials and labor.', 'Slide 32: reduces idle time and waste in facilities, raw materials, labor.'],
+      ['Ketika pekerjaan pabrik menurun, pekerjaan kantor menjadi semakin tidak berperan dalam ekonomi.', false, 'Slide 33: saat pekerjaan pabrik menurun, pekerjaan kantor berperan lebih penting.', 'As factory jobs decline, office work becomes less important to the economy.', 'Slide 33: as factory jobs decline, office jobs play a more important role.'],
+    ],
+    'Pabrik otomatis memakai robot dan komputer untuk efisiensi; pekerjaan kantor makin penting dan juga ditransformasi teknologi digital.',
+    { stem: 'Which statements are correct about automated factories and offices?', explanation: 'Automated factories use robots and computers for efficiency; office work becomes more important and is also transformed by digital technology.' }),
+
+  mc(7, 'Online violence: terms', [11, 12],
+    'Mana sajakah istilah yang **tepat** berkaitan dengan kekerasan di internet?',
+    [
+      ['*Cyberbullying* adalah bentuk kekerasan verbal atau psikologis yang dilakukan melalui platform digital seperti media sosial, pesan instan, atau forum daring.', true, 'Slide 11: definisi cyberbullying.', 'Cyberbullying is verbal or psychological abuse carried out via digital platforms such as social media, instant messaging or online forums.', 'Slide 11: definition of cyberbullying.'],
+      ['*Grooming* adalah upaya predator membangun hubungan dengan individu muda atau rentan melalui teknologi untuk tujuan eksploitasi atau kekerasan.', true, 'Slide 11: definisi grooming.', 'Grooming is a predator building a relationship with a young or vulnerable person via technology for exploitation or abuse.', 'Slide 11: definition of grooming.'],
+      ['*Cyberviolence* adalah penggunaan sistem komputer untuk menyebabkan, memfasilitasi, atau mengancam kekerasan terhadap individu yang berakibat atau mungkin berakibat kerugian fisik, seksual, psikologis, atau ekonomi.', true, 'Slide 12: definisi cyberviolence.', 'Cyberviolence is using computer systems to cause, facilitate or threaten violence against individuals resulting in physical, sexual, psychological or economic harm.', 'Slide 12: definition of cyberviolence.'],
+      ['*Doxxing* adalah gangguan daring ketika seseorang sengaja memposting informasi yang bersifat menghasut, tidak sesuai topik, atau salah untuk memancing respons emosional.', false, 'Definisi itu adalah *trolling* (pengetahuan umum). Slide 11 hanya mencantumkan trolling, cyberstalking, doxxing; doxxing = menyebarkan data pribadi orang lain (pengetahuan umum).', 'Doxxing is deliberately posting inflammatory, off-topic or false information to provoke an emotional response.', 'That is the definition of *trolling* (general knowledge). Slide 11 only lists trolling, cyberstalking and doxxing; doxxing = spreading someone else\'s personal data (general knowledge).'],
+    ],
+    'Tiga definisi pertama sesuai slide 11-12. Definisi pada opsi d adalah trolling, bukan doxxing (pengetahuan umum; slide hanya menyebut nama istilahnya).',
+    { stem: 'Which terms are **correctly** described regarding violence on the internet?', explanation: 'The first three match slides 11-12. Option d describes trolling, not doxxing (general knowledge; the slides only name the terms).' }),
+
+  mc(8, 'Online violence: swapped definitions', [11, 12],
+    'Mana sajakah pernyataan yang **benar**?',
+    [
+      ['*Cyberbullying* adalah penggunaan sistem komputer untuk menyebabkan, memfasilitasi, atau mengancam kekerasan terhadap individu.', false, 'Itu definisi cyberviolence (slide 12). Cyberbullying = kekerasan verbal/psikologis via platform digital (slide 11).', 'Cyberbullying is using computer systems to cause, facilitate or threaten violence against individuals.', 'That is the definition of cyberviolence (slide 12). Cyberbullying = verbal/psychological violence via digital platforms (slide 11).'],
+      ['*Grooming* adalah bentuk kekerasan verbal atau psikologis melalui media sosial, pesan instan, atau forum daring.', false, 'Itu definisi cyberbullying. Grooming = predator membangun hubungan demi eksploitasi (slide 11).', 'Grooming is verbal or psychological abuse via social media, instant messaging or forums.', 'That is the definition of cyberbullying. Grooming = a predator building a relationship for the purpose of exploitation (slide 11).'],
+      ['*Cyberviolence* mencakup kemungkinan memanfaatkan keadaan, karakteristik, atau kerentanan individu.', true, 'Slide 12: may include the exploitation of the individual’s circumstances, characteristics or vulnerabilities.', 'Cyberviolence may include exploiting the individual’s circumstances, characteristics or vulnerabilities.', 'Slide 12: may include the exploitation of the individual’s circumstances, characteristics or vulnerabilities.'],
+      ['*Cyberbullying* dapat terjadi di media sosial, pesan instan, maupun forum daring.', true, 'Slide 11: social media, instant messaging, online forums.', 'Cyberbullying can happen on social media, instant messaging or online forums.', 'Slide 11: social media, instant messaging, online forums.'],
+    ],
+    'Hati-hati definisi yang saling ditukar: cyberbullying (verbal/psikologis via platform), grooming (predator → eksploitasi), cyberviolence (sistem komputer untuk menyebabkan/mengancam kekerasan).',
+    { stem: 'Which statements are **correct**?', explanation: 'Watch for swapped definitions: cyberbullying (verbal/psychological via platforms), grooming (predator for exploitation), cyberviolence (computer systems to cause or threaten violence).' }),
+
+  mc(9, 'Forms of online violence', [11, 12],
+    'Mana sajakah yang termasuk daftar "Threats of Violence via the Internet" pada slide?',
+    [
+      ['*Cyberbullying*.', true, 'Slide 11.', 'Cyberbullying.', 'Slide 11.'],
+      ['*Grooming* dan eksploitasi.', true, 'Slide 11: Grooming and Exploitation.', 'Grooming and exploitation.', 'Slide 11: Grooming and Exploitation.'],
+      ['*Trolling*, *cyberstalking*, dan *doxxing*.', true, 'Slide 11 menyebut ketiganya.', 'Trolling, cyberstalking and doxxing.', 'Slide 11 lists all three.'],
+      ['Penyebaran konten visual kekerasan dan ekstrem (video kekerasan, ekstremisme, propaganda radikal).', true, 'Slide 12: The Spread of Visual Violence and Extreme Content.', 'Spread of violent and extreme visual content (violent videos, extremism, radical propaganda).', 'Slide 12: The Spread of Visual Violence and Extreme Content.'],
+    ],
+    'Keempatnya ada pada slide 11-12. (Pencurian identitas dibahas terpisah pada slide 17.)',
+    { stem: 'Which of the following are listed under "Threats of Violence via the Internet"?', explanation: 'All four appear on slides 11-12. (Identity theft is covered separately on slide 17.)' }),
+
+  mc(10, 'Cyberviolence: impact', [12],
+    'Menurut definisi *cyberviolence* pada slide, mana sajakah yang benar?',
+    [
+      ['Akibatnya dapat berupa kerugian atau penderitaan fisik.', true, 'Slide 12: physical harm.', 'It may result in physical harm or suffering.', 'Slide 12: physical harm.'],
+      ['Akibatnya dapat berupa kerugian atau penderitaan seksual.', true, 'Slide 12: sexual harm.', 'It may result in sexual harm or suffering.', 'Slide 12: sexual harm.'],
+      ['Akibatnya hanya berupa kerugian ekonomi.', false, 'Slide 12: fisik, seksual, psikologis, atau ekonomi; tidak hanya ekonomi.', 'It results only in economic harm.', 'Slide 12: physical, sexual, psychological or economic; not only economic.'],
+      ['Dapat melibatkan eksploitasi keadaan, karakteristik, atau kerentanan korban.', true, 'Slide 12.', 'It can involve exploiting the victim’s circumstances, characteristics or vulnerabilities.', 'Slide 12.'],
+    ],
+    'Cyberviolence: fisik, seksual, psikologis, atau ekonomi, dan dapat mengeksploitasi kerentanan korban.',
+    { stem: 'According to the slide’s definition of cyberviolence, which are correct?', explanation: 'Cyberviolence covers physical, sexual, psychological or economic harm and may exploit the victim’s vulnerabilities.' }),
+
+  mc(11, 'Internet addiction', [13],
+    'Mana sajakah yang benar tentang kecanduan internet (*internet addiction*)?',
+    [
+      ['Penggunaan internet yang berlebihan hingga mengganggu kehidupan sosial, pekerjaan, dan pendidikan.', true, 'Slide 13: definisi internet addiction.', 'Excessive internet use that interferes with social life, work and education.', 'Slide 13: definition of internet addiction.'],
+      ['Remaja rentan; hingga 31,4% remaja di Indonesia mengalaminya (data 2021).', true, 'Slide 13: up to 31.4% (2021 data).', 'Adolescents are vulnerable; up to 31.4% of Indonesian adolescents suffer from it (2021 data).', 'Slide 13: up to 31.4% (2021 data).'],
+      ['Angka 31,4% remaja tersebut berasal dari survei APJII 2023.', false, 'Slide 13: data 2021. APJII 2023 adalah survei gamer (42,23%) pada slide 14.', 'The 31.4% figure comes from the 2023 APJII survey.', 'Slide 13: 2021 data. APJII 2023 is the gamer survey (42.23%) on slide 14.'],
+      ['Dampaknya meliputi menurunnya minat belajar, perubahan mental dan perilaku, emosi tidak stabil, halusinasi, bahkan gangguan jiwa berat.', true, 'Slide 13: daftar konsekuensi.', 'Consequences include declining interest in learning, mental and behavioral changes, emotional instability, hallucinations, even severe mental disorders.', 'Slide 13: list of consequences.'],
+    ],
+    'Kecanduan internet: 31,4% remaja Indonesia (2021). Jangan tertukar dengan 42,23% gamer >4 jam (APJII 2023).',
+    { stem: 'Which statements are correct about internet addiction?', explanation: '31.4% of Indonesian adolescents (2021). Do not confuse it with 42.23% of gamers playing more than 4 hours (APJII 2023).' }),
+
+  mc(12, 'Gaming addiction', [14],
+    'Mana sajakah yang benar tentang *gaming* dan kecanduan *game*?',
+    [
+      ['*Gaming* dapat bermanfaat: mengurangi stres, meningkatkan konsentrasi dan kreativitas, memperbaiki pengambilan keputusan, bahkan menghasilkan pendapatan.', true, 'Slide 14: manfaat gaming.', 'Gaming can be beneficial: reduces stress, improves concentration and creativity, decision-making, even earns income.', 'Slide 14: benefits of gaming.'],
+      ['Kecanduan *game* adalah kecanduan video/online game yang mengganggu aktivitas harian, pekerjaan, dan hubungan sosial.', true, 'Slide 14: definisi gaming addiction.', 'Gaming addiction interferes with daily activities, work and social relationships.', 'Slide 14: definition of gaming addiction.'],
+      ['Survei APJII 2023: 42,23% gamer *online* bermain lebih dari 4 jam per hari.', true, 'Slide 14.', 'APJII 2023 survey: 42.23% of online gamers play more than 4 hours a day.', 'Slide 14.'],
+      ['Survei APJII 2021: 42,23% gamer *online* bermain lebih dari 4 jam per hari.', false, 'Tahun survei APJII pada slide 14 adalah 2023 (2021 adalah data kecanduan internet remaja).', 'APJII 2021 survey: 42.23% of online gamers play more than 4 hours a day.', 'The APJII survey year on slide 14 is 2023 (2021 is the teen internet addiction data).'],
+    ],
+    'APJII 2023: 42,23% gamer >4 jam/hari. Gaming punya manfaat, tetapi kecanduan mengganggu aktivitas, pekerjaan, dan relasi sosial.',
+    { stem: 'Which statements are correct about gaming and gaming addiction?', explanation: 'APJII 2023: 42.23% of gamers play more than 4 hours per day. Gaming has benefits, but addiction disrupts activities, work and relationships.' }),
+
+  mc(13, 'Preventing addiction & violence', [15],
+    'Apa saja tindakan yang **tepat** untuk mencegah kecanduan dan kekerasan di internet?',
+    [
+      ['Lebih banyak aktivitas fisik seperti bermain, olahraga, atau rekreasi.', true, 'Slide 15: engage in more physical activities.', 'More physical activities such as play, sports or recreation.', 'Slide 15: engage in more physical activities.'],
+      ['Bersosialisasi dengan orang di dunia nyata, bukan dengan teman virtual.', true, 'Slide 15.', 'Socialize with people in the real world rather than virtual friends.', 'Slide 15.'],
+      ['Mencari semua jawaban atas masalah sendiri melalui internet, tanpa perlu berkonsultasi dengan orang lain.', false, 'Slide 15: hindari mencari semua jawaban sendiri via internet; bicarakan dengan orang tua, guru, atau dokter.', 'Finding all answers to your problems on the internet by yourself, without consulting anyone.', 'Slide 15: avoid searching for all the answers on your own via the internet; talk to parents, teachers or a doctor.'],
+      ['Membatasi waktu penggunaan internet di laptop dan gadget, serta menghapus aplikasi yang tidak perlu.', true, 'Slide 15.', 'Limiting internet time on laptops and gadgets and deleting unnecessary apps.', 'Slide 15.'],
+    ],
+    'Solusi: kegiatan di luar internet, aktivitas fisik, relasi nyata, bicara langsung, batasi waktu, hapus aplikasi, filtering software (terutama untuk anak).',
+    { stem: 'Which actions are **appropriate** for preventing addiction and violence on the internet?', explanation: 'Do offline activities, exercise, real-world relationships, talk in person, limit time, delete apps, use filtering software (especially for children).' }),
+
+  mc(14, 'Preventing addiction & violence', [15],
+    'Jika seseorang mulai kecanduan internet, mana yang sesuai anjuran slide?',
+    [
+      ['Membicarakannya dengan orang tua, guru, atau dokter.', true, 'Slide 15.', 'Talk about it with parents, a teacher or a doctor.', 'Slide 15.'],
+      ['Menyelesaikannya sendiri dengan mencari semua jawaban di internet.', false, 'Slide 15: avoid trying to find all the answers on your own via the internet.', 'Solve it alone by finding all the answers on the internet.', 'Slide 15: avoid trying to find all the answers on your own via the internet.'],
+      ['Mengunduh sebanyak-banyaknya aplikasi *game* untuk kepuasan diri.', false, 'Bertentangan dengan anjuran slide 15: hapus aplikasi tidak perlu dan batasi waktu.', 'Download as many game apps as possible for self-satisfaction.', 'Contradicts the advice on slide 15: delete unnecessary apps and limit time.'],
+      ['Menyembunyikannya dari keluarga supaya tidak menjadi beban.', false, 'Slide 15: jaga hubungan baik dengan keluarga dan teman, dan bicarakan masalah.', 'Hide it from the family so as not to burden them.', 'Slide 15: keep good relationships with family and friends, and talk about problems.'],
+    ],
+    'Hanya satu yang benar: bicarakan dengan orang tua/guru/dokter.',
+    { stem: 'If someone starts to become addicted to the internet, which action matches the slides?', explanation: 'Only one is right: talk with parents, a teacher or a doctor.' }),
+
+  mc(15, 'Identity theft', [17],
+    'Mana sajakah yang benar tentang pencurian identitas (*identity theft*)?',
+    [
+      ['Pencurian identitas telah menjadi industri kriminal yang substansial.', true, 'Slide 17.', 'Identity theft has become a substantial criminal industry.', 'Slide 17.'],
+      ['Dapat terjadi karena kecerobohan saat daring atau salah hitung sederhana.', true, 'Slide 17.', 'It can occur due to carelessness online or a simple miscalculation.', 'Slide 17.'],
+      ['Akibatnya dapat berupa tagihan telepon/internet besar tanpa izin, ancaman orang asing, atau akun media sosial dipakai menyebar fitnah hingga berujung penangkapan.', true, 'Slide 17.', 'Consequences include large unauthorized bills, threats from strangers, or social media accounts used to spread slander, even leading to arrest.', 'Slide 17.'],
+      ['Dampaknya biasanya terselesaikan dalam beberapa hari.', false, 'Slide 17: dapat memakan waktu sangat lama, bahkan bertahun-tahun.', 'The consequences are usually resolved within a few days.', 'Slide 17: it can take a very long time, even years.'],
+    ],
+    'Pencurian identitas: industri kriminal, penyebab kecerobohan, dampak nyata, dan penyelesaiannya bisa bertahun-tahun.',
+    { stem: 'Which statements are correct about identity theft?', explanation: 'Identity theft is a criminal industry, caused by carelessness, with real consequences that can take years to resolve.' }),
+
+  mc(16, 'Protecting against identity theft', [18],
+    'Mana sajakah tindakan yang sesuai dengan anjuran melindungi diri dari pencurian identitas?',
+    [
+      ['Berbelanja *online* dengan kartu kredit atau pembayaran elektronik yang terpercaya.', true, 'Slide 18.', 'Make online purchases with a reputable credit card or electronic payment.', 'Slide 18.'],
+      ['Memiliki kartu kredit terpisah khusus untuk transaksi *online*.', true, 'Slide 18.', 'Get a separate credit card for online transactions.', 'Slide 18.'],
+      ['Mencantumkan nomor identitas (SSN/KTP) pada cek agar mudah diverifikasi.', false, 'Slide 18: jangan mencantumkan Social Security number pada cek.', 'Put your ID number (SSN/KTP) on checks to make verification easy.', 'Slide 18: do not put your Social Security number on checks.'],
+      ['Menghancurkan (*shred*) surat yang berisi data sensitif sebelum didaur ulang.', true, 'Slide 18.', 'Shred sensitive mail before recycling it.', 'Slide 18.'],
+    ],
+    'Tips slide 18: kartu terpercaya/terpisah, pindai tagihan, situs aman, jangan beri data lewat telepon/chat, jangan tulis SSN di cek, shred surat, dompet tipis, salin kartu, laporkan segera.',
+    { stem: 'Which actions match the advice for protecting yourself from identity theft?', explanation: 'Slide 18 tips: reputable/separate card, scan bills, secure sites, no data by phone/chat, no SSN on checks, shred mail, thin wallet, copy cards, report promptly.' }),
+
+  mc(17, 'Protecting against identity theft', [18],
+    'Mana sajakah yang termasuk tips slide untuk melindungi diri dari pencurian identitas?',
+    [
+      ['Jangan mengungkapkan informasi pribadi melalui telepon atau *chat*.', true, 'Slide 18.', 'Do not disclose personal information over the phone or chats.', 'Slide 18.'],
+      ['Menjaga dompet tetap tipis (*keep your wallet thin*).', true, 'Slide 18.', 'Keep your wallet thin.', 'Slide 18.'],
+      ['Memastikan situs web yang aman mengelola transaksi *online* Anda.', true, 'Slide 18.', 'Make sure a secure Web site manages your online transaction.', 'Slide 18.'],
+      ['Melaporkan pencurian identitas setelah masalahnya benar-benar membesar, bukan segera.', false, 'Slide 18: report identity theft promptly.', 'Report identity theft only after the problem has grown, not promptly.', 'Slide 18: report identity theft promptly.'],
+    ],
+    'Tindakan cepat: laporkan segera.',
+    { stem: 'Which are tips on the slide for protecting yourself from identity theft?', explanation: 'Act quickly: report promptly.' }),
+
+  mc(18, 'Privacy threats', [19],
+    'Mana sajakah penggunaan teknologi *computing* yang dapat mengancam privasi seseorang?',
+    [
+      ['Data pribadi yang diletakkan di internet tersimpan di *database* server dan sangat mudah menyebar.', true, 'Slide 19.', 'Personal data placed online is stored in a server database and spreads very easily.', 'Slide 19.'],
+      ['Perusahaan *e-commerce* dapat memakai data pribadi untuk berbagai tujuan, misalnya iklan.', true, 'Slide 19.', 'E-commerce companies may use personal data for various purposes such as advertising.', 'Slide 19.'],
+      ['Di tempat kerja, karyawan dapat dipantau secara ketat dengan teknologi komputasi.', true, 'Slide 19.', 'In the workplace, employees can be monitored strictly using computing technology.', 'Slide 19.'],
+      ['Privasi semakin meningkat sekarang ini berkat kemajuan teknologi.', false, 'Slide 19: privasi justru semakin berkurang (increasingly diminishing).', 'Privacy is increasing these days thanks to technology.', 'Slide 19: privacy is in fact increasingly diminishing.'],
+    ],
+    'Privasi makin menyusut: data tersimpan di server, dimanfaatkan e-commerce, karyawan dipantau, CCTV publik, penyadapan.',
+    { stem: 'Which uses of computing technology can threaten a person’s privacy?', explanation: 'Privacy is shrinking: data in servers, used by e-commerce, employee monitoring, public CCTV, wiretapping.' }),
+
+  mc(19, 'Privacy threats', [19],
+    'Mana sajakah yang benar tentang pengawasan (*surveillance*) menurut slide?',
+    [
+      ['Kamera pengawas dipasang di ruang publik.', true, 'Slide 19.', 'Surveillance cameras are used in public spaces.', 'Slide 19.'],
+      ['Teknologi informasi memungkinkan penyadapan terhadap individu, organisasi, bahkan seluruh negara.', true, 'Slide 19.', 'IT makes surveillance or wiretapping of individuals, organizations, even entire nations possible.', 'Slide 19.'],
+      ['Penyadapan hanya mungkin terhadap individu, tidak terhadap organisasi atau negara.', false, 'Slide 19: individu, organisasi, atau bahkan seluruh negara.', 'Wiretapping is only possible against individuals, not organizations or nations.', 'Slide 19: individuals, organizations or even entire countries.'],
+      ['Pemantauan ketat karyawan tidak mungkin dilakukan dengan teknologi komputasi.', false, 'Slide 19: monitoring ketat karyawan dapat dilakukan dengan teknologi komputasi.', 'Strict employee monitoring is impossible with computing technology.', 'Slide 19: close monitoring of employees can be done with computing technology.'],
+    ],
+    'Pengawasan: karyawan, CCTV publik, penyadapan individu/organisasi/negara.',
+    { stem: 'Which statements are correct about surveillance according to the slides?', explanation: 'Surveillance: employee monitoring, public CCTV, wiretapping of individuals, organizations and nations.' }),
+
+  mc(20, 'Right to privacy', [20],
+    'Mana sajakah yang sesuai dengan anjuran melindungi hak privasi Anda?',
+    [
+      ['Jangan mudah membagikan nomor KTP, SIM, telepon, email, rekening bank, atau data sensitif lain, milik sendiri maupun orang lain.', true, 'Slide 20.', 'Do not readily share ID, driver’s license, phone, email, bank account or other sensitive data, yours or others’.', 'Slide 20.'],
+      ['*THINK before you POST!*', true, 'Slide 20.', 'THINK before you POST!', 'Slide 20.'],
+      ['Jika ada informasi merugikan tentang Anda, biarkan saja agar tidak memperbesar masalah.', false, 'Slide 20: jika ada informasi yang merugikan tentang Anda, koreksilah.', 'If there is damaging information about you, leave it to avoid making it worse.', 'Slide 20: if there is harmful information about you, correct it.'],
+      ['Jangan mudah menyetujui pembagian informasi pribadi.', true, 'Slide 20.', 'Do not readily consent to the sharing of personal information.', 'Slide 20.'],
+    ],
+    'Hak privasi: jangan mudah berbagi/menyetujui, pikir sebelum posting, pakai teknologi untuk melindungi hak, koreksi info merugikan.',
+    { stem: 'Which match the advice for protecting your privacy rights?', explanation: 'Privacy rights: do not readily share or consent, think before posting, use technology to protect rights, correct damaging information.' }),
+
+  mc(21, 'UU PDP No. 27/2022', [21],
+    'Mana sajakah yang benar mengenai Undang-Undang No. 27 Tahun 2022 tentang Pelindungan Data Pribadi (PDP)?',
+    [
+      ['Data Pribadi adalah data tentang orang perseorangan yang teridentifikasi atau dapat diidentifikasi, sendiri atau dikombinasikan dengan informasi lain, langsung maupun tidak langsung, melalui sistem elektronik atau nonelektronik.', true, 'Slide 21, Pasal 1 butir 1.', 'Personal data is data about an individual who is identified or identifiable alone or combined with other information, directly or indirectly, via electronic or non-electronic systems.', 'Slide 21, Article 1 point 1.'],
+      ['Pelindungan Data Pribadi adalah keseluruhan upaya melindungi Data Pribadi dalam rangkaian pemrosesannya guna menjamin hak konstitusional subjek Data Pribadi.', true, 'Slide 21, Pasal 1 butir 2.', 'Personal data protection is all efforts to protect personal data in its processing to guarantee the constitutional rights of the data subject.', 'Slide 21, Article 1 point 2.'],
+      ['Pasal 65 ayat (1) melarang secara melawan hukum memperoleh atau mengumpulkan Data Pribadi yang bukan miliknya untuk menguntungkan diri sendiri atau orang lain.', true, 'Slide 21, Pasal 65 (1).', 'Article 65(1) prohibits unlawfully obtaining or collecting personal data that is not one’s own for personal or others’ gain.', 'Slide 21, Article 65 (1).'],
+      ['Data Pribadi hanya mencakup data yang diproses melalui sistem elektronik.', false, 'Pasal 1 butir 1: melalui sistem elektronik atau nonelektronik.', 'Personal data only covers data processed through electronic systems.', 'Article 1 point 1: through electronic or non-electronic systems.'],
+    ],
+    'UU PDP 27/2022: definisi data pribadi (elektronik atau nonelektronik), definisi pelindungan, dan Pasal 65 (1)-(3) tentang larangan melawan hukum.',
+    { stem: 'Which statements are correct about Law No. 27 of 2022 on Personal Data Protection?', explanation: 'Law 27/2022: definitions of personal data (electronic or non-electronic) and protection, and Article 65 (1)-(3) prohibitions.' }),
+
+  mc(22, 'UU PDP No. 27/2022', [21],
+    'Mana sajakah yang benar mengenai **Pasal 65** UU No. 27 Tahun 2022 (PDP)?',
+    [
+      ['Ayat (1): dilarang secara melawan hukum memperoleh atau mengumpulkan Data Pribadi yang bukan miliknya dengan maksud menguntungkan diri atau orang lain yang dapat mengakibatkan kerugian Subjek Data Pribadi.', true, 'Slide 21.', 'Paragraph (1): prohibits unlawfully obtaining or collecting others’ personal data for gain that may harm the data subject.', 'Slide 21.'],
+      ['Ayat (2): dilarang secara melawan hukum mengungkapkan Data Pribadi yang bukan miliknya.', true, 'Slide 21.', 'Paragraph (2): prohibits unlawfully disclosing personal data that is not one’s own.', 'Slide 21.'],
+      ['Ayat (3): dilarang secara melawan hukum mengumpulkan Data Pribadi yang bukan miliknya.', false, 'Ayat (3) tentang menggunakan (bukan mengumpulkan) Data Pribadi yang bukan miliknya.', 'Paragraph (3): prohibits unlawfully collecting personal data that is not one’s own.', 'Paragraph (3) concerns using (not collecting) Personal Data that is not one\'s own.'],
+      ['Pasal 65 ini terdapat dalam UU No. 11 Tahun 2008 tentang ITE.', false, 'Pasal 65 ada di UU PDP No. 27/2022; UU ITE memuat Pasal 27, 28, dan 45.', 'This Article 65 is part of Law No. 11 of 2008 on ITE.', 'Article 65 is in the PDP Law No. 27/2022; the ITE Law contains Articles 27, 28 and 45.'],
+    ],
+    'Pasal 65 UU PDP: (1) memperoleh/mengumpulkan, (2) mengungkapkan, (3) menggunakan data pribadi yang bukan miliknya. Jebakan klasik UTS: Pasal 65 dikaitkan dengan UU ITE.',
+    { stem: 'Which statements are correct about **Article 65** of Law No. 27 of 2022 (PDP)?', explanation: 'Article 65 of the PDP law: (1) obtain/collect, (2) disclose, (3) use personal data that is not one’s own. A classic exam trap links Article 65 to the ITE law.' }),
+
+  mc(23, 'UU ITE & UU PDP: numbers and years', [27, 21],
+    'Mana sajakah yang benar mengenai peraturan perundang-undangan terkait teknologi informasi?',
+    [
+      ['UU No. 11 Tahun 2008 adalah undang-undang tentang Informasi dan Transaksi Elektronik.', true, 'Slide 27.', 'Law No. 11 of 2008 is the law on Information and Electronic Transactions.', 'Slide 27.'],
+      ['UU No. 27 Tahun 2022 adalah undang-undang tentang Informasi dan Transaksi Elektronik.', false, 'UU 27/2022 adalah tentang Pelindungan Data Pribadi (slide 21).', 'Law No. 27 of 2022 is the law on Information and Electronic Transactions.', 'Law 27/2022 is about Personal Data Protection (slide 21).'],
+      ['UU No. 19 Tahun 2016 adalah perubahan atas UU No. 11 Tahun 2008.', true, 'Slide 27.', 'Law No. 19 of 2016 amends Law No. 11 of 2008.', 'Slide 27.'],
+      ['UU No. 1 Tahun 2024 adalah perubahan pertama atas UU No. 11 Tahun 2008.', false, 'Slide 27: UU 1/2024 adalah Perubahan Kedua (Second Amendment); perubahan pertama = UU 19/2016.', 'Law No. 1 of 2024 is the first amendment of Law No. 11 of 2008.', 'Slide 27: Law 1/2024 is the Second Amendment; the first amendment = Law 19/2016.'],
+    ],
+    'ITE: UU 11/2008 → perubahan (1) UU 19/2016 → perubahan kedua UU 1/2024. PDP: UU 27/2022.',
+    { stem: 'Which statements are correct about the laws related to information technology?', explanation: 'ITE: Law 11/2008, first amended by 19/2016, second amended by 1/2024. PDP: Law 27/2022.' }),
+
+  mc(24, 'Norms, ethics, and regulation', [24],
+    'Mana sajakah yang tepat terkait norma dan etika berinternet / menggunakan teknologi *computing*?',
+    [
+      ['Norma dan etika berkaitan dengan moralitas dan hanya berfungsi sebagai "pedoman"; hati nurani harus berperan.', true, 'Slide 24.', 'Norms and ethics relate to morality and serve only as "guidelines"; conscience must play a role.', 'Slide 24.'],
+      ['Aturan dan regulasi bersifat operasional: menyatakan persyaratan, ketentuan, hukuman, dan sanksi secara eksplisit.', true, 'Slide 24.', 'Rules and regulations are operational: they explicitly state requirements, regulations, penalties and sanctions.', 'Slide 24.'],
+      ['Norma dan etika pada dasarnya sama dengan regulasi.', false, 'Slide 24 membedakan keduanya: moralitas/pedoman vs operasional/sanksi.', 'Norms and ethics are essentially the same as regulations.', 'Slide 24 distinguishes the two: morality/guidelines vs operations/sanctions.'],
+      ['Melanggar aturan hanya menimbulkan rasa malu, sedangkan melanggar norma menghasilkan hukuman.', false, 'Terbalik. Melanggar norma/etika → rasa malu; melanggar aturan → hukuman (slide 24).', 'Violating rules only causes shame, whereas violating norms results in punishment.', 'Reversed. Violating norms/ethics → shame; violating rules → punishment (slide 24).'],
+    ],
+    'Norma/etika: moral, pedoman, pelanggaran → malu. Aturan/regulasi: operasional, sanksi, pelanggaran → hukuman.',
+    { stem: 'Which statements are correct about norms and ethics in using the internet / computing technology?', explanation: 'Norms/ethics: moral, guidelines, violation → shame. Rules/regulations: operational, sanctions, violation → punishment.' }),
+
+  mc(25, 'Norms, ethics, and regulation', [24, 27],
+    'Mana sajakah yang benar?',
+    [
+      ['Aturan dibuat agar kehidupan bersama menjadi "nyaman", bukan untuk menyulitkan.', true, 'Slide 24.', 'Rules are made to make communal life "comfortable", not to create difficulties.', 'Slide 24.'],
+      ['Hukuman atas pelanggaran aturan bertujuan agar anggota masyarakat sadar akan aturan dan tidak melanggarnya.', true, 'Slide 24.', 'Punishment for breaking rules aims to make members aware of rules and refrain from breaking them.', 'Slide 24.'],
+      ['Pelanggaran etika dikenai hukuman formal seperti pelanggaran regulasi.', false, 'Slide 24: pelanggaran etika menimbulkan rasa malu; hukuman untuk pelanggaran aturan.', 'Violating ethics is formally punished just like violating regulations.', 'Slide 24: ethical violations bring shame; punishment is for rule violations.'],
+      ['Etika adalah prinsip atau standar moral yang menjadi panduan perilaku, tindakan, dan pilihan.', true, 'Slide 27.', 'Ethics are moral principles or standards that guide behavior, actions and choices.', 'Slide 27.'],
+    ],
+    'Etika = panduan moral (slide 27); aturan = operasional dengan sanksi demi kenyamanan bersama (slide 24).',
+    { stem: 'Which statements are correct?', explanation: 'Ethics = moral guidance (slide 27); rules = operational with sanctions for the comfort of the community (slide 24).' }),
+
+  mc(26, 'Computer ethics (8 principles)', [25],
+    'Mana sajakah yang merupakan bagian dari *Computer Ethics* menurut slide?',
+    [
+      ['*Think scenarios.*', true, 'Slide 25.', 'Think scenarios.', 'Slide 25.'],
+      ['*Do your part.*', true, 'Slide 25.', 'Do your part.', 'Slide 25.'],
+      ['*When in doubt, decide on your own without asking.*', false, 'Slide 25: When in doubt, talk it out.', 'When in doubt, decide on your own without asking.', 'Slide 25: When in doubt, talk it out.'],
+      ['*Make yourself proud.*', true, 'Slide 25.', 'Make yourself proud.', 'Slide 25.'],
+    ],
+    'Delapan prinsip: Know the rules and the law; Don’t assume it’s okay if it’s legal; Think scenarios; When in doubt, talk it out; Make yourself proud; Remember the golden rule; Take the long view; Do your part.',
+    { stem: 'Which are part of Computer Ethics according to the slides?', explanation: 'Eight principles: Know the rules and law; Don’t assume it’s okay if it’s legal; Think scenarios; When in doubt, talk it out; Make yourself proud; Remember the golden rule; Take the long view; Do your part.' }),
+
+  mc(27, 'Computer ethics vs netiquette', [25, 26],
+    'Mana sajakah yang merupakan prinsip *Computer Ethics* (bukan butir netiquette)?',
+    [
+      ['*Know the rules and the law.*', true, 'Slide 25.', 'Know the rules and the law.', 'Slide 25.'],
+      ['*Remember the golden rule.*', true, 'Slide 25.', 'Remember the golden rule.', 'Slide 25.'],
+      ['*Take the long view.*', true, 'Slide 25.', 'Take the long view.', 'Slide 25.'],
+      ['*Don’t assume you are anonymous.*', false, 'Itu butir netiquette (slide 26), bukan computer ethics.', 'Don’t assume you are anonymous.', 'That is a netiquette item (slide 26), not computer ethics.'],
+    ],
+    'Jangan campur dua daftar: "Don’t assume you are anonymous" ada di netiquette; "Don’t assume it’s okay if it’s legal" ada di computer ethics.',
+    { stem: 'Which are Computer Ethics principles (not netiquette items)?', explanation: 'Do not mix the two lists: "Don’t assume you are anonymous" is netiquette; "Don’t assume it’s okay if it’s legal" is computer ethics.' }),
+
+  mc(28, 'Netiquette', [26],
+    'Mana sajakah yang merupakan butir *Netiquette and Messaging Etiquette* pada slide?',
+    [
+      ['*Say what you mean; say it with care.*', true, 'Slide 26.', 'Say what you mean; say it with care.', 'Slide 26.'],
+      ['*Proofread your messages.*', true, 'Slide 26.', 'Proofread your messages.', 'Slide 26.'],
+      ['*Learn the "nonverbal" language of the Net.*', true, 'Slide 26: memahami cara berkomunikasi di internet yang bisa berbeda dari tatap muka.', 'Learn the "nonverbal" language of the Net.', 'Slide 26: understand that communicating on the internet can differ from face-to-face.'],
+      ['*Remember the golden rule.*', false, 'Itu butir Computer Ethics (slide 25).', 'Remember the golden rule.', 'That is a Computer Ethics item (slide 25).'],
+    ],
+    'Sembilan butir netiquette: Say what you mean; Keep it short; Proofread; Don’t assume you are anonymous; Learn the nonverbal language; Know your abbreviations; Keep your cool; Don’t be a source of spam; Say no—and say nothing—to spam.',
+    { stem: 'Which are items of Netiquette and Messaging Etiquette on the slide?', explanation: 'Nine items: Say what you mean; Keep it short; Proofread; Don’t assume you are anonymous; Learn the nonverbal language; Know your abbreviations; Keep your cool; Don’t be a source of spam; Say no—and say nothing—to spam.' }),
+
+  mc(29, 'Netiquette', [26],
+    'Mana sajakah yang sesuai dengan butir netiquette terkait pesan dan *spam*?',
+    [
+      ['*Keep it short.*', true, 'Slide 26.', 'Keep it short.', 'Slide 26.'],
+      ['*Know your abbreviations.*', true, 'Slide 26.', 'Know your abbreviations.', 'Slide 26.'],
+      ['*Keep your cool.*', true, 'Slide 26.', 'Keep your cool.', 'Slide 26.'],
+      ['Membalas *spam* agar pengirimnya berhenti.', false, 'Slide 26: say no—and say nothing—to spam; jangan menjadi sumber spam.', 'Replying to spam so that the sender stops.', 'Slide 26: say no—and say nothing—to spam; do not become a source of spam.'],
+    ],
+    'Terhadap spam: jangan jadi sumber spam dan jangan membalas (say nothing).',
+    { stem: 'Which match the netiquette items about messages and spam?', explanation: 'On spam: do not be a source of spam and do not reply (say nothing).' }),
+
+  mc(30, 'Freedom vs social responsibility', [27],
+    'Mana sajakah yang benar tentang kebebasan berinternet dan tanggung jawab sosial?',
+    [
+      ['Internet memberi kebebasan berbicara dan berpendapat yang dapat disalahgunakan untuk tujuan tidak bertanggung jawab.', true, 'Slide 27.', 'The internet gives freedom of speech that can be exploited irresponsibly.', 'Slide 27.'],
+      ['Pemerintah menetapkan regulasi UU No. 11/2008 tentang Informasi dan Transaksi Elektronik.', true, 'Slide 27.', 'The government set Law No. 11/2008 on Information and Electronic Transactions.', 'Slide 27.'],
+      ['Tanggung jawab atas tulisan hanya berlaku di dunia *offline*; di *online* kita bebas.', false, 'Slide 27: kita tetap bertanggung jawab atas yang dipikirkan, dikatakan, atau ditulis, online maupun offline.', 'Responsibility applies only offline; online we are free.', 'Slide 27: we remain responsible for what we think, say or write, online and offline.'],
+      ['Kita tetap bertanggung jawab atas apa pun yang dipikirkan, dikatakan, atau ditulis, baik *online* maupun *offline*.', true, 'Slide 27.', 'We remain responsible for whatever we think, say or write, online or offline.', 'Slide 27.'],
+    ],
+    'Kebebasan berpendapat disertai tanggung jawab; UU ITE mengatur batasnya.',
+    { stem: 'Which statements are correct about internet freedom and social responsibility?', explanation: 'Freedom of expression comes with responsibility; the ITE law sets its limits.' }),
+
+  mc(31, 'Social media', [28, 29],
+    'Mana sajakah yang sesuai anjuran slide tentang jejaring sosial?',
+    [
+      ['Hindari menyebarkan informasi yang hanya untuk orang atau kelompok tertentu kepada semua orang; gunakan fitur grup.', true, 'Slide 28.', 'Avoid broadcasting information meant for specific people or groups to everyone; use group features.', 'Slide 28.'],
+      ['Jangan membagikan konten terkait SARA, pornografi, materi ilegal, atau hal yang dapat memicu keresahan publik.', true, 'Slide 29.', 'Do not share content related to SARA, pornography, illegal material or anything that could cause public unrest.', 'Slide 29.'],
+      ['Pernah ada kasus mahasiswa ITB yang diskors karena membagikan konten terkait SARA.', true, 'Slide 29.', 'There has been a case of an ITB student suspended for sharing SARA-related content.', 'Slide 29.'],
+      ['Semakin banyak informasi pribadi dibagikan ke ruang publik, semakin baik.', false, 'Slide 29: batasi informasi pribadi di ruang publik.', 'The more personal information shared publicly, the better.', 'Slide 29: limit personal information in public spaces.'],
+    ],
+    'SARA = suku, agama, ras, dan antargolongan. Pikir sebelum "send".',
+    { stem: 'Which match the slides’ advice on social networking?', explanation: 'SARA = ethnicity, religion, race and societal groups. Think before you hit "send".' }),
+
+  mc(32, 'UU ITE: Article 27 & penalties', [30],
+    'Mana sajakah yang **benar** mengenai Pasal 27 ayat (3) UU ITE seperti pada slide?',
+    [
+      ['Setiap orang yang dengan sengaja dan tanpa hak mendistribusikan, mentransmisikan, dan/atau membuat dapat diaksesnya informasi/dokumen elektronik bermuatan penghinaan dan/atau pencemaran nama baik dapat dipidana penjara paling lama 6 (enam) tahun dan/atau denda paling banyak Rp1 miliar.', true, 'Slide 30: Pasal 27 (3) dan Pasal 45 (1).', 'Anyone who intentionally and without right distributes, transmits or makes accessible electronic information with defamatory content can be jailed up to 6 years and/or fined up to Rp1 billion.', 'Slide 30: Article 27 (3) and Article 45 (1).'],
+      ['Pelanggaran Pasal 27 ayat (3) dipidana penjara paling lama 4 (empat) tahun.', false, 'Slide 30: paling lama 6 (enam) tahun.', 'A violation of Article 27(3) is punishable by up to 4 years in prison.', 'Slide 30: a maximum of 6 (six) years.'],
+      ['Pasal 27 ayat (3) mengatur penyebaran berita bohong dan menyesatkan yang merugikan konsumen dalam transaksi elektronik.', false, 'Itu Pasal 28 ayat (1). Pasal 27(3) = penghinaan/pencemaran nama baik.', 'Article 27(3) regulates false and misleading news that harms consumers in electronic transactions.', 'That is Article 28 paragraph (1). Article 27(3) = insult/defamation.'],
+      ['Pasal 45 ayat (1) hanya berlaku untuk pelanggaran Pasal 28.', false, 'Pasal 45(1) untuk Pasal 27 ayat (1)-(4); Pasal 45(2) untuk Pasal 28 ayat (1)/(2).', 'Article 45(1) only applies to violations of Article 28.', 'Article 45(1) is for Article 27 paragraphs (1)-(4); Article 45(2) is for Article 28 paragraph (1)/(2).'],
+    ],
+    'Pasal 27(3) = penghinaan/pencemaran nama baik; sanksi Pasal 45(1): penjara ≤ 6 tahun dan/atau denda ≤ Rp1.000.000.000. Mirip butir UTS 2025 no. 7.',
+    { stem: 'Which statements are **correct** about Article 27(3) of the ITE law as shown on the slide?', explanation: 'Article 27(3) = insult/defamation; penalty under Article 45(1): up to 6 years and/or up to Rp1,000,000,000. Similar to UTS 2025 no. 7.' }),
+
+  mc(33, 'UU ITE: Article 28', [30],
+    'Mana sajakah yang benar mengenai **Pasal 28** UU ITE pada slide?',
+    [
+      ['Ayat (1): menyebarkan berita bohong dan menyesatkan yang mengakibatkan kerugian konsumen dalam Transaksi Elektronik.', true, 'Slide 30.', 'Paragraph (1): spreading false and misleading news that harms consumers in electronic transactions.', 'Slide 30.'],
+      ['Ayat (2): menyebarkan informasi untuk menimbulkan kebencian atau permusuhan berdasarkan suku, agama, ras, dan antargolongan (SARA).', true, 'Slide 30.', 'Paragraph (2): spreading information to incite hatred or hostility based on ethnicity, religion, race and societal groups (SARA).', 'Slide 30.'],
+      ['Ayat (2) mengatur penghinaan dan pencemaran nama baik.', false, 'Penghinaan/pencemaran = Pasal 27(3). Pasal 28(2) = SARA.', 'Paragraph (2) regulates insult and defamation.', 'Insult/defamation = Article 27(3). Article 28(2) = SARA (ethnicity, religion, race, inter-group).'],
+      ['Ayat (1) mengatur kebencian berdasarkan SARA.', false, 'Ayat (1) = berita bohong merugikan konsumen; SARA ada di ayat (2).', 'Paragraph (1) regulates hatred based on SARA.', 'Paragraph (1) = false news harming consumers; SARA is in paragraph (2).'],
+    ],
+    'Pasal 28(1): berita bohong → kerugian konsumen. Pasal 28(2): kebencian SARA.',
+    { stem: 'Which statements are correct about **Article 28** of the ITE law on the slide?', explanation: 'Article 28(1): false news harming consumers. Article 28(2): SARA hatred.' }),
+
+  mc(34, 'UU ITE: Article 45 penalties', [30],
+    'Mana sajakah yang benar mengenai Pasal 45 UU ITE pada slide?',
+    [
+      ['Pasal 45 ayat (1): pelanggar Pasal 27 ayat (1), (2), (3), atau (4) dipidana penjara paling lama 6 tahun dan/atau denda paling banyak Rp1.000.000.000.', true, 'Slide 30.', 'Article 45(1): violators of Article 27(1)-(4) face up to 6 years and/or up to Rp1,000,000,000 fine.', 'Slide 30.'],
+      ['Pasal 45 ayat (2): pelanggar Pasal 28 ayat (1) atau (2) dipidana dengan ancaman pidana yang sama (6 tahun dan/atau Rp1 miliar).', true, 'Slide 30.', 'Article 45(2): violators of Article 28(1) or (2) face the same penalty (6 years and/or Rp1 billion).', 'Slide 30.'],
+      ['Denda paling banyak yang disebut adalah Rp100.000.000 (seratus juta rupiah).', false, 'Slide 30: Rp1.000.000.000 (satu miliar rupiah).', 'The maximum fine mentioned is Rp100,000,000.', 'Slide 30: Rp1,000,000,000 (one billion rupiah).'],
+      ['Sanksinya hanya pidana penjara; tidak ada denda.', false, 'Slide 30: penjara dan/atau denda.', 'The sanction is imprisonment only; there is no fine.', 'Slide 30: imprisonment and/or a fine.'],
+    ],
+    'Pasal 45: Pasal 27 (1)-(4) dan Pasal 28 (1)/(2) sama-sama diancam penjara ≤ 6 tahun dan/atau denda ≤ Rp1 miliar.',
+    { stem: 'Which statements are correct about Article 45 of the ITE law on the slide?', explanation: 'Article 45: Articles 27(1)-(4) and 28(1)/(2) both carry up to 6 years and/or up to Rp1 billion.' }),
+
+  mc(35, 'AI definitions: 4 approaches', [39],
+    'Mana sajakah yang tepat terkait definisi kecerdasan buatan (*artificial intelligence*)?',
+    [
+      ['*Thinking humanly*: upaya baru membuat komputer berpikir, *machines with minds* dalam arti penuh dan harfiah.', true, 'Slide 39 (Haugeland, 1985).', 'Thinking humanly: the new effort to make computers think, machines with minds in the full and literal sense.', 'Slide 39 (Haugeland, 1985).'],
+      ['*Thinking rationally*: studi tentang kemampuan mental melalui penggunaan model komputasional.', true, 'Slide 39 (Charniak & McDermott, 1985).', 'Thinking rationally: the study of mental faculties through computational models.', 'Slide 39 (Charniak & McDermott, 1985).'],
+      ['*Acting humanly*: studi tentang komputasi yang memungkinkan persepsi, penalaran, dan tindakan.', false, 'Itu *thinking rationally* (Winston, 1992).', 'Acting humanly: the study of computations that make it possible to perceive, reason and act.', 'That is *thinking rationally* (Winston, 1992).'],
+      ['*Acting rationally*: seni menciptakan mesin yang melakukan fungsi yang memerlukan kecerdasan bila dilakukan manusia.', false, 'Itu *acting humanly* (Kurzweil, 1990).', 'Acting rationally: the art of creating machines that perform functions requiring intelligence when done by people.', 'That is *acting humanly* (Kurzweil, 1990).'],
+    ],
+    'Peta 8 definisi: Thinking humanly (Haugeland, Bellman), Thinking rationally (Charniak & McDermott, Winston), Acting humanly (Kurzweil, Rich & Knight), Acting rationally (Poole et al., Nilsson).',
+    { stem: 'Which statements are correct about definitions of artificial intelligence?', explanation: 'Map of 8 definitions: Thinking humanly (Haugeland, Bellman), Thinking rationally (Charniak & McDermott, Winston), Acting humanly (Kurzweil, Rich & Knight), Acting rationally (Poole et al., Nilsson).' }),
+
+  mc(36, 'AI definitions: 4 approaches', [39],
+    'Mana saja yang tepat terkait definisi intelejensi buatan (*artificial intelligence*)?',
+    [
+      ['*Thinking humanly*: The study of the computations that make it possible to perceive, reason, and act.', false, 'Itu *thinking rationally* (Winston, 1992).', 'Thinking humanly: The study of the computations that make it possible to perceive, reason, and act.', 'That is *thinking rationally* (Winston, 1992).'],
+      ['*Thinking rationally*: The study of the computations that make it possible to perceive, reason, and act.', true, 'Slide 39 (Winston, 1992).', 'Thinking rationally: The study of the computations that make it possible to perceive, reason, and act.', 'Slide 39 (Winston, 1992).'],
+      ['*Acting rationally*: The study of how to make computers do things at which, at the moment, people are better.', false, 'Itu *acting humanly* (Rich & Knight, 1991).', 'Acting rationally: The study of how to make computers do things at which, at the moment, people are better.', 'That is *acting humanly* (Rich & Knight, 1991).'],
+      ['*Acting humanly*: The study of how to make computers do things at which, at the moment, people are better.', true, 'Slide 39 (Rich & Knight, 1991).', 'Acting humanly: The study of how to make computers do things at which, at the moment, people are better.', 'Slide 39 (Rich & Knight, 1991).'],
+    ],
+    'Pola jebakan UTS 2025 no. 9: definisi yang sama dipasangkan dengan label humanly/rationally yang tertukar.',
+    { stem: 'Which are correct about the definition of artificial intelligence?', explanation: 'The UTS 2025 no. 9 trap pattern: the same definition paired with swapped humanly/rationally labels.' }),
+
+  mc(37, 'AI definitions: 4 approaches', [39],
+    'Mana sajakah yang benar mengenai definisi AI pada slide?',
+    [
+      ['*Acting rationally*: *Computational Intelligence* adalah studi tentang perancangan agen cerdas (Poole et al., 1998).', true, 'Slide 39.', 'Acting rationally: Computational Intelligence is the study of the design of intelligent agents (Poole et al., 1998).', 'Slide 39.'],
+      ['*Acting rationally*: AI berkaitan dengan perilaku cerdas pada artefak (Nilsson, 1998).', true, 'Slide 39.', 'Acting rationally: AI is concerned with intelligent behavior in artifacts (Nilsson, 1998).', 'Slide 39.'],
+      ['*Thinking humanly*: otomasi aktivitas yang kita kaitkan dengan pemikiran manusia, seperti pengambilan keputusan, pemecahan masalah, pembelajaran (Bellman, 1978).', true, 'Slide 39.', 'Thinking humanly: automation of activities we associate with human thinking, such as decision-making, problem solving, learning (Bellman, 1978).', 'Slide 39.'],
+      ['*Thinking rationally*: *Computational Intelligence* adalah studi tentang perancangan agen cerdas.', false, 'Definisi agen cerdas (Poole) termasuk *acting rationally*.', 'Thinking rationally: Computational Intelligence is the study of the design of intelligent agents.', 'The definition of an intelligent agent (Poole) falls under *acting rationally*.'],
+    ],
+    'Rational = kemampuan/perilaku yang tepat (agen, perilaku cerdas pada artefak); humanly = meniru manusia.',
+    { stem: 'Which statements are correct about AI definitions on the slide?', explanation: 'Rational = correct ability/behavior (agents, intelligent behavior in artifacts); humanly = imitating humans.' }),
+
+  mc(38, 'AI definitions: 4 approaches', [39],
+    'Mana sajakah yang benar mengenai slide "8 Definitions, 4 Approaches"?',
+    [
+      ['Delapan definisi AI dikelompokkan ke dalam empat pendekatan.', true, 'Slide 39 (Figure 1.1).', 'Eight AI definitions are grouped into four approaches.', 'Slide 39 (Figure 1.1).'],
+      ['Empat pendekatan itu: *thinking humanly*, *thinking rationally*, *acting humanly*, *acting rationally*.', true, 'Slide 39.', 'The four approaches: thinking humanly, thinking rationally, acting humanly, acting rationally.', 'Slide 39.'],
+      ['Ada empat definisi yang dikelompokkan ke dalam delapan pendekatan.', false, 'Terbalik: 8 definisi, 4 pendekatan.', 'There are four definitions grouped into eight approaches.', 'Reversed: 8 definitions, 4 approaches.'],
+      ['Setiap pendekatan hanya memiliki satu definisi.', false, 'Delapan definisi / empat pendekatan = dua definisi per pendekatan.', 'Each approach has only one definition.', 'Eight definitions / four approaches = two definitions per approach.'],
+    ],
+    '8 definisi ÷ 4 pendekatan = 2 definisi per pendekatan.',
+    { stem: 'Which statements are correct about the "8 Definitions, 4 Approaches" slide?', explanation: '8 definitions ÷ 4 approaches = 2 definitions per approach.' }),
+
+  mc(39, 'AI in daily life', [43, 48, 49, 51],
+    'Mana sajakah yang benar tentang contoh AI dalam kehidupan pada slide?',
+    [
+      ['Verifikasi biometrik (sidik jari dan wajah) adalah contoh penerapan AI.', true, 'Slide 43.', 'Biometric verification (fingerprint and face) is an AI application.', 'Slide 43.'],
+      ['AI dalam lalu lintas mencakup pencarian rute/arah (*path finding*) dan pola lalu lintas.', true, 'Slide 48.', 'AI in traffic includes path finding / direction and traffic patterns.', 'Slide 48.'],
+      ['Deteksi penipuan (*fraud detection*) adalah salah satu contoh AI dalam kehidupan.', true, 'Slide 49.', 'Fraud detection is an example of AI in life.', 'Slide 49.'],
+      ['Proteus, robot gudang Amazon, sepenuhnya dikendalikan manual oleh manusia.', false, 'Slide 51: Proteus adalah robot gudang Amazon yang pertama kali sepenuhnya otonom.', 'Proteus, Amazon’s warehouse robot, is fully manually controlled by humans.', 'Slide 51: Proteus is Amazon\'s first fully autonomous warehouse robot.'],
+    ],
+    'Contoh AI di slide 42-54: asisten AI, verifikasi biometrik, Dota 2, AlphaStar, FaceApp, recommender system, lalu lintas, fraud detection, mobil swakemudi, Proteus, kesehatan, manufaktur, pendidikan.',
+    { stem: 'Which statements are correct about AI examples in life on the slides?', explanation: 'AI examples on slides 42-54: AI assistant, biometric verification, Dota 2, AlphaStar, FaceApp, recommender system, traffic, fraud detection, self-driving cars, Proteus, health care, manufacturing, education.' }),
+
+  mc(40, 'AI in daily life', [44, 45],
+    'Mana sajakah yang benar tentang AI untuk permainan (*game*) pada slide?',
+    [
+      ['OpenAI dipakai untuk bermain Dota 2.', true, 'Slide 44: "OpenAI untuk Dota 2".', 'OpenAI was used to play Dota 2.', 'Slide 44: "OpenAI for Dota 2".'],
+      ['AlphaStar adalah AI yang bermain StarCraft II.', true, 'Slide 45.', 'AlphaStar is an AI that plays StarCraft II.', 'Slide 45.'],
+      ['AlphaStar dipakai untuk Dota 2 dan OpenAI untuk StarCraft II.', false, 'Tertukar: OpenAI–Dota 2, AlphaStar–StarCraft II.', 'AlphaStar was used for Dota 2 and OpenAI for StarCraft II.', 'Swapped: OpenAI–Dota 2, AlphaStar–StarCraft II.'],
+      ['FaceApp adalah contoh AI untuk mengubah (transform) wajah.', true, 'Slide 46.', 'FaceApp is an AI example for transforming faces.', 'Slide 46.'],
+    ],
+    'OpenAI–Dota 2; AlphaStar–StarCraft II; FaceApp–transform your face.',
+    { stem: 'Which statements are correct about AI for games on the slides?', explanation: 'OpenAI–Dota 2; AlphaStar–StarCraft II; FaceApp–transform your face.' }),
+
+  mc(41, 'Positive impact of AI', [48, 51, 58],
+    'Mana sajakah yang merupakan dampak **positif** penggunaan teknologi AI?',
+    [
+      ['Robot digunakan untuk membantu pengelolaan gudang secara efisien.', true, 'Slide 51: Proteus, robot gudang otonom (penerapan AI).', 'Robots help manage a warehouse efficiently.', 'Slide 51: Proteus, an autonomous warehouse robot (an AI application).'],
+      ['Algoritma pencarian rute dipakai untuk aplikasi pengantaran barang.', true, 'Slide 48: AI in traffic — path finding / direction.', 'Route-finding algorithms are used for delivery apps.', 'Slide 48: AI in traffic — path finding / directions.'],
+      ['Penggunaan *generative* AI untuk memalsukan konten yang meyakinkan (*deepfake*).', false, 'Slide 58: deepfakes termasuk AI dangers.', 'Using generative AI to produce convincing fakes (deepfakes).', 'Slide 58: deepfakes are among the AI dangers.'],
+      ['AI menghapus kebutuhan tenaga manusia pada beberapa lapangan pekerjaan.', false, 'Slide 58: Employment Disruption termasuk AI dangers.', 'AI removes the need for human labor in some job fields.', 'Slide 58: Employment Disruption is among the AI dangers.'],
+    ],
+    'Dampak positif: efisiensi sistem/proses. Risiko (slide 58): deepfake, gangguan lapangan kerja, dsb.',
+    { stem: 'Which are **positive** impacts of using AI technology?', explanation: 'Positive: efficiency of systems/processes. Risks (slide 58): deepfakes, employment disruption, etc.' }),
+
+  mc(42, 'AI adoption by industry', [55],
+    'Pada slide *AI Adoption by Industry* (Infosys Survey, 2018), mana sajakah yang benar?',
+    [
+      ['Farmasi/*life sciences* memiliki persentase tertinggi (58%).', true, 'Slide 55.', 'Pharmaceuticals/life sciences has the highest percentage (58%).', 'Slide 55.'],
+      ['Sektor publik memiliki persentase terendah (32%).', true, 'Slide 55.', 'The public sector has the lowest percentage (32%).', 'Slide 55.'],
+      ['*Telecoms* (52%) lebih tinggi daripada *manufacturing* (50%).', true, 'Slide 55.', 'Telecoms (52%) is higher than manufacturing (50%).', 'Slide 55.'],
+      ['*Retail* (44%) lebih tinggi daripada layanan keuangan (47%).', false, 'Slide 55: layanan keuangan 47% > retail 44%.', 'Retail (44%) is higher than financial services (47%).', 'Slide 55: financial services 47% > retail 44%.'],
+    ],
+    'Angka mewakili persentase pelaku pasar yang berencana mengadopsi AI dalam dua tahun ke depan (1.600 responden).',
+    { stem: 'On the AI Adoption by Industry slide (Infosys Survey, 2018), which are correct?', explanation: 'Figures show the percentage of market players planning to adopt AI within two years (1,600 respondents).' }),
+
+  mc(43, 'History of AI', [40],
+    'Mana sajakah yang benar tentang sejarah AI pada slide?',
+    [
+      ['1950: Alan Turing memperkenalkan *Turing test* untuk menguji kecerdasan mesin.', true, 'Slide 40.', '1950: Alan Turing introduced the Turing test to test a machine’s intelligence.', 'Slide 40.'],
+      ['1997: program komputer Deep Blue mengalahkan juara dunia catur Garry Kasparov.', true, 'Slide 40.', '1997: Deep Blue defeated world chess champion Garry Kasparov.', 'Slide 40.'],
+      ['2016: AlphaGo mengalahkan pemain Go profesional Lee Sedol 4–1.', true, 'Slide 40.', '2016: AlphaGo beat professional Go player Lee Sedol 4–1.', 'Slide 40.'],
+      ['1955: ELIZA, program bahasa alami, diciptakan.', false, 'Slide 40: ELIZA 1965; 1955 adalah saat istilah "artificial intelligence" diciptakan.', '1955: ELIZA, a natural language program, was created.', 'Slide 40: ELIZA 1965; 1955 is when the term "artificial intelligence" was coined.'],
+    ],
+    'Garis waktu slide 40: 1950 Turing test; 1955 istilah AI; 1965 ELIZA; 1980an expert systems; 1997 Deep Blue; 2011 Watson; 2014 GAN; 2016 AlphaGo.',
+    { stem: 'Which statements are correct about the history of AI on the slide?', explanation: 'Timeline: 1950 Turing test; 1955 term AI coined; 1965 ELIZA; 1980s expert systems; 1997 Deep Blue; 2011 Watson; 2014 GAN; 2016 AlphaGo.' }),
+
+  mc(44, 'History of AI', [40],
+    'Mana sajakah yang benar tentang sejarah AI pada slide?',
+    [
+      ['2011: IBM Watson mengalahkan juara kuis AS *Jeopardy!*', true, 'Slide 40.', '2011: IBM Watson defeated champions of the US game show Jeopardy!', 'Slide 40.'],
+      ['2014: Ian Goodfellow menemukan *Generative Adversarial Networks* (GAN).', true, 'Slide 40.', '2014: Ian Goodfellow came up with Generative Adversarial Networks (GAN).', 'Slide 40.'],
+      ['2002: iRobot meluncurkan Roomba, penyedot debu otonom yang menghindari rintangan.', true, 'Slide 40.', '2002: iRobot launched Roomba, an autonomous vacuum cleaner that avoids obstacles.', 'Slide 40.'],
+      ['2002: Google membangun mobil swakemudi pertama untuk kondisi perkotaan.', false, 'Slide 40: mobil swakemudi Google = 2009; 2002 = Roomba.', '2002: Google built the first self-driving car for urban conditions.', 'Slide 40: Google\'s self-driving car = 2009; 2002 = Roomba.'],
+    ],
+    'Tahun: 2002 Roomba; 2009 mobil swakemudi Google; 2011 Watson; 2014 GAN.',
+    { stem: 'Which statements are correct about the history of AI on the slide?', explanation: 'Years: 2002 Roomba; 2009 Google self-driving car; 2011 Watson; 2014 GAN.' }),
+
+  mc(45, 'Generative AI', [56],
+    'Mana sajakah yang benar tentang *generative AI*?',
+    [
+      ['*Generative AI* adalah subset AI yang memakai model generatif untuk menghasilkan teks, gambar, video, atau bentuk data lain, sering sebagai respons terhadap *prompt*.', true, 'Slide 56.', 'Generative AI is a subset of AI that uses generative models to produce text, images, video or other data, often in response to prompts.', 'Slide 56.'],
+      ['Sistem ini mempelajari pola dan struktur data latihnya sehingga dapat membuat data baru.', true, 'Slide 56.', 'These systems learn the patterns and structures of their training data so they can create new data.', 'Slide 56.'],
+      ['*Generative AI* hanya mampu mengklasifikasikan data yang sudah ada dan tidak dapat menghasilkan data baru.', false, 'Slide 56: kemampuan utamanya membuat data baru.', 'Generative AI can only classify existing data and cannot produce new data.', 'Slide 56: its main capability is creating new data.'],
+      ['*Generative AI* adalah bidang yang terpisah dan bukan bagian dari AI.', false, 'Slide 56: subset dari artificial intelligence.', 'Generative AI is a separate field and not part of AI.', 'Slide 56: a subset of artificial intelligence.'],
+    ],
+    'GenAI ⊂ AI; belajar pola data latih; menghasilkan data baru sesuai prompt.',
+    { stem: 'Which statements are correct about generative AI?', explanation: 'GenAI ⊂ AI; learns patterns of training data; generates new data on prompts.' }),
+
+  mc(46, 'Generative AI', [56],
+    'Mana sajakah pasangan jenis keluaran dan contoh *generative AI* yang benar menurut slide?',
+    [
+      ['Gambar: DALL-E 3, Midjourney, Adobe Firefly.', true, 'Slide 56.', 'Image: DALL-E 3, Midjourney, Adobe Firefly.', 'Slide 56.'],
+      ['Audio dan musik: MusicLM dan MusicGen.', true, 'Slide 56.', 'Audio and music: MusicLM and MusicGen.', 'Slide 56.'],
+      ['Kode: GitHub Copilot, CodeT5, OpenAI Codex.', true, 'Slide 56.', 'Code: GitHub Copilot, CodeT5, OpenAI Codex.', 'Slide 56.'],
+      ['Gambar: LLaMA dan BLOOM.', false, 'LLaMA dan BLOOM adalah model teks (slide 56).', 'Image: LLaMA and BLOOM.', 'LLaMA and BLOOM are text models (slide 56).'],
+    ],
+    'Teks: GPT-3/4/4o, LaMDA, LLaMA, BLOOM, Gemini, Claude. Kode: Copilot, CodeT5, Codex. Gambar: Imagen, DALL-E 3, Midjourney, Adobe Firefly, FLUX.1. Audio: MusicLM, MusicGen.',
+    { stem: 'Which output-type/example pairs of generative AI are correct according to the slide?', explanation: 'Text: GPT-3/4/4o, LaMDA, LLaMA, BLOOM, Gemini, Claude. Code: Copilot, CodeT5, Codex. Image: Imagen, DALL-E 3, Midjourney, Adobe Firefly, FLUX.1. Audio: MusicLM, MusicGen.' }),
+
+  mc(47, 'Dangers of AI', [58],
+    'Mana sajakah yang benar tentang bahaya AI (*AI Dangers*) pada slide?',
+    [
+      ['Bias dan ketidakakuratan: sistem AI dapat memperkuat bias dan misinformasi bila data latihnya cacat atau bias.', true, 'Slide 58.', 'Bias and inaccuracies: AI can reinforce bias and misinformation if training data is flawed or biased.', 'Slide 58.'],
+      ['Hilangnya penilaian manusia: ketergantungan berlebihan pada AI dapat menurunkan kemampuan mengambil keputusan mandiri dan mengevaluasi hasil secara kritis.', true, 'Slide 58.', 'Loss of human judgment: over-reliance on AI can reduce independent decision-making and critical evaluation.', 'Slide 58.'],
+      ['*Deepfake*: AI dapat membuat konten palsu meyakinkan yang mengancam kebenaran, kepercayaan, dan stabilitas masyarakat.', true, 'Slide 58.', 'Deepfakes: AI can create convincing fake content that threatens truth, trust and societal stability.', 'Slide 58.'],
+      ['Risiko jangka panjang: AGI pasti selalu selaras dengan kepentingan manusia sehingga tidak berisiko.', false, 'Slide 58: AGI dapat menjadi tidak selaras (misaligned) dan menimbulkan ancaman eksistensial.', 'Long-term risk: AGI will always be aligned with human interests, so there is no risk.', 'Slide 58: AGI could become misaligned and pose an existential threat.'],
+    ],
+    'Tujuh bahaya: bias/inakurasi, privasi, hilangnya penilaian manusia, deepfake, hilangnya kendali manusia, gangguan lapangan kerja, risiko eksistensial/jangka panjang (AGI).',
+    { stem: 'Which statements are correct about AI Dangers on the slide?', explanation: 'Seven dangers: bias/inaccuracy, privacy, loss of human judgment, deepfakes, loss of human control, employment disruption, existential/long-term risk (AGI).' }),
+
+  mc(48, 'Dangers of AI', [58],
+    'Mana sajakah yang benar tentang bahaya AI pada slide?',
+    [
+      ['Privasi: pengumpulan data ekstensif oleh platform AI dapat membahayakan privasi dan menyebabkan penyalahgunaan informasi sensitif.', true, 'Slide 58.', 'Privacy: extensive data collection by AI platforms can compromise privacy and lead to misuse of sensitive information.', 'Slide 58.'],
+      ['Hilangnya kendali manusia: otomasi keputusan penting dapat mengurangi pengawasan manusia dan menimbulkan konsekuensi serius tak terduga.', true, 'Slide 58.', 'Loss of human control: automating critical decisions can reduce oversight and cause serious unintended consequences.', 'Slide 58.'],
+      ['Gangguan lapangan kerja: otomasi AI dapat menggeser pekerja dan memperparah ketimpangan ekonomi serta ketegangan sosial.', true, 'Slide 58.', 'Employment disruption: AI automation could displace workers, worsening economic inequality and social tension.', 'Slide 58.'],
+      ['*Deepfake* hanya mengancam individu dan tidak berdampak pada stabilitas masyarakat.', false, 'Slide 58: deepfake mengancam kebenaran, kepercayaan, dan stabilitas masyarakat.', 'Deepfakes only threaten individuals and have no effect on societal stability.', 'Slide 58: deepfakes threaten truth, trust and the stability of society.'],
+    ],
+    'Ingat tujuh bahaya AI pada slide 58 dan akibat masing-masing.',
+    { stem: 'Which statements are correct about AI dangers on the slide?', explanation: 'Remember the seven AI dangers on slide 58 and their consequences.' }),
+
+  mc(49, 'Agentic AI', [60],
+    'Mana sajakah yang benar tentang *Agentic AI* menurut slide?',
+    [
+      ['Sistem otonom yang tidak sekadar menghasilkan teks atau menjawab pertanyaan, tetapi secara mandiri mempersepsi lingkungan, merencanakan alur kerja multi-langkah, memakai *tool*/API, mengeksekusi aksi, dan merefleksikan hasilnya.', true, 'Slide 60.', 'Autonomous systems that do not just generate text or answer questions but independently perceive their environment, plan multi-step workflows, use tools/APIs, execute actions and reflect on results.', 'Slide 60.'],
+      ['PayPal memakai agen otonom untuk deteksi penipuan *real-time* dan pemrosesan transaksi.', true, 'Slide 60.', 'PayPal uses autonomous agents for real-time fraud detection and transaction processing.', 'Slide 60.'],
+      ['Oxford University Hospital (bersama Microsoft) membangun sistem agentik untuk mengoordinasikan langkah administratif, sementara penilaian klinis sepenuhnya diserahkan kepada manusia.', true, 'Slide 60.', 'Oxford University Hospital (with Microsoft) built agentic systems to coordinate administrative steps, leaving clinical judgment entirely to humans.', 'Slide 60.'],
+      ['Di Oxford University Hospital, agen AI mengambil keputusan klinis menggantikan dokter.', false, 'Slide 60: penilaian klinis sepenuhnya di tangan manusia.', 'At Oxford University Hospital, AI agents make clinical decisions instead of doctors.', 'Slide 60: clinical judgment remains entirely in human hands.'],
+    ],
+    'Agentic AI = persepsi → perencanaan multi-langkah → pakai tool/API → eksekusi → refleksi. Contoh: PayPal, Oxford University Hospital, Siemens Fuse EDA AI Agent (Maret 2026).',
+    { stem: 'Which statements are correct about Agentic AI according to the slide?', explanation: 'Agentic AI = perceive → multi-step planning → use tools/APIs → execute → reflect. Examples: PayPal, Oxford University Hospital, Siemens Fuse EDA AI Agent (March 2026).' }),
+
+  mc(50, 'Agentic AI', [60, 56],
+    'Mana sajakah yang benar tentang *Agentic AI* dibandingkan *generative AI*?',
+    [
+      ['*Generative AI* menghasilkan teks, gambar, video, atau data lain sebagai respons terhadap *prompt*.', true, 'Slide 56.', 'Generative AI produces text, images, video or other data in response to prompts.', 'Slide 56.'],
+      ['*Agentic AI* memakai *tool* atau API dan mengeksekusi aksi.', true, 'Slide 60.', 'Agentic AI uses tools or APIs and executes actions.', 'Slide 60.'],
+      ['*Agentic AI* hanya menghasilkan teks dan tidak merencanakan alur kerja.', false, 'Slide 60: merencanakan alur kerja multi-langkah dan mengeksekusi aksi.', 'Agentic AI only produces text and does not plan workflows.', 'Slide 60: plans multi-step workflows and executes actions.'],
+      ['Siemens memperkenalkan Fuse EDA AI Agent pada Maret 2018.', false, 'Slide 60: Maret 2026, agen otonom berlingkup domain.', 'Siemens introduced the Fuse EDA AI Agent in March 2018.', 'Slide 60: March 2026, a domain-scoped autonomous agent.'],
+    ],
+    'Slide 60 diberi judul "2026 onward: Agentic AI". Siemens Fuse EDA AI Agent: Maret 2026.',
+    { stem: 'Which statements are correct about Agentic AI compared with generative AI?', explanation: 'Slide 60 is titled "2026 onward: Agentic AI". Siemens Fuse EDA AI Agent: March 2026.' }),
+]
+
+const flashcards: Flashcard[] = [
+  fc('digital-learning', 'Digital world', 'Sebutkan karakter dunia digital sebagai sumber belajar seumur hidup.', 'Sumber belajar tak habis-habisnya; materi mudah diakses; referensi (ensiklopedia, kamus, atlas, referensi medis) tersedia via Internet, aplikasi smartphone, CD/DVD; blog, forum, website, media beragam; memfasilitasi pembelajaran jarak jauh.', [4], 'Describe the digital world as a source of lifelong learning.', 'Inexhaustible source; easily accessible; references via Internet, smartphone apps, CD/DVD; blogs, forums, websites, media; enables distance learning.'),
+  fc('edutainment', 'Digital world', 'Apa itu edutainment?', 'Gabungan pendidikan (education) dengan hiburan (entertainment).', [4], 'What is edutainment?', 'The combination of education and entertainment.'),
+  fc('cyberspace', 'Digital world', 'Apa itu cyberspace dan siapa yang memasukinya?', 'Ranah Internet: dunia baru yang dapat dimasuki siapa saja tanpa dibatasi ruang dan waktu. Manusialah yang memasuki dunia virtual ini.', [3], 'What is cyberspace and who enters it?', 'The realm of the Internet: a new world anyone can enter, unconstrained by time or space. Human beings step into it.'),
+  fc('work-impact', 'Impact on work', 'Dampak teknologi computing di dunia kerja (4 hal + ancaman).', 'Efisiensi tugas manusia; otomasi berbasis IT membuka peluang kerja baru; membuka kreativitas manusia (AI?); globalisasi → "worldwide workforce" dan pasar global. Ancaman: pekerjaan yang dapat digantikan mesin.', [5], 'Impacts of computing on the workplace (4 points + threat).', 'Efficiency; IT automation unlocks new jobs; unlocks creativity (AI?); globalization → "worldwide workforce" and global markets. Threat: jobs replaceable by machines.'),
+  fc('where-computers-work', 'Impact on work', 'Bidang pekerjaan yang ditransformasi teknologi digital (slide "Where Computers Work").', 'Entertainment, Publishing, Medicine, Airlines, Science.', [31], 'Fields transformed by digital technology ("Where Computers Work").', 'Entertainment, Publishing, Medicine, Airlines, Science.'),
+  fc('auto-factory', 'Impact on work', 'Peran robot dan komputer di pabrik otomatis.', 'Robot: tugas manual tertentu (pengecatan, pengelasan, perakitan berulang). Komputer: melacak inventaris, mengatur waktu pengiriman suku cadang, kontrol kualitas, memantau keausan mesin, menjadwalkan perawatan. Hasil: kurang waktu menganggur dan pemborosan.', [32], 'Role of robots and computers in the automated factory.', 'Robots: specific manual tasks (painting, welding, repetitive assembly). Computers: track inventory, time part delivery, control quality, monitor wear, schedule maintenance. Result: less idle time and waste.'),
+  fc('auto-office', 'Impact on work', 'Hubungan pekerjaan pabrik dan kantor dalam ekonomi (slide Automated Office).', 'Saat pekerjaan pabrik menurun, pekerjaan kantor berperan lebih penting; kantor modern juga ditransformasi teknologi digital.', [33], 'Relation of factory and office work in the economy.', 'As factory jobs decline, office work plays a more important role; modern offices are transformed by digital technology.'),
+  fc('automation-views', 'Impact on work', 'Dua pandangan analis tentang otomasi.', 'Sebagian memprediksi pengangguran massal dan bencana ekonomi; sebagian lain, komputer akan menciptakan banyak peluang kerja baru. Otomasi tetap isu penting bagi jutaan pekerja.', [34], 'Two analyst views on automation.', 'Some predicted mass unemployment and economic disaster; others, countless new jobs. Job automation remains an important issue for millions of workers.'),
+  fc('daily-dependence', 'Daily life', 'Contoh ketergantungan hidup pada teknologi (3) dan potensi ancaman (3).', 'Contoh: kebutuhan rumah tangga (belanja online, delivery); hiburan (film, game, streaming); transportasi (pesan taksi, tiket pesawat/kereta). Ancaman: kecanduan dan kekerasan; pencurian identitas; ancaman privasi.', [8], 'Examples of dependence (3) and threats (3).', 'Examples: household (online shopping, delivery); entertainment (movies, games, streaming); transport (taxi, plane/train tickets). Threats: addiction and violence; identity theft; privacy.'),
+  fc('cyberbullying', 'Cyberviolence', 'Definisi cyberbullying.', 'Bentuk kekerasan verbal atau psikologis yang dilakukan melalui platform digital seperti media sosial, pesan instan, atau forum daring.', [11], 'Define cyberbullying.', 'Verbal or psychological abuse carried out through digital platforms such as social media, instant messaging or online forums.'),
+  fc('grooming', 'Cyberviolence', 'Definisi grooming.', 'Upaya predator membangun hubungan dengan individu muda atau rentan melalui teknologi untuk tujuan eksploitasi atau kekerasan.', [11], 'Define grooming.', 'An attempt by a predator to build a relationship with a young or vulnerable individual via technology for exploitation or abuse.'),
+  fc('cyberviolence', 'Cyberviolence', 'Definisi cyberviolence.', 'Penggunaan sistem komputer untuk menyebabkan, memfasilitasi, atau mengancam kekerasan terhadap individu yang berakibat/mungkin berakibat kerugian atau penderitaan fisik, seksual, psikologis, atau ekonomi; dapat mengeksploitasi keadaan, karakteristik, atau kerentanan individu.', [12], 'Define cyberviolence.', 'Use of computer systems to cause, facilitate or threaten violence against individuals resulting in physical, sexual, psychological or economic harm; may exploit the individual’s circumstances, characteristics or vulnerabilities.'),
+  fc('violence-list', 'Cyberviolence', 'Daftar "Threats of Violence via the Internet".', 'Cyberbullying; grooming dan eksploitasi; trolling, cyberstalking, doxxing; penyebaran konten visual kekerasan dan ekstrem (video kekerasan, ekstremisme, propaganda radikal).', [11, 12], 'List of "Threats of Violence via the Internet".', 'Cyberbullying; grooming and exploitation; trolling, cyberstalking, doxxing; spread of violent and extreme visual content.'),
+  fc('trolling-doxxing', 'Cyberviolence', 'Trolling vs doxxing (pengetahuan umum; slide hanya menyebut istilahnya).', 'Trolling: sengaja memposting pesan yang menghasut/tidak sesuai topik untuk memancing emosi. Doxxing: menyebarkan data pribadi seseorang tanpa izin. (pengetahuan umum)', [11], 'Trolling vs doxxing (general knowledge; slide only names the terms).', 'Trolling: deliberately posting inflammatory or off-topic messages to provoke emotion. Doxxing: publishing someone’s personal data without consent. (general knowledge)'),
+  fc('internet-addiction', 'Addiction', 'Definisi kecanduan internet + angka + dampak.', 'Penggunaan internet berlebihan hingga mengganggu kehidupan sosial, pekerjaan, pendidikan. Remaja rentan: hingga 31,4% remaja Indonesia (data 2021). Dampak: menurunnya minat belajar, perubahan mental/perilaku, emosi tidak stabil, halusinasi, gangguan jiwa berat.', [13], 'Internet addiction: definition, figure and consequences.', 'Excessive internet use interfering with social life, work, education. Up to 31.4% of Indonesian adolescents (2021 data). Consequences: lower interest in learning, mental/behavioral changes, emotional instability, hallucinations, severe mental disorders.'),
+  fc('gaming-addiction', 'Addiction', 'Gaming: manfaat, definisi kecanduan, dan angka APJII.', 'Manfaat: mengurangi stres, meningkatkan konsentrasi dan kreativitas, keputusan lebih baik, bisa menghasilkan pendapatan. Kecanduan game mengganggu aktivitas harian, pekerjaan, hubungan sosial. APJII 2023: 42,23% gamer online >4 jam/hari.', [14], 'Gaming: benefits, definition of addiction and APJII figure.', 'Benefits: reduces stress, improves concentration and creativity, decisions, can earn income. Addiction disrupts daily activities, work, relationships. APJII 2023: 42.23% of online gamers play over 4 hours/day.'),
+  fc('avoid-addiction', 'Addiction', 'Cara menghindari kecanduan dan kekerasan.', 'Hobi di luar internet dan kegiatan sosial; aktivitas fisik; bersosialisasi di dunia nyata; bicara langsung; jaga hubungan keluarga/teman; bila kecanduan bicara dengan orang tua/guru/dokter (jangan cari semua jawaban sendiri di internet); batasi waktu; hapus aplikasi tak perlu; filtering software (terutama anak).', [15], 'How to avoid addiction and violence.', 'Offline hobbies and social activities; physical activity; real-world socializing; talk in person; keep family/friend ties; if addicted talk to parents/teacher/doctor (not the internet alone); limit time; delete apps; filtering software (especially children).'),
+  fc('identity-theft', 'Identity theft', 'Ciri dan dampak pencurian identitas.', 'Industri kriminal substansial; bisa terjadi karena kecerobohan saat online/salah hitung; dampak: tagihan telepon/internet besar tak sah, diancam orang asing, akun medsos dipakai menyebar fitnah/ancaman hingga penangkapan; penyelesaian bisa bertahun-tahun.', [17], 'Features and consequences of identity theft.', 'A substantial criminal industry; due to carelessness online or a miscalculation; consequences: large unauthorized bills, threats, accounts used for slander/threats, arrest; resolution may take years.'),
+  fc('id-theft-protect', 'Identity theft', 'Tips melindungi diri dari pencurian identitas (slide 18).', 'Kartu kredit/pembayaran elektronik terpercaya; pindai tagihan segera; kartu kredit terpisah untuk online; pastikan situs aman; jangan beri info pribadi lewat telepon/chat; tangani email dan medsos dengan hati-hati; jangan tulis Social Security number di cek; shred surat sensitif; dompet tipis; salin kartu; laporkan segera.', [18], 'Tips for protecting yourself from identity theft (slide 18).', 'Reputable card/e-payment; scan bills promptly; separate online card; secure site; no personal info by phone/chat; careful with email/social media; no SSN on checks; shred sensitive mail; thin wallet; copy cards; report promptly.'),
+  fc('privacy-threat', 'Privacy', 'Ancaman terhadap privasi (slide 19).', 'Data pribadi online tersimpan di database server dan mudah menyebar; e-commerce memakai data (iklan); privasi makin berkurang: pemantauan ketat karyawan, kamera pengawas di ruang publik, penyadapan individu/organisasi/negara.', [19], 'Threats to privacy (slide 19).', 'Online personal data sits in server databases and spreads easily; e-commerce uses data (ads); privacy diminishing: strict employee monitoring, public cameras, wiretapping of individuals/organizations/nations.'),
+  fc('privacy-rights', 'Privacy', 'Hak privasi: apa yang dianjurkan (slide 20)?', 'Jangan mudah membagikan KTP, SIM, telepon, email, rekening, data sensitif (milik sendiri/orang lain); jangan mudah memberi info pribadi atau menyetujui pembagiannya; THINK before you POST; pakai teknologi untuk melindungi hak; koreksi info merugikan.', [20], 'Privacy rights: what is advised (slide 20)?', 'Do not readily share ID, license, phone, email, bank account, sensitive data (own/others’); do not readily give or consent to sharing personal info; THINK before you POST; use technology to protect rights; correct damaging info.'),
+  fc('pdp-law', 'UU PDP', 'UU No. 27 Tahun 2022 tentang apa? Definisi Data Pribadi?', 'Pelindungan Data Pribadi (PDP). Data Pribadi = data tentang orang perseorangan yang teridentifikasi atau dapat diidentifikasi, sendiri atau dikombinasikan dengan informasi lain, langsung/tidak langsung, melalui sistem elektronik atau nonelektronik.', [21], 'What is Law No. 27 of 2022 about? Definition of personal data?', 'Personal Data Protection (PDP). Personal data = data about an identified/identifiable individual, alone or combined, directly/indirectly, via electronic or non-electronic systems.'),
+  fc('pdp-protection', 'UU PDP', 'Definisi Pelindungan Data Pribadi (Pasal 1 butir 2).', 'Keseluruhan upaya melindungi Data Pribadi dalam rangkaian pemrosesan Data Pribadi guna menjamin hak konstitusional subjek Data Pribadi.', [21], 'Definition of personal data protection (Article 1(2)).', 'All efforts to protect personal data within its processing to guarantee the data subject’s constitutional rights.'),
+  fc('pasal-65', 'UU PDP', 'UU PDP Pasal 65 ayat (1), (2), (3).', '(1) memperoleh/mengumpulkan Data Pribadi yang bukan miliknya untuk menguntungkan diri/orang lain yang dapat merugikan Subjek; (2) mengungkapkan Data Pribadi yang bukan miliknya; (3) menggunakan Data Pribadi yang bukan miliknya. Semuanya "secara melawan hukum".', [21], 'PDP law Article 65 (1), (2), (3).', '(1) obtain/collect others’ personal data for gain that may harm the subject; (2) disclose others’ personal data; (3) use others’ personal data. All "unlawfully".'),
+  fc('ite-laws', 'UU ITE', 'UU ITE: nomor, tahun, perubahan.', 'UU No. 11/2008 (ITE). Perubahan: UU No. 19/2016 (perubahan atas UU 11/2008). UU No. 1/2024 = Perubahan Kedua UU 11/2008. (PDP = UU 27/2022, bukan ITE.)', [27], 'ITE law: number, year, amendments.', 'Law No. 11/2008 (ITE). Amended by Law No. 19/2016; Law No. 1/2024 = Second Amendment. (PDP = Law 27/2022, not ITE.)'),
+  fc('ite-27-3', 'UU ITE', 'UU ITE Pasal 27 ayat (3).', 'Dengan sengaja dan tanpa hak mendistribusikan dan/atau mentransmisikan dan/atau membuat dapat diaksesnya Informasi/Dokumen Elektronik bermuatan penghinaan dan/atau pencemaran nama baik.', [30], 'ITE law Article 27(3).', 'Intentionally and without right distributing/transmitting/making accessible electronic information with insulting and/or defamatory content.'),
+  fc('ite-28', 'UU ITE', 'UU ITE Pasal 28 ayat (1) dan (2).', '(1) menyebarkan berita bohong dan menyesatkan yang merugikan konsumen dalam Transaksi Elektronik; (2) menyebarkan informasi untuk menimbulkan kebencian/permusuhan berdasarkan SARA.', [30], 'ITE law Article 28(1) and (2).', '(1) spreading false and misleading news harming consumers in electronic transactions; (2) spreading information inciting hatred/hostility based on SARA.'),
+  fc('ite-45', 'UU ITE', 'UU ITE Pasal 45: sanksi.', '(1) pelanggar Pasal 27 (1)-(4): penjara paling lama 6 tahun dan/atau denda paling banyak Rp1.000.000.000. (2) pelanggar Pasal 28 (1)/(2): sanksi yang sama (6 tahun dan/atau Rp1 miliar).', [30], 'ITE law Article 45: penalties.', '(1) violators of Article 27(1)-(4): up to 6 years and/or up to Rp1,000,000,000. (2) violators of Article 28(1)/(2): same (6 years and/or Rp1 billion).'),
+  fc('sara', 'UU ITE', 'SARA singkatan dari?', 'Suku, Agama, Ras, dan Antargolongan.', [29, 30], 'What does SARA stand for?', 'Ethnicity (suku), Religion (agama), Race (ras), and inter-group relations (antargolongan).'),
+  fc('norm-vs-rule', 'Norms & ethics', 'Beda norma/etika vs aturan/regulasi.', 'Norma/etika: terkait moralitas, hanya "pedoman", hati nurani berperan; pelanggaran → rasa malu. Aturan/regulasi: operasional, menyatakan persyaratan, ketentuan, hukuman, sanksi; dibuat agar hidup bersama "nyaman"; pelanggaran → hukuman.', [24], 'Difference between norms/ethics and rules/regulations.', 'Norms/ethics: morality, only "guidelines", conscience; violation → shame. Rules/regulations: operational, requirements, penalties, sanctions; make communal life "comfortable"; violation → punishment.'),
+  fc('ethics-def', 'Norms & ethics', 'Definisi etika (slide 27).', 'Prinsip atau standar moral yang menjadi panduan perilaku, tindakan, dan pilihan.', [27], 'Definition of ethics (slide 27).', 'Moral principles or standards that guide behavior, actions and choices.'),
+  fc('computer-ethics-8', 'Computer ethics', 'Delapan prinsip Computer Ethics.', '1) Know the rules and the law. 2) Don’t assume that it’s okay if it’s legal. 3) Think scenarios. 4) When in doubt, talk it out. 5) Make yourself proud. 6) Remember the golden rule. 7) Take the long view. 8) Do your part.', [25], 'The eight Computer Ethics principles.', '1) Know the rules and the law. 2) Don’t assume it’s okay if it’s legal. 3) Think scenarios. 4) When in doubt, talk it out. 5) Make yourself proud. 6) Remember the golden rule. 7) Take the long view. 8) Do your part.'),
+  fc('netiquette-9', 'Netiquette', 'Sembilan butir Netiquette and Messaging Etiquette.', '1) Say what you mean; say it with care. 2) Keep it short. 3) Proofread your messages. 4) Don’t assume you are anonymous. 5) Learn the "nonverbal" language of the Net. 6) Know your abbreviations. 7) Keep your cool. 8) Don’t be a source of spam. 9) Say no—and say nothing—to spam.', [26], 'The nine Netiquette and Messaging Etiquette items.', '1) Say what you mean; say it with care. 2) Keep it short. 3) Proofread. 4) Don’t assume you are anonymous. 5) Learn the "nonverbal" language of the Net. 6) Know your abbreviations. 7) Keep your cool. 8) Don’t be a source of spam. 9) Say no—and say nothing—to spam.'),
+  fc('freedom', 'UU ITE', 'Kebebasan vs tanggung jawab sosial: inti slide.', 'Internet memberi kebebasan berpendapat yang bisa disalahgunakan; pemerintah menetapkan UU ITE; kita tetap bertanggung jawab atas apa yang dipikirkan, dikatakan, ditulis, online maupun offline.', [27], 'Freedom vs social responsibility: core of the slide.', 'The internet gives freedom of expression that can be abused; government set the ITE law; we remain responsible for what we think, say or write, online or offline.'),
+  fc('social-networking', 'Social media', 'Anjuran slide untuk media sosial.', 'Pahami manfaat dan kerugian; gunakan fitur grup untuk informasi khusus; think before you hit "send"; jangan bagikan konten SARA, pornografi, ilegal, atau yang memicu keresahan (ada mahasiswa ITB diskors karena SARA); batasi informasi pribadi di ruang publik.', [28, 29], 'Slide advice for social media.', 'Know benefits and drawbacks; use groups for specific info; think before you hit "send"; no SARA, pornography, illegal or unrest-causing content (an ITB student was suspended over SARA); limit personal info in public.'),
+  fc('ai-four', 'AI', 'Empat pendekatan AI (8 definisi).', 'Thinking humanly, Thinking rationally, Acting humanly, Acting rationally (Figure 1.1; 2 definisi tiap pendekatan).', [39], 'The four AI approaches (8 definitions).', 'Thinking humanly, thinking rationally, acting humanly, acting rationally (Figure 1.1; 2 definitions each).'),
+  fc('ai-th', 'AI', 'Thinking humanly: dua definisi.', 'Haugeland 1985: upaya baru membuat komputer berpikir … machines with minds, dalam arti penuh dan harfiah. Bellman 1978: [otomasi] aktivitas yang kita kaitkan dengan pemikiran manusia: pengambilan keputusan, pemecahan masalah, pembelajaran.', [39], 'Thinking humanly: two definitions.', 'Haugeland 1985: the exciting new effort to make computers think … machines with minds, in the full and literal sense. Bellman 1978: [automation of] activities associated with human thinking: decision-making, problem solving, learning.'),
+  fc('ai-tr', 'AI', 'Thinking rationally: dua definisi.', 'Charniak & McDermott 1985: studi tentang kemampuan mental melalui penggunaan model komputasional. Winston 1992: studi tentang komputasi yang memungkinkan persepsi, penalaran, dan tindakan (perceive, reason, act).', [39], 'Thinking rationally: two definitions.', 'Charniak & McDermott 1985: the study of mental faculties through computational models. Winston 1992: the study of the computations that make it possible to perceive, reason and act.'),
+  fc('ai-ah', 'AI', 'Acting humanly: dua definisi.', 'Kurzweil 1990: seni menciptakan mesin yang melakukan fungsi yang memerlukan kecerdasan bila dilakukan manusia. Rich & Knight 1991: studi tentang bagaimana membuat komputer melakukan hal-hal yang saat ini manusia masih lebih baik.', [39], 'Acting humanly: two definitions.', 'Kurzweil 1990: the art of creating machines that perform functions requiring intelligence when performed by people. Rich & Knight 1991: how to make computers do things at which, at the moment, people are better.'),
+  fc('ai-ar', 'AI', 'Acting rationally: dua definisi.', 'Poole et al. 1998: Computational Intelligence adalah studi tentang perancangan agen cerdas. Nilsson 1998: AI berkaitan dengan perilaku cerdas pada artefak.', [39], 'Acting rationally: two definitions.', 'Poole et al. 1998: Computational Intelligence is the study of the design of intelligent agents. Nilsson 1998: AI is concerned with intelligent behavior in artifacts.'),
+  fc('ai-history', 'AI', 'Tonggak sejarah AI (slide 40).', '1642 Pascal kalkulator mekanik; 1837 Babbage & Lovelace; 1943 McCulloch & Pitts jaringan saraf; 1950 Turing test; 1955 istilah "AI" diciptakan; 1965 ELIZA; 1980an expert systems (Feigenbaum); 1997 Deep Blue kalahkan Kasparov; 2002 Roomba; 2009 mobil swakemudi Google; 2011 Watson (Jeopardy!); 2011-2014 asisten Siri/Google Now/Cortana; 2014 GAN (Goodfellow); 2016 AlphaGo 4–1 atas Lee Sedol; 2018 kebanyakan universitas punya mata kuliah AI.', [40], 'Milestones in AI history (slide 40).', '1642 Pascal calculator; 1837 Babbage & Lovelace; 1943 McCulloch & Pitts neural networks; 1950 Turing test; 1955 "AI" coined; 1965 ELIZA; 1980s expert systems (Feigenbaum); 1997 Deep Blue beats Kasparov; 2002 Roomba; 2009 Google self-driving car; 2011 Watson (Jeopardy!); 2011–2014 Siri/Google Now/Cortana; 2014 GAN (Goodfellow); 2016 AlphaGo 4–1 over Lee Sedol; 2018 most universities have AI courses.'),
+  fc('ai-in-life', 'AI', 'Contoh AI dalam kehidupan (slide 42-54).', 'Asisten AI; verifikasi biometrik (sidik jari, wajah); OpenAI untuk Dota 2; AlphaStar (StarCraft II); FaceApp; recommender system; AI dalam lalu lintas (path finding, pola lalu lintas); fraud detection; self-driving cars; Proteus (robot gudang Amazon otonom); AI untuk kesehatan, manufaktur, pendidikan.', [42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54], 'Examples of AI in life (slides 42-54).', 'AI assistant; biometric verification (fingerprint, face); OpenAI for Dota 2; AlphaStar (StarCraft II); FaceApp; recommender system; AI in traffic (path finding, traffic patterns); fraud detection; self-driving cars; Proteus (Amazon autonomous warehouse robot); AI for health care, manufacturing, education.'),
+  fc('ai-adoption', 'AI', 'Adopsi AI per industri (Infosys Survey 2018): angka.', 'Farmasi/life sciences 58%; otomotif & aerospace 54%; telecoms 52%; energi/minyak-gas/utilitas 51%; manufacturing 50%; fast moving consumer goods 50%; healthcare 50%; layanan keuangan 47%; retail 44%; sektor publik 32%. (Persentase pelaku pasar yang berencana mengadopsi AI dalam 2 tahun.)', [55], 'AI adoption by industry (Infosys Survey 2018): numbers.', 'Pharma/life sciences 58%; automotive & aerospace 54%; telecoms 52%; energy/oil-gas/utilities 51%; manufacturing 50%; FMCG 50%; healthcare 50%; financial services 47%; retail 44%; public sector 32%.'),
+  fc('gen-ai-def', 'Generative AI', 'Definisi generative AI.', 'Subset AI yang memakai model generatif untuk menghasilkan teks, gambar, video, atau data lain, sering sebagai respons terhadap prompt; mempelajari pola dan struktur data latih sehingga dapat membuat data baru.', [56], 'Define generative AI.', 'A subset of AI using generative models to produce text, images, video or other data, often from prompts; learns patterns of training data to create new data.'),
+  fc('gen-ai-ex', 'Generative AI', 'Contoh generative AI per jenis.', 'Teks: GPT-3, GPT-4, GPT-4o, LaMDA, LLaMA, BLOOM, Gemini, Claude. Kode: GitHub Copilot, CodeT5, OpenAI Codex. Gambar: Imagen, DALL-E 3, Midjourney, Adobe Firefly, FLUX.1. Audio/musik: MusicLM, MusicGen.', [56], 'Generative AI examples by type.', 'Text: GPT-3, GPT-4, GPT-4o, LaMDA, LLaMA, BLOOM, Gemini, Claude. Code: GitHub Copilot, CodeT5, OpenAI Codex. Image: Imagen, DALL-E 3, Midjourney, Adobe Firefly, FLUX.1. Audio/music: MusicLM, MusicGen.'),
+  fc('ai-dangers-7', 'Dangers of AI', 'Tujuh bahaya AI.', '1) Bias and Inaccuracies; 2) Privacy Concerns; 3) Loss of Human Judgment; 4) Deepfakes and Manipulation; 5) Loss of Human Control; 6) Employment Disruption; 7) Existential and Long-term Risks (AGI tidak selaras dengan kepentingan manusia).', [58], 'The seven AI dangers.', '1) Bias and Inaccuracies; 2) Privacy Concerns; 3) Loss of Human Judgment; 4) Deepfakes and Manipulation; 5) Loss of Human Control; 6) Employment Disruption; 7) Existential and Long-term Risks (AGI misaligned with human interests).'),
+  fc('agentic-ai', 'Agentic AI', 'Definisi Agentic AI.', 'Sistem otonom yang tidak sekadar menghasilkan teks atau menjawab pertanyaan, tetapi secara mandiri mempersepsi lingkungan, merencanakan alur kerja multi-langkah, memakai tool/API, mengeksekusi aksi, dan merefleksikan hasil. Slide: "2026 onward".', [60], 'Define Agentic AI.', 'Autonomous systems that independently perceive their environment, plan multi-step workflows, use tools/APIs, execute actions and reflect on results. Slide: "2026 onward".'),
+  fc('agentic-examples', 'Agentic AI', 'Contoh nyata Agentic AI (3).', 'PayPal: deteksi fraud real-time dan pemrosesan transaksi. Oxford University Hospital + Microsoft: koordinasi langkah administratif, penilaian klinis sepenuhnya oleh manusia. Siemens: Fuse EDA AI Agent (Maret 2026), agen berlingkup domain yang mengorkestrasi alur multi-tool dari desain hingga sign-off.', [60], 'Real-world Agentic AI examples (3).', 'PayPal: real-time fraud detection and transaction processing. Oxford University Hospital + Microsoft: coordinating administrative steps, clinical judgment fully human. Siemens: Fuse EDA AI Agent (March 2026), a domain-scoped agent orchestrating multi-tool workflows from design to sign-off.'),
+]
+
+export const bank: BankFile = {
+  problems,
+  papers: [{
+    id: 'impact-drill',
+    title: 'Drill Bagian I – Dampak Teknologi Computing (10 soal)',
+    kind: 'generated',
+    minutes: 25,
+    note: 'Latihan buatan (tidak resmi), berdasarkan slide D11; proporsi topik meniru UTS 2025 Bagian I: pembelajaran digital, kecanduan/kekerasan, istilah, norma-etika, privasi, UU ITE/PDP, dunia kerja, definisi AI, dampak positif AI.',
+    problems: ['imp-i-01', 'imp-i-13', 'imp-i-07', 'imp-i-24', 'imp-i-18', 'imp-i-23', 'imp-i-32', 'imp-i-04', 'imp-i-36', 'imp-i-41'],
+  }],
+  flashcards,
+}
