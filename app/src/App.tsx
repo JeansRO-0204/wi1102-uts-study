@@ -1,9 +1,9 @@
 // App shell + hash router. Pages are lazy chunks so the bank and Pyodide only load where needed.
-// Routes (hash paths kept): #/ Home · #/latihan Practice · #/soal-lalu[/paper] Past papers · #/ujian Mock · #/kartu Cards · #/sintaks[/id] Syntax · #/progres Progress · #/problems[/id] Problems · #/bank · #/sandbox (Playground)
+// Routes (hash paths kept): #/ Home · #/latihan Practice · #/soal-lalu[/paper] Past papers · #/ujian Mock · #/kartu Cards · #/sintaks[/id] Syntax · #/progres Progress · #/problems[/id] Problems · #/bank · #/sandbox (Playground) · #/library[/src[/page]]
 import { Suspense, lazy, useCallback, useEffect, useState, type ComponentType } from 'react'
 import { PAGE_COUNT, PageCtx, PageLightbox } from './lib/kit'
 import type { PageRef } from './types'
-import { AppIcon, IconBook, IconCards, IconChart, IconChecklist, IconGrid, IconLayers, IconPencil, IconSlides, IconSparkles, IconTimer } from './lib/icons'
+import { AppIcon, IconBook, IconCards, IconChart, IconChecklist, IconGrid, IconLayers, IconPanels, IconPencil, IconSlides, IconSparkles, IconTimer } from './lib/icons'
 import './practice/practice.css'
 
 const Home = lazy(() => import('./pages/Home'))
@@ -15,16 +15,17 @@ const Mock = lazy(() => import('./practice/Mock'))
 const Cards = lazy(() => import('./practice/Cards'))
 const Progress = lazy(() => import('./practice/Progress'))
 const Problems = lazy(() => import('./practice/Problems'))
+const Library = lazy(() => import('./pages/Library'))
 // pages/Syntax.tsx is owned by another agent: resolved through the glob so a missing file never breaks the build
 const syntaxMods = import.meta.glob<{ default: ComponentType<{ id?: string }> }>('./pages/Syntax.tsx')
 const Syntax = lazy(() => (syntaxMods['./pages/Syntax.tsx']?.() ?? Promise.resolve({ default: () => <div className="pr-page"><p className="muted">Syntax page not available yet.</p></div> })))
 
 export type Route =
   | { page: 'home' } | { page: 'practice' } | { page: 'past'; id?: string } | { page: 'mock' } | { page: 'cards' }
-  | { page: 'syntax'; id?: string } | { page: 'progress' } | { page: 'problems'; id?: string } | { page: 'bank'; id?: string } | { page: 'sandbox' }
+  | { page: 'syntax'; id?: string } | { page: 'progress' } | { page: 'problems'; id?: string } | { page: 'bank'; id?: string } | { page: 'sandbox' } | { page: 'library'; id?: string; n?: number }
 
 function parse(hash: string): Route {
-  const [, page, a] = hash.replace(/^#/, '').split('?')[0].split('/')
+  const [, page, a, b] = hash.replace(/^#/, '').split('?')[0].split('/')
   switch (page) {
     case 'latihan': return { page: 'practice' }
     case 'soal-lalu': return { page: 'past', id: a }
@@ -35,6 +36,7 @@ function parse(hash: string): Route {
     case 'problems': return { page: 'problems', id: a }
     case 'bank': return { page: 'bank', id: a }
     case 'sandbox': return { page: 'sandbox' }
+    case 'library': return { page: 'library', id: a, n: b ? Number(b) || undefined : undefined }
     default: return { page: 'home' }
   }
 }
@@ -46,6 +48,7 @@ const TABS: { page: Route['page']; href: string; label: string; icon: typeof Ico
   { page: 'past', href: '#/soal-lalu', label: 'Past papers', icon: IconChecklist },
   { page: 'mock', href: '#/ujian', label: 'Mock exam', icon: IconTimer },
   { page: 'cards', href: '#/kartu', label: 'Flashcards', icon: IconCards },
+  { page: 'library', href: '#/library', label: 'Library', icon: IconPanels },
   { page: 'syntax', href: '#/sintaks', label: 'Syntax', icon: IconSlides },
   { page: 'sandbox', href: '#/sandbox', label: 'Playground', icon: IconSparkles },
   { page: 'progress', href: '#/progres', label: 'Progress', icon: IconChart },
@@ -84,6 +87,7 @@ export default function App() {
           {route.page === 'progress' && <div className="pr-fill"><Progress /></div>}
           {route.page === 'bank' && <BankBrowser id={route.id} />}
           {route.page === 'sandbox' && <Sandbox />}
+          {route.page === 'library' && <Library key={route.id ?? ''} src={route.id} page={route.n} />}
         </Suspense></main>
       </div>
       <PageLightbox at={page} onClose={() => setPage(null)} onNav={(n) => setPage((s) => (s ? { ...s, page: n } : s))} />

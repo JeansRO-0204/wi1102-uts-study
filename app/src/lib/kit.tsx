@@ -58,7 +58,7 @@ export function srcShort(src: string) {
 /** Clickable citation chip "[D06 h12]" that opens the page lightbox. */
 export function PageChip({ r }: { r: PageRef }) {
   const open = useContext(PageCtx)
-  return <button className="slide-ref" onClick={() => open(r)} title="Buka halaman sumber">{srcShort(r.src)} h{r.page}</button>
+  return <button className="slide-ref" onClick={() => open(r)} title="Open the source page">{srcShort(r.src)} p{r.page}</button>
 }
 export function PageLightbox({ at, onClose, onNav }: { at: PageRef | null; onClose: () => void; onNav: (n: number) => void }) {
   const total = at ? PAGE_COUNT[at.src] ?? 0 : 0
@@ -76,12 +76,13 @@ export function PageLightbox({ at, onClose, onNav }: { at: PageRef | null; onClo
   return (
     <div className="lightbox" onClick={onClose}>
       <figure onClick={(e) => e.stopPropagation()}>
-        <img src={pageSrc(at.src, at.page)} alt={`${at.src} halaman ${at.page}`} />
+        <img src={pageSrc(at.src, at.page)} alt={`${at.src} page ${at.page}`} />
         <figcaption>
-          <button disabled={at.page <= 1} onClick={() => onNav(at.page - 1)} aria-label="Halaman sebelumnya"><IconChevronLeft size={16} /></button>
-          <span>{srcShort(at.src)} · halaman {at.page}{total ? ` / ${total}` : ''}</span>
-          <button disabled={!!total && at.page >= total} onClick={() => onNav(at.page + 1)} aria-label="Halaman berikutnya"><IconChevronRight size={16} /></button>
-          <button onClick={onClose}>Tutup</button>
+          <button disabled={at.page <= 1} onClick={() => onNav(at.page - 1)} aria-label="Previous page"><IconChevronLeft size={16} /></button>
+          <span>{srcShort(at.src)} · page {at.page}{total ? ` / ${total}` : ''}</span>
+          <button disabled={!!total && at.page >= total} onClick={() => onNav(at.page + 1)} aria-label="Next page"><IconChevronRight size={16} /></button>
+          <a href={`#/library/${at.src}/${at.page}`} onClick={onClose}>Open in library</a>
+          <button onClick={onClose}>Close</button>
         </figcaption>
       </figure>
     </div>

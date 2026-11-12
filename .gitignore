@@ -6,3 +6,5 @@ dist
 ref/
 # the original scan shows a student's name/NIM: only the redacted page images (app/public/pages/UTS2025_attempt_scan) are kept
 materials/past/UTS2025_attempt_scan.pdf
+app/public/materials/
+app/public/library.json
