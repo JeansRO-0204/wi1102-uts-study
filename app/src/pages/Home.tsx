@@ -58,6 +58,7 @@ export default function Home() {
         })}
       </div>
       <div className="pr-modes">
+        <a className="pr-mode accent" href="#/learn"><b>{tr(lang, 'Belajar', 'Learn')}</b><p>{tr(lang, 'Materi terpandu per deck, dengan contoh yang bisa dijalankan.', 'Guided lessons per deck, with runnable examples and checks.')}</p></a>
         <a className="pr-mode" href="#/soal-lalu"><b>{tr(lang, 'Soal lalu', 'Past papers')}</b><p>{tr(lang, 'Setiap paper, urut seperti aslinya.', 'Every paper in order.')}</p></a>
         <a className="pr-mode" href="#/ujian"><b>{tr(lang, 'Ujian simulasi', 'Mock exam')}</b><p>{tr(lang, 'Berwaktu, bisa dicetak, lalu nilai diri.', 'Timed, printable, then self-mark.')}</p></a>
         <a className={'pr-mode' + (due ? ' accent' : '')} href="#/kartu"><b>{tr(lang, 'Kartu', 'Flashcards')}</b><p>{due ? `${due} ${tr(lang, 'jatuh tempo hari ini', 'due today')}` : tr(lang, 'Leitner 1·2·4·8 hari.', 'Leitner 1·2·4·8 days.')}</p></a>

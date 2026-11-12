@@ -1,5 +1,5 @@
 // App shell + hash router. Pages are lazy chunks so the bank and Pyodide only load where needed.
-// Routes (hash paths kept): #/ Home · #/latihan Practice · #/soal-lalu[/paper] Past papers · #/ujian Mock · #/kartu Cards · #/sintaks[/id] Syntax · #/progres Progress · #/problems[/id] Problems · #/bank · #/sandbox (Playground) · #/library[/src[/page]]
+// Routes (hash paths kept): #/ Home · #/latihan Practice · #/soal-lalu[/paper] Past papers · #/ujian Mock · #/kartu Cards · #/sintaks[/id] Syntax · #/progres Progress · #/problems[/id] Problems · #/bank · #/sandbox (Playground) · #/library[/src[/page]] · #/learn[/deck[/section]]
 import { Suspense, lazy, useCallback, useEffect, useState, type ComponentType } from 'react'
 import { PAGE_COUNT, PageCtx, PageLightbox } from './lib/kit'
 import type { PageRef } from './types'
@@ -16,13 +16,14 @@ const Cards = lazy(() => import('./practice/Cards'))
 const Progress = lazy(() => import('./practice/Progress'))
 const Problems = lazy(() => import('./practice/Problems'))
 const Library = lazy(() => import('./pages/Library'))
+const Learn = lazy(() => import('./pages/Learn'))
 // pages/Syntax.tsx is owned by another agent: resolved through the glob so a missing file never breaks the build
 const syntaxMods = import.meta.glob<{ default: ComponentType<{ id?: string }> }>('./pages/Syntax.tsx')
 const Syntax = lazy(() => (syntaxMods['./pages/Syntax.tsx']?.() ?? Promise.resolve({ default: () => <div className="pr-page"><p className="muted">Syntax page not available yet.</p></div> })))
 
 export type Route =
   | { page: 'home' } | { page: 'practice' } | { page: 'past'; id?: string } | { page: 'mock' } | { page: 'cards' }
-  | { page: 'syntax'; id?: string } | { page: 'progress' } | { page: 'problems'; id?: string } | { page: 'bank'; id?: string } | { page: 'sandbox' } | { page: 'library'; id?: string; n?: number }
+  | { page: 'syntax'; id?: string } | { page: 'progress' } | { page: 'problems'; id?: string } | { page: 'bank'; id?: string } | { page: 'sandbox' } | { page: 'library'; id?: string; n?: number } | { page: 'learn'; id?: string; sec?: string }
 
 function parse(hash: string): Route {
   const [, page, a, b] = hash.replace(/^#/, '').split('?')[0].split('/')
@@ -36,6 +37,7 @@ function parse(hash: string): Route {
     case 'problems': return { page: 'problems', id: a }
     case 'bank': return { page: 'bank', id: a }
     case 'sandbox': return { page: 'sandbox' }
+    case 'learn': return { page: 'learn', id: a, sec: b }
     case 'library': return { page: 'library', id: a, n: b ? Number(b) || undefined : undefined }
     default: return { page: 'home' }
   }
@@ -43,6 +45,7 @@ function parse(hash: string): Route {
 
 const TABS: { page: Route['page']; href: string; label: string; icon: typeof IconBook }[] = [
   { page: 'home', href: '#/', label: 'Home', icon: IconBook },
+  { page: 'learn', href: '#/learn', label: 'Learn', icon: IconSlides },
   { page: 'practice', href: '#/latihan', label: 'Practice', icon: IconPencil },
   { page: 'problems', href: '#/problems', label: 'Problems', icon: IconLayers },
   { page: 'past', href: '#/soal-lalu', label: 'Past papers', icon: IconChecklist },
@@ -87,6 +90,7 @@ export default function App() {
           {route.page === 'progress' && <div className="pr-fill"><Progress /></div>}
           {route.page === 'bank' && <BankBrowser id={route.id} />}
           {route.page === 'sandbox' && <Sandbox />}
+          {route.page === 'learn' && <Learn key={route.id ?? ''} deck={route.id} section={route.sec} />}
           {route.page === 'library' && <Library key={route.id ?? ''} src={route.id} page={route.n} />}
         </Suspense></main>
       </div>
