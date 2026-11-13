@@ -1,7 +1,7 @@
 // Flashcards: Leitner boxes (1, 2, 4, 8 days). Space flips, 1–4 grades, Z changes the last grade.
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { FLASHCARDS } from '../bank'
-import { Md } from '../lib/kit'
+import { Md, isTyping } from '../lib/kit'
 import { DECKS, type DeckId, type Flashcard } from '../types'
 import { ItemLangToggle, UI_LANG, useLang } from './Hints'
 import { shuffled } from './pool'
@@ -59,7 +59,7 @@ export default function Cards() {
   useEffect(() => {
     const f = (e: KeyboardEvent) => {
       const t = e.target as HTMLElement | null
-      if (t && ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName)) return
+      if (isTyping(e)) return
       if (e.key === ' ' || e.key === 'Enter') { if (t?.tagName === 'BUTTON') return; e.preventDefault(); if (st.current.cur) setFlipped((x) => !x) }
       else if (['1', '2', '3', '4'].includes(e.key) && (st.current.flipped || changing)) gradeRef.current(GRADES[Number(e.key) - 1].g)
       else if (e.key.toLowerCase() === 'z' && st.current.last) setChanging((c) => !c)

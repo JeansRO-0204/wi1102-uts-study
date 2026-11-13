@@ -3,7 +3,7 @@
 // #/library/<src>[/n]  → reader: continuous page images, page jump, PDF open/download; click a page to zoom.
 // Text index and PDFs come from build/library.mjs (public/library.json, public/materials/*.pdf).
 import { useContext, useEffect, useMemo, useRef, useState } from 'react'
-import { PAGE_COUNT, PageCtx, pageSrc } from '../lib/kit'
+import { PAGE_COUNT, PageCtx, isTyping, pageSrc } from '../lib/kit'
 import { IconArrowLeft, IconChevronLeft, IconChevronRight } from '../lib/icons'
 import './library.css'
 
@@ -223,7 +223,7 @@ function Reader({ doc, start }: { doc: Doc; start?: number }) {
   }
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
-      if ((e.target as HTMLElement)?.closest('input,select,textarea')) return
+      if (isTyping(e)) return
       if (e.key === 'j') goTo(cur + 1)
       if (e.key === 'k') goTo(cur - 1)
     }

@@ -9,6 +9,7 @@ import { ProblemView, problemScore } from './QuestionView'
 import { groupBy, type Source } from './store'
 import { Bar, accColor, fmt04, pct, rubricLetter, tr } from './ui'
 import { IconChevronLeft, IconChevronRight, IconTimer } from '../lib/icons'
+import { isTyping } from '../lib/kit'
 
 export interface SessionProps {
   title: string
@@ -58,7 +59,7 @@ export default function Session(p: SessionProps) {
     if (finished) return
     const f = (e: KeyboardEvent) => {
       const t = e.target as HTMLElement | null
-      if (t && ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName)) return
+      if (isTyping(e)) return
       if (e.metaKey || e.ctrlKey || e.altKey) return
       if (e.key === 'ArrowLeft') { e.preventDefault(); setIdx((i) => Math.max(0, i - 1)) }
       else if (e.key === 'ArrowRight') { e.preventDefault(); setIdx((i) => Math.min(ps.length - 1, i + 1)) }

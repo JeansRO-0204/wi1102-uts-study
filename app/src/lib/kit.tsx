@@ -66,6 +66,7 @@ export function PageLightbox({ at, onClose, onNav }: { at: PageRef | null; onClo
     if (!at) return
     const k = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
+      if (isTyping(e)) return
       if (e.key === 'ArrowRight' && (!total || at.page < total)) onNav(at.page + 1)
       if (e.key === 'ArrowLeft' && at.page > 1) onNav(at.page - 1)
     }
@@ -213,4 +214,11 @@ export function recordAttempt(a: { id: string; deck: DeckId; topic: string; corr
     log.push({ ...a, t: Date.now() })
     localStorage.setItem('bk.attempts', JSON.stringify(log.slice(-5000)))
   } catch { /* ignore */ }
+}
+
+/** True when a key event comes from somewhere the user is typing (inputs, textareas, selects, contenteditable such as CodeMirror). */
+export function isTyping(e: { target: EventTarget | null }): boolean {
+  const t = e.target as HTMLElement | null
+  if (!t || !t.tagName) return false
+  return ['INPUT', 'TEXTAREA', 'SELECT'].includes(t.tagName) || t.isContentEditable || !!t.closest?.('.cm-editor,[contenteditable="true"],[role="textbox"]')
 }
