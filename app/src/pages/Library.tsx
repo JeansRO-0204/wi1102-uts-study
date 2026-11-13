@@ -25,11 +25,6 @@ const DOCS: Doc[] = [
   { src: 'D06_Array', title: '06 · Array', group: 'slides', lang: 'en' },
   { src: 'D10_Subprogram', title: '10 · Subprogram', group: 'slides', lang: 'en' },
   { src: 'D11_ComputingImpact', title: '11 · Computing Impact', group: 'slides', lang: 'en' },
-  { src: 'Module_Python', title: 'Python Module', group: 'practicum', lang: 'en' },
-  { src: 'Praktikum1_BasicStructure', title: 'Practicum 1 · Basic Structure', group: 'practicum', lang: 'en' },
-  { src: 'Praktikum2_Conditionals', title: 'Practicum 2 · Conditionals', group: 'practicum', lang: 'en' },
-  { src: 'Praktikum3_LoopArray', title: 'Practicum 3 · Loops & Arrays', group: 'practicum', lang: 'en' },
-  { src: 'Praktikum4_Subprogram', title: 'Practicum 4 · Subprograms', group: 'practicum', lang: 'en' },
   { src: 'D05_ExtraExercises', title: 'Deck 05 Extra Exercises', group: 'practice', lang: 'en' },
   { src: 'D04_LatihanPython', title: 'Week 4 Python Exercises (Latihan Python)', group: 'practice', lang: 'id' },
   { src: 'D06_ArrayExercises', title: 'Deck 06 Array Exercises', group: 'practice', lang: 'id' },
@@ -51,6 +46,14 @@ const DOCS: Doc[] = [
   { src: 'UTS_KU1102_2023', title: 'KU1102 UTS 2023 (programming stream)', group: 'older', lang: 'id' },
   { src: 'KU1102_LatihanSoal_2019', title: 'KU1102 Practice Problems 2019', group: 'older', lang: 'id' },
 ]
+// the practicum sheets are course-internal: listed only on a local dev server, never on the public site
+if (import.meta.env.DEV) DOCS.push(
+  { src: 'Module_Python', title: 'Python Module', group: 'practicum', lang: 'en' },
+  { src: 'Praktikum1_BasicStructure', title: 'Practicum 1 · Basic Structure', group: 'practicum', lang: 'en' },
+  { src: 'Praktikum2_Conditionals', title: 'Practicum 2 · Conditionals', group: 'practicum', lang: 'en' },
+  { src: 'Praktikum3_LoopArray', title: 'Practicum 3 · Loops & Arrays', group: 'practicum', lang: 'en' },
+  { src: 'Praktikum4_Subprogram', title: 'Practicum 4 · Subprograms', group: 'practicum', lang: 'en' },
+)
 /** Outside resources, shown on Home and the Library. */
 export const LINKS = [
   { href: 'https://acads.steik-site.com/academic', title: 'Acads STEI-K 2025', desc: 'Academic division site: materials and exam prep for the cohort' },
@@ -108,7 +111,7 @@ function Shelves() {
       <div className="lib-search">
         <input type="search" placeholder="Search all materials, e.g. KAMUS, while, return, decomposition…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search all materials" autoFocus />
         <select value={group} onChange={(e) => setGroup(e.target.value as '' | GroupId)} aria-label="Collection">
-          <option value="">All collections</option>{GROUPS.map((g) => <option key={g.id} value={g.id}>{g.title}</option>)}
+          <option value="">All collections</option>{GROUPS.filter((g) => DOCS.some((d) => d.group === g.id)).map((g) => <option key={g.id} value={g.id}>{g.title}</option>)}
         </select>
       </div>
 
@@ -132,7 +135,7 @@ function Shelves() {
           )}
         </section>
       ) : (
-        GROUPS.filter((g) => !group || g.id === group).map((g) => (
+        GROUPS.filter((g) => (!group || g.id === group) && DOCS.some((d) => d.group === g.id)).map((g) => (
           <section key={g.id} className="lib-shelf">
             <h3>{g.title}</h3>
             <p className="muted">{g.blurb}</p>

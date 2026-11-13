@@ -40,6 +40,8 @@ const flowMod = await optional<{ flowToPython(f: unknown): { code: string; error
 
 /* ---------- load bank ---------- */
 const pageIndex = JSON.parse(readFileSync(path.join(ROOT, 'app/public/pages/index.json'), 'utf8')) as Record<string, number>
+// local-only sources (gitignored page folders, e.g. the practicum sheets) aren't in the tracked index: count their images
+for (const d of readdirSync(path.join(ROOT, 'app/public/pages'), { withFileTypes: true })) if (d.isDirectory() && !pageIndex[d.name]) pageIndex[d.name] = readdirSync(path.join(ROOT, 'app/public/pages', d.name)).filter((x) => x.endsWith('.jpg')).length
 const problems: { p: Problem; file: string }[] = []
 const flashFiles: [string, { id: string; topic: string }[]][] = []
 for (const f of readdirSync(BANK).filter((f) => f.endsWith('.ts') && f !== 'index.ts' && !f.startsWith('_')).sort()) {

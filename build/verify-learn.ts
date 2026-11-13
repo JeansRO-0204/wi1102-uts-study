@@ -34,6 +34,8 @@ for (const f of readdirSync(path.join(ROOT, 'app/src/bank')).filter((f) => f.end
 const syntaxSrc = readFileSync(path.join(ROOT, 'app/src/content/syntax.ts'), 'utf8')
 const syntaxIds = new Set([...syntaxSrc.matchAll(/^\s*id: '([a-z-]+)'/gm)].map((m) => m[1]))
 const pageIndex = JSON.parse(readFileSync(path.join(ROOT, 'app/public/pages/index.json'), 'utf8')) as Record<string, number>
+// local-only sources (gitignored page folders, e.g. the practicum sheets) aren't in the tracked index: count their images
+for (const d of readdirSync(path.join(ROOT, 'app/public/pages'), { withFileTypes: true })) if (d.isDirectory() && !pageIndex[d.name]) pageIndex[d.name] = readdirSync(path.join(ROOT, 'app/public/pages', d.name)).filter((x) => x.endsWith('.jpg')).length
 const checkRef = (w: string, r: PageRef) => { const n = pageIndex[r.src]; if (!n) err(w, `unknown source '${r.src}'`); else if (r.page < 1 || r.page > n) err(w, `${r.src} has ${n} pages, cited p${r.page}`) }
 const checkNotes = (w: string, notes: LineNote[] | undefined, src: string) => {
   const n = src.replace(/\n+$/, '').split('\n').length

@@ -17,6 +17,7 @@ for (const g of readdirSync(join(root, 'materials'))) {
 const chunks = join(root, 'knowledge/chunks.jsonl')
 if (existsSync(chunks)) {
   const pages = readFileSync(chunks, 'utf8').trim().split('\n').map((l) => JSON.parse(l))
+    .filter((c) => existsSync(join(root, 'app/public/pages', c.src, '001.jpg'))) // no page images (e.g. the local-only practicum sheets in CI) → not indexed
     .map((c) => [c.src, c.page, c.text.replace(/[ \t]+/g, ' ').replace(/\s*\n\s*/g, '\n').trim()])
   // page counts and the first page's pixel size (so the reader can reserve space before lazy images load)
   const counts = {}, dims = {}
