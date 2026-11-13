@@ -30,8 +30,13 @@ def page_text(pdf, n):
 def main():
     KNOW.mkdir(exist_ok=True)
     chunks, corpus, rows, counts = [], ["# WI1102 source corpus (page by page)\n"], [], {}
+    # the practicum sheets + Python module are course-internal: their text goes to knowledge/local/ (gitignored), never the repo
+    lchunks, lcorpus = [], []
     for pdf in sorted(MAT.glob("*/*.pdf")):
         src, group = pdf.stem, pdf.parent.name
+        local = group == "practicum"
+        if local:
+            chunks, corpus, lchunks, lcorpus = lchunks, lcorpus, chunks, corpus
         n = page_count(pdf)
         counts[src] = n
         words = 0
@@ -45,9 +50,17 @@ def main():
             corpus.append(f"\n## [{src} h{p}]\n")
             corpus.append(text if w >= 15 else (text + "\n\n> (little or no text layer: read the page image " + img + ")"))
         scanned = words < 30 * n
+        if local:
+            chunks, corpus, lchunks, lcorpus = lchunks, lcorpus, chunks, corpus
+            del counts[src]
+            continue
         rows.append(f"| {group} | `{src}` | {n} | {words} | {'**scanned: read images**' if scanned else ''} |")
     (KNOW / "chunks.jsonl").write_text("".join(json.dumps(c, ensure_ascii=False) + "\n" for c in chunks))
     (KNOW / "corpus.md").write_text("\n".join(corpus) + "\n")
+    if lchunks:
+        (KNOW / "local").mkdir(exist_ok=True)
+        (KNOW / "local" / "chunks.jsonl").write_text("".join(json.dumps(c, ensure_ascii=False) + "\n" for c in lchunks))
+        (KNOW / "local" / "corpus.md").write_text("\n".join(lcorpus) + "\n")
     (KNOW / "SOURCES.md").write_text(
         "# Sources\n\nPage images: `app/public/pages/<src>/NNN.jpg` (1-based, 3 digits). Text: `knowledge/corpus.md`.\n\n"
         "| group | src | pages | words | note |\n|---|---|---|---|---|\n" + "\n".join(rows) + "\n"
