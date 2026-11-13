@@ -9,6 +9,7 @@ import { ItemLangToggle, effLang, loc, useLang, type Lang } from './Hints'
 import { logAttempt, toggleFlag, usePStore, type Source } from './store'
 import { partWeights, sourceText } from './pool'
 import { Figures, fmt04, rubricLetter, tr } from './ui'
+import CopyMenu from './CopyMenu'
 
 const VIEWS: Record<QKind, ComponentType<QViewProps<any>>> = {
   'mcq-multi': lazy(() => import('../views/McqMulti')),
@@ -28,7 +29,8 @@ export const KIND_LABEL: Record<QKind, string> = {
   robot: 'Robot', program: 'Program', trace: 'Read a program', bug: 'Find the bug',
 }
 
-export function ProblemHeader({ problem, lang }: { problem: Problem; lang: Lang }) {
+/** `allowAnswer`: offer "copy with answer" (not while a Paper-mode attempt is still open) */
+export function ProblemHeader({ problem, lang, allowAnswer = true }: { problem: Problem; lang: Lang; allowAnswer?: boolean }) {
   const title = (lang === 'en' && problem.en?.title) || problem.title
   const intro = (lang === 'en' && problem.en?.intro) || problem.intro
   const s = problem.source
@@ -40,6 +42,7 @@ export function ProblemHeader({ problem, lang }: { problem: Problem; lang: Lang 
         {s.outOfScope && <span className="chip err">{tr(lang, 'di luar cakupan', 'out of scope')}</span>}
         {problem.paperWeight != null && <span className="chip">{tr(lang, 'bobot soal', 'problem weight')} {Math.round(problem.paperWeight * 100)}%</span>}
         {problem.minutes != null && <span className="chip">~{problem.minutes} {tr(lang, 'menit', 'min')}</span>}
+        <CopyMenu problem={problem} lang={lang} allowAnswer={allowAnswer} label={problem.parts.length > 1 ? tr(lang, 'Salin soal', 'Copy problem') : undefined} />
       </div>
       <h3 className="pq-prob-title">{title}</h3>
       {s.lang === 'id' && <div className="pq-langtg"><ItemLangToggle srcLang={s.lang} /></div>}
@@ -92,7 +95,7 @@ export default function QuestionView({ q, problem, mode, review: reviewProp, onD
   const multi = problem.parts.length > 1
   return (
     <article className={'pq-q' + (compact ? ' compact' : '')} data-kind={q.kind}>
-      {header && <ProblemHeader problem={problem} lang={lang} />}
+      {header && <ProblemHeader problem={problem} lang={lang} allowAnswer={mode !== 'test' || done} />}
       <div className="pq-meta">
         {q.label && <span className="chip pq-part">{multi ? tr(lang, 'Bagian', 'Part') + ' ' : ''}{q.label}</span>}
         <span className="chip">{KIND_LABEL[q.kind]}</span>
@@ -119,6 +122,7 @@ export default function QuestionView({ q, problem, mode, review: reviewProp, onD
       <footer className="pq-foot">
         {q.refs?.map((r) => <PageChip key={r.src + r.page} r={r} />)}
         <span className="grow" />
+        {multi && <CopyMenu problem={problem} lang={lang} parts={[q]} allowAnswer={mode !== 'test' || done} label={multi ? tr(lang, 'Salin bagian ini', 'Copy this part') : undefined} />}
         <button className={'btn sm' + (flagged ? ' on' : '')} onClick={() => toggleFlag(q.id)} title={tr(lang, 'Tandai untuk diulang nanti', 'Mark to revisit later')}>{flagged ? '⚑ ' + tr(lang, 'Ditandai', 'Flagged') : '⚐ ' + tr(lang, 'Tandai', 'Flag')}</button>
       </footer>
     </article>
@@ -165,7 +169,7 @@ export function ProblemView({ problem, mode, outs, onPartDone, layout = 'steps',
   const parts = layout === 'stack' ? problem.parts.map((_, i) => i) : [part]
   return (
     <div className={'pq-problem' + (layout === 'stack' ? ' stack' : '')}>
-      {!noHeader && <ProblemHeader problem={problem} lang={lang} />}
+      {!noHeader && <ProblemHeader problem={problem} lang={lang} allowAnswer={mode !== 'test' || sc.complete} />}
       {multi && layout === 'steps' && (
         <div className="pq-parts seg" role="tablist">
           {problem.parts.map((q, i) => {

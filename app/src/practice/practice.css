@@ -469,3 +469,15 @@ a.pb-row:hover { background: var(--accent-soft); }
   .pb-c-arch, .pb-c-tags, .pb-c-acc, .pb-th { display: none; }
   .pb-c-src { grid-column: 2 / 4; }
 }
+
+/* ---------- copy menu (question → Markdown / figures → PNG) ---------- */
+.cp-menu { position: relative; display: inline-block; }
+.cp-menu > summary { list-style: none; cursor: pointer; user-select: none; }
+.cp-menu > summary::-webkit-details-marker { display: none; }
+.cp-pop { position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; min-width: 260px; max-width: min(340px, 86vw); display: grid; gap: 2px; padding: 6px;
+  background: var(--panel-solid); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow-lg); }
+.cp-pop button, .cp-pop .cp-off { display: grid; gap: 1px; text-align: left; padding: 8px 10px; border-radius: 7px; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+.cp-pop button:hover, .cp-pop button:focus-visible { background: var(--soft); }
+.cp-pop small { color: var(--muted); font-size: 12px; }
+.cp-pop .cp-off { opacity: .5; cursor: default; }
+.pq-prob .pq-meta .cp-menu { margin-left: auto; }
