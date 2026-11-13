@@ -243,7 +243,22 @@ function langCheck(file: string, p: Problem) {
   const out: string[] = langIssues.get(file) ?? []
   const add = (id: string, m: string) => out.push(`${id}: ${m}`)
   const lang = p.source.lang
+  // an English mirror must keep the source's structure: same GFM table rows, code fences and list items (no summaries)
+  const shape = (s: string) => { const L = s.split('\n'); return [L.filter((l) => /^\s*\|.*\|\s*$/.test(l)).length, (s.match(/```/g) ?? []).length, L.filter((l) => /^\s*([-*]|\d+[.)])\s+/.test(l)).length] }
+  const same = (id: string, k: string, a: unknown, b: unknown) => {
+    if (typeof a !== 'string' || typeof b !== 'string') return
+    const [ta, fa, la] = shape(a), [tb, fb, lb] = shape(b)
+    if (ta !== tb) add(id, `en.${k} has ${tb} table rows, the source has ${ta}`)
+    if (fa !== fb) add(id, `en.${k} has ${fb / 2} code blocks, the source has ${fa / 2}`)
+    if (la !== lb) add(id, `en.${k} has ${lb} list items, the source has ${la}`)
+  }
   if (lang === 'id') {
+    same(p.id, 'intro', p.intro, p.en?.intro)
+    for (const q of p.parts) {
+      same(q.id, 'stem', q.stem, q.en?.stem); same(q.id, 'explanation', q.explanation, q.en?.explanation)
+      if (q.kind === 'open') same(q.id, 'answer', q.answer, q.en?.answer)
+      q.work?.forEach((w, i) => same(q.id, `work[${i}]`, w, q.en?.work?.[i]))
+    }
     if (p.intro && !p.en?.intro) add(p.id, 'intro without en.intro')
     if (!p.en?.title && /\b(soal|dan|yang)\b/i.test(p.title)) add(p.id, 'title without en.title')
   }

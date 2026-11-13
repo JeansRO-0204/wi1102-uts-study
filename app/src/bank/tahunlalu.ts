@@ -61,7 +61,7 @@ const problems: Problem[] = [
       why: ['Tidak ada botol 37 liter.', 'Tidak ada dua ukuran (boleh kembar) di antara 1, 2, 4, 8, 16, 32 yang berjumlah 37.', '32 + 4 + 1 = 37.', 'Ada solusi dengan 3 botol, jadi 4 bukan yang paling sedikit.'],
       explanation: 'Jawaban: **3 botol** (32 + 4 + 1 = 37). Tidak ada botol 37 liter dan tidak ada dua ukuran yang berjumlah 37, sehingga minimal 3. Secara biner 37 = 100101₂, yaitu tiga bit 1 (32, 4, 1): greedy dengan mengambil botol terbesar yang muat memberi jumlah botol minimum karena ukuran botol berupa pangkat dua.',
       hints: ['Ambil botol terbesar yang tidak melebihi sisa, lalu ulangi untuk sisanya.'],
-      en: { stem: 'What is the smallest number of bottles Kumi needs to pack the oil?' },
+      en: { stem: "What is the smallest number of bottles that Kumi uses to pack that essential oil?" },
     }],
   },
   {
@@ -75,7 +75,7 @@ const problems: Problem[] = [
       blanks: [{ label: 'Banyak tebakan salah', type: 'number', accept: ['1'], wrong: [{ match: '2', msg: 'Itu total tebakan (6, lalu 9). Kunci soal menghitung tebakan yang salah sebelum tebakan benar: hanya 1 (yaitu 6).' }] }],
       explanation: 'Jawaban kunci: **1 kali** (salah). Tebak angka tengah 6; salah, jawabannya "lebih besar". Sisa 7–11, tebak tengah 9: benar. Jadi satu tebakan salah sebelum tebakan yang benar (total 2 tebakan). Strategi membagi dua ini adalah binary search. Catatan: kalimat soal ambigu ("minimal"), karena menebak 9 langsung secara kebetulan butuh 0 salah; pembahasan sumber menghitung dengan strategi tengah-tengah.',
       hints: ['Tebak angka yang paling tengah di rentang, lalu persempit rentang setengahnya.'],
-      en: { stem: 'If Bobros\'s number is 9, how many wrong guesses at minimum does Bebras make before guessing correctly, guessing the middle number each time?' },
+      en: { stem: "If the number that Bobros keeps is 9, at minimum how many times must Bebras guess (wrongly) before his guess is correct, by guessing the middle number each time?" },
     }],
   },
   {
@@ -119,7 +119,7 @@ const problems: Problem[] = [
       ],
       explanation: 'Jawaban: **b**. 53.000 = 32.000 + 16.000 + 4.000 + 1.000 (biner 110101), jadi 1 truk E, 1 truk F, 1 truk C, dan 1 truk A: 4 truk. Karena kapasitas berupa pangkat dua dan tiap truk harus penuh, representasi biner memberi jumlah truk paling sedikit (tiap ukuran dipakai paling banyak sekali).',
       hints: ['Ubah 53 (ribu liter) ke bilangan biner; tiap bit 1 adalah satu truk.'],
-      en: { stem: 'A customer in Bogor orders 53,000 L. Which truck types, and how many of each, must be dispatched?' },
+      en: { stem: "A customer in Bogor orders 53,000 L. Write down which types of trucks must be dispatched, along with the number of trucks!" },
     }],
   },
   {
@@ -147,7 +147,7 @@ const problems: Problem[] = [
       blanks: [{ label: 'Tebakan maksimal', type: 'number', accept: ['7'], wrong: [{ match: '6', msg: '2^6 = 64 < 100, belum cukup menutup 100 kemungkinan.' }, { match: '100', msg: 'Itu pencarian linear. Dengan membagi dua setiap kali jauh lebih sedikit.' }] }],
       explanation: 'Jawaban: **7 tebakan**. Dengan binary search tiap tebakan membagi dua kemungkinan; k tebakan menutup hingga 2^k − 1 bilangan (dengan jawaban benar/kecil/besar). Karena 2^6 = 64 < 100 ≤ 2^7 = 128, diperlukan paling banyak 7 tebakan.',
       hints: ['Tebak bilangan tengah; setiap tebakan menyingkirkan setengah kemungkinan.'],
-      en: { stem: 'Using the best strategy, what is the maximum number of guesses Binti needs?' },
+      en: { stem: "If Binti uses the right strategy, what is the maximum number of guesses she actually needs?" },
     }],
   },
   {
@@ -167,7 +167,7 @@ const problems: Problem[] = [
       ],
       explanation: 'Jawaban: **A-D-E-B-C-D-A** = 14 + 7 + 4 + 18 + 19 + 14 = 76 menit, memenuhi batas dan mengunjungi B, C, D, E. Pilihan 1 memakai jalan A–C yang tidak ada; pilihan 3 melewatkan E; pilihan 4 memakan 78 menit. Dua syarat yang harus dicek bersamaan: semua tempat dikunjungi, dan total ≤ 76.',
       hints: ['Untuk tiap pilihan cek dua hal: apakah semua jalan ada di peta, dan apakah B, C, D, E semua dikunjungi.', 'Jumlahkan waktu tiap ruas.'],
-      en: { stem: 'Find the route from the hotel through all four sights and back, taking at most 76 minutes.' },
+      en: { stem: "Determine the order of the trip from the hotel to the four tourist spots and back to the hotel with a travel time of no more than 76 minutes." },
     }],
   },
   {
@@ -182,7 +182,7 @@ const problems: Problem[] = [
       why: ['8 + 3 = 11 kg, melebihi kapasitas.', '6 + 3 = 9 kg, nilai $10 juta.', '8 + 2 = 10 kg, nilai $14 juta.', '3 + 6 = 9 kg, nilai $17 juta (tertinggi).'],
       explanation: 'Jawaban: **Artefak + 1 Tablet** (9 kg, $17 juta). Topeng + Artefak melanggar batas berat (11 kg). Di antara pilihan yang sah: $10 juta, $14 juta, $17 juta. Memilih benda termahal (topeng) tidak menghasilkan nilai tertinggi: ini pelajaran knapsack. Catatan: di PDF sumber, kunci "17 menit" yang tercetak setelah soal ini sebenarnya milik soal penyeberangan jembatan (lihat soal berikutnya); jawaban soal arkeolog dihitung sendiri.',
       hints: ['Hitung total bobot dan total nilai tiap pilihan; coret yang melebihi 10 kg.'],
-      en: { stem: 'Which selection has the highest value while weighing no more than 10 kg?' },
+      en: { stem: "Which choice of items has the highest value with a weight of no more than 10 kg?" },
     }],
   },
   {
@@ -197,7 +197,7 @@ const problems: Problem[] = [
       blanks: [{ label: 'Menit', type: 'number', accept: ['17'], wrong: [{ match: '19', msg: 'Itu strategi "yang tercepat mengantar semua" (2+1+5+1+10 = 19). Ada yang lebih baik: biarkan dua yang paling lambat menyeberang bersama.' }] }],
       explanation: 'Jawaban kunci: **17 menit**. A+B menyeberang (2), A kembali (1), C+D menyeberang (10), B kembali (2), A+B menyeberang (2): 2 + 1 + 10 + 2 + 2 = 17. Alternatif: A+B (2), B kembali (2), C+D (10), A kembali (1), A+B (2) = 17. Kunci: dua orang paling lambat menyeberang bersama agar waktu 10 menit hanya dibayar sekali. Telah diverifikasi dengan pencarian lengkap: 17 adalah minimum.',
       hints: ['Siapa yang sebaiknya membawa senter kembali?', 'Pasangkan dua orang paling lambat agar waktu mereka hanya dihitung sekali.'],
-      en: { stem: 'What is the least total time for all four to cross? (A = 1, B = 2, C = 5, D = 10 minutes; reconstructed from the key.)' },
+      en: { stem: "What is the shortest total time for the four people to cross? (A = 1, B = 2, C = 5, D = 10 minutes; reconstructed from the key.)" },
     }],
   },
   {
@@ -211,7 +211,7 @@ const problems: Problem[] = [
       blanks: [{ label: 'Berat (kg)', type: 'number', accept: ['32'], wrong: [{ match: '64', msg: '64 adalah jumlah ketiga pasangan, yang menghitung tiap kucing dua kali. Bagi dua.' }] }],
       explanation: 'Jawaban: **32 kg**. N + C = 18, C + M = 26, N + M = 20. Jumlahkan: 2N + 2C + 2M = 64, sehingga N + C + M = 32. Setiap kucing muncul tepat dua kali di jumlah ketiga pasangan, jadi cukup dibagi dua.',
       hints: ['Jumlahkan ketiga persamaan; berapa kali tiap kucing terhitung?'],
-      en: { stem: 'What do all three cats weigh together?' },
+      en: { stem: "What is the weight of the three cats when weighed together (Nero + Champagne + Magnum), without a scale?" },
     }],
   },
   {
@@ -225,7 +225,7 @@ const problems: Problem[] = [
       options: ['A, B, C, D', 'D, A, A, D', 'C, B, D, A', 'C, A, A, D'], answer: [1],
       explanation: 'Jawaban: **D, A, A, D**. Jalur pada gambar pembahasan (hal. 16): dari segitiga, D (2 langkah maju, hadap kanan), A (1 langkah, hadap kiri), A (1 langkah, hadap kiri), D (2 langkah, hadap kanan); lalu seluruh blok diulang sekali lagi sehingga Mira tiba di lingkaran merah. Blok loop menghemat penulisan: urutan 4 gerakan ditulis sekali dan diulang 2×.',
       hints: ['Mulai dari segitiga: gerakan pertama harus 2 langkah ke atas karena ada dinding di dekat awal.', 'Simulasikan satu putaran, lalu putaran kedua mulai dari posisi/arah akhir putaran pertama.'],
-      en: { stem: 'Which sequence of moves takes Mira out of the maze when the 4-move block is repeated twice?' },
+      en: { stem: "Which sequence of moves below can take Mira out of the maze with two repetitions?" },
     }],
   },
   {
@@ -266,7 +266,7 @@ const problems: Problem[] = [
       solution: { '1': 'L', '2': 'R', '3': 'L', '4': 'R', '5': 'R', '6': 'L' },
       explanation: 'Jawaban: **L, R, L, R, R, L**. Kotak 1 (dari B): L agar tidak ke C. Kotak 2 (dari C): R agar tidak ke B. Kotak 3 (dari B atau C): L agar tidak ke A. Kotak 4: R, karena L membuat Arabot berputar kembali tanpa mencapai titik merah; kotak 6 = L agar menuju titik merah. Kotak 5 dilalui dari A (karena kotak 3 = L) sehingga harus R. Kerangka berpikir: aktivitas berurutan dimodelkan sebagai graf (struktur data).',
       hints: ['Mulai dari kotak yang punya hanya satu penyebab (1, 2, 3): label harus menghindari titik awal lain.', 'Lalu telusuri dari A dan dari persimpangan terakhir menuju titik merah.'],
-      en: { stem: 'So that Arabot always reaches the red station from A, B or C, give the labels (L or R) of boxes 1 to 6.' },
+      en: { stem: "So that Arabot always arrives at the red point (whichever the starting point A, B, or C), determine the labels (L or R) of boxes 1 to 6." },
     }],
   },
   {
@@ -296,7 +296,7 @@ const problems: Problem[] = [
       explanation: 'Jawaban: **Kim**. Telusuri (depth-first, sahabat termuda dulu): Ben → Ted (10, termuda di antara Tom 17, Ted 10, Kim 12) → Anna (9) → Bill (10) → Tom (17) → kembali ke Bill, Anna → Sara (18) → kembali ke Anna, Ted → Kim (12). Urutan pembaca: Ben, Ted, Anna, Bill, Tom, Sara, Kim. Pembaca terakhir: Kim. Ini adalah depth-first search pada graf.',
       hints: ['Simulasikan: tiap kali pilih sahabat termuda yang belum meminjam; bila tidak ada, kembali ke peminjam sebelumnya (backtrack).'],
       work: ['Ben → Ted (10).', 'Ted → Anna (9), Anna → Bill (10), Bill → Tom (17).', 'Tom tidak punya sahabat baru: kembali ke Bill, ke Anna.', 'Anna → Sara (18), lalu kembali ke Anna, Ted.', 'Ted → Kim (12): pembaca terakhir.'],
-      en: { stem: 'Ben has finished a new book and shares it with all club members. Who will be the last reader?' },
+      en: { stem: "Ben has finished reading a new book and wants to share it with all the club members; apart from Ben, no one has ever read it. Who will be the last reader of the book?" },
     }],
   },
   {
@@ -339,7 +339,7 @@ const problems: Problem[] = [
       explanation: 'Jawaban: **5 menit**. Karena ketiganya bekerja paralel, waktu total adalah waktu terlama. Alokasi: Agria 3 bakso biasa (3) + 1 bakso spesial (2) = 5 menit; Bogoria 2 bakso spesial = 4 menit; Pertania 2 bakso nuklir = 4 menit. Strategi: serahkan tiap jenis ke yang tercepat (biasa ke Agria, nuklir ke Pertania), lalu bagi bakso spesial ke orang dengan beban terkecil. Diverifikasi dengan pencarian lengkap: tidak ada alokasi yang lebih cepat dari 5 menit. Abstraksi: siapa dan benda apa tidak penting; yang penting alokasi pekerjaan.',
       hints: ['Karena kerja paralel, waktu total = waktu orang yang paling lama bekerja.', 'Berikan tiap jenis bakso ke yang paling cepat, lalu seimbangkan beban.'],
       work: ['Biasa ke Agria: 3 menit. Nuklir ke Pertania: 4 menit.', 'Spesial: Bogoria 2 buah (4 menit), 1 buah ke Agria yang sudah selesai di menit 3 (selesai menit 5).', 'Waktu total = max(5, 4, 4) = 5 menit.'],
-      en: { stem: 'What is the minimum time in minutes to make the whole order?' },
+      en: { stem: "What is the minimum time in minutes needed to make the whole order?" },
     }],
   },
 ]
@@ -383,31 +383,31 @@ const PROBLEM_EN: Record<string, { title?: string; intro: string }> = {
 const PATCH: Record<string, EnPatch> = {
   'ctl-bunga-a': { en: {
     options: ['A', 'B', 'C', 'D'],
-    why: ['First row: Rose, Sunflower, Rose. Rose appears twice in one row.', 'The first column contains White Lily, Sunflower, White Lily. Lily appears twice in one column.', 'Every row and every column contains exactly one Rose, one Sunflower and one Lily (a Latin square).', 'Second row: Lily, Rose, Lily. Lily appears twice in one row.'],
+    why: ["First row: Rose, Sunflower, Rose. Rose appears twice in one row.", 'The first column contains White Lily, Sunflower, White Lily. Lily appears twice in one column.', 'Every row and every column contains exactly one Rose, one Sunflower and one Lily (a Latin square).', "Second row: Lily, Rose, Lily. Lily appears twice in one row."],
     explanation: 'Answer: **C**. Check each option by scanning the rows and then the columns: a valid option must contain three different kinds of flower in every row and every column. Strategy for building one: fill the first row, then for each next cell choose a kind that is not yet in its column (and its row); if a violation occurs, swap the position of an earlier flower.',
-    hints: ['Check each option one by one: look for a row or a column that contains the same kind of flower twice.', 'The correct option has no violation in any of the 3 rows and 3 columns.'],
+    hints: ["Check each option one by one: look for one row or one column that contains the same kind of flower twice.", 'The correct option has no violation in any of the 3 rows and 3 columns.'],
   } },
   'ctl-rtr1-a': { en: {
     options: ['Dian, Ceria, Adi, Boni, Eko', 'Dian, Adi, Ceria, Boni, Eko', 'Adi, Ceria, Dian, Eko, Boni', 'Dian, Adi, Eko, Boni, Ceria'],
-    why: ['Adi in 3rd position would have Dian and Ceria (both taller) in front of him, but Adi counts only 1 in front.', 'Dian(5) Adi(2) Ceria(4) Boni(1) Eko(3): all front/back counts match the table.', 'Adi cannot be first: he counts 1 taller student in front of him.', 'Eko in 3rd position must be taller than Adi (Adi counts 2 taller behind him), so Eko would have only 1 taller in front (Dian), but he counts 2.'],
-    explanation: 'Answer: **B** (Dian, Adi, Ceria, Boni, Eko). Dian has nobody taller either in front or behind, so Dian is the tallest and stands at the very front. Boni counts 3 in front and 1 behind out of 5 people, so Boni is in 4th position and is the shortest. Adi counts 2 taller behind him (Ceria and Eko), and Boni is shorter, so Adi is in 2nd position. Eko has nobody taller behind him, so Eko is behind Ceria, in the last position. Heights: Dian 5, Ceria 4, Eko 3, Adi 2, Boni 1.',
-    hints: ['Who has nobody taller, either in front or behind?', 'There are 5 people in total: the taller-in-front count + taller-behind count helps determine Boni\'s position.'],
-    work: ['Dian (0, 0): the tallest, position 1.', 'Boni (3, 1): 3 people in front, 1 behind, position 4, the shortest.', 'Adi (1, 2): only Dian in front is taller, Ceria and Eko behind him are taller, position 2.', 'Eko has nobody taller behind him, so he is behind Ceria: position 5.'],
+    why: ["Adi in the 3rd position would have Dian and Ceria (both taller) in front of him, even though Adi counts only 1 in front.", "Dian(5) Adi(2) Ceria(4) Boni(1) Eko(3): all the front/back counts match the table.", "Adi in the first position is impossible: he counts 1 taller student in front of him.", "Eko in the 3rd position must be taller than Adi (Adi counts 2 taller students behind him), so Eko would have only 1 taller student in front (Dian), even though he counts 2."],
+    explanation: "Answer: **B** (Dian, Adi, Ceria, Boni, Eko). Dian has nobody taller either in front or behind, so Dian is the tallest and is at the very front. Boni counts 3 in front and 1 behind out of a total of 5 people, so Boni is in the 4th position and is the shortest. Adi counts 2 taller behind him (Ceria and Eko) and Boni is shorter, so Adi is in the 2nd position. Eko has nobody taller behind him, so Eko is behind Ceria, in the last position. Heights: Dian 5, Ceria 4, Eko 3, Adi 2, Boni 1.",
+    hints: ["Who has nobody taller than them, either in front or behind?", 'There are 5 people in total: the taller-in-front count + taller-behind count helps determine Boni\'s position.'],
+    work: ['Dian (0, 0): the tallest, position 1.', "Boni (3, 1): 3 people in front of him, 1 behind, position 4, the shortest.", "Adi (1, 2): only Dian in front is taller, Ceria and Eko behind him are taller, position 2.", "Eko has nobody taller behind him, so he is behind Ceria: position 5."],
   } },
   'ctl-rtr2-a': { en: {
     options: ['1', '2', '3', '4'],
-    why: ['There is no 37-litre bottle.', 'No two sizes (repeats allowed) among 1, 2, 4, 8, 16, 32 add up to 37.', '32 + 4 + 1 = 37.', 'A 3-bottle solution exists, so 4 is not the smallest.'],
+    why: ['There is no 37-litre bottle.', "There are no two sizes (repeats allowed) among 1, 2, 4, 8, 16, 32 that sum to 37.", '32 + 4 + 1 = 37.', 'A 3-bottle solution exists, so 4 is not the smallest.'],
     explanation: 'Answer: **3 bottles** (32 + 4 + 1 = 37). There is no 37-litre bottle and no two sizes add up to 37, so the minimum is 3. In binary 37 = 100101₂, which has three 1-bits (32, 4, 1): the greedy method of taking the largest bottle that fits gives the minimum number of bottles because the bottle sizes are powers of two.',
     hints: ['Take the largest bottle that does not exceed the remainder, then repeat for what is left.'],
   } },
   'ctl-tebak-posisi-a': { en: {
     explanation: 'Key answer: **1** (wrong guess). Guess the middle number 6; wrong, the answer is "larger". The remainder is 7–11, guess the middle, 9: correct. So there is one wrong guess before the correct one (2 guesses in total). This halving strategy is binary search. Note: the problem wording is ambiguous ("minimum"), because guessing 9 straight away by luck takes 0 wrong guesses; the source explanation counts using the middle-of-the-range strategy.',
-    hints: ['Guess the middle number of the range, then narrow the range by half.'],
+    hints: ["Guess the middle number in the range, then narrow the range by half."],
     labels: ['Number of wrong guesses'],
   }, bw: [['That is the total number of guesses (6, then 9). The key counts the wrong guesses before the correct one: only 1 (namely 6).']] },
   'ctl-hrw1-a': { en: {
     options: ['1', '6', '5', '3', '8'],
-    why: ['From 1: 1→2→5→8→6→7→4 (stops, 0); box 3 is not visited.', 'From 6: 6→7→4, stops. Only 3 boxes.', 'From 5: 5→8→6→7→4, stops. Boxes 1, 2, 3 are not visited.', 'From 3: 3→1→2→5→8→6→7→4: all eight boxes are visited exactly once.', 'From 8: 8→6→7→4, stops.'],
+    why: ["From 1: 1→2→5→8→6→7→4 (stops, 0); box 3 is not visited.", 'From 6: 6→7→4, stops. Only 3 boxes.', 'From 5: 5→8→6→7→4, stops. Boxes 1, 2, 3 are not visited.', 'From 3: 3→1→2→5→8→6→7→4: all eight boxes are visited exactly once.', 'From 8: 8→6→7→4, stops.'],
     explanation: 'Answer: **d. 3**. Simulate: 3 (2L) → 1 (1R) → 2 (3R) → 5 (3R) → 8 (2L) → 6 (1R) → 7 (3L) → 4 (0, stop). All eight boxes are visited. Because box 4 contains 0 (the end point), the journey always ends at 4; box 3 cannot be reached from any box, so it has to be the starting point.',
     hints: ['Which box is never the destination of a jump from another box? That must be the starting box.'],
     work: ['Compute the destination of each box: 1→2, 2→5, 3→1, 4→stop, 5→8, 6→7, 7→4, 8→6.', 'Box 3 is nobody\'s destination, so start from 3.', 'Order: 3,1,2,5,8,6,7,4 (all 8 boxes).'],
@@ -441,8 +441,8 @@ const PATCH: Record<string, EnPatch> = {
     hints: ['Compute the total weight and total value of each option; cross out those over 10 kg.'],
   } },
   'ctl-jembatan-a': { en: {
-    explanation: 'Key answer: **17 minutes**. A+B cross (2), A returns (1), C+D cross (10), B returns (2), A+B cross (2): 2 + 1 + 10 + 2 + 2 = 17. Alternative: A+B (2), B returns (2), C+D (10), A returns (1), A+B (2) = 17. The key idea: the two slowest people cross together so the 10 minutes is paid only once. Verified by exhaustive search: 17 is the minimum.',
-    hints: ['Who should bring the flashlight back?', 'Pair the two slowest people so that their time is counted only once.'],
+    explanation: "Key answer: **17 minutes**. A+B cross (2), A returns (1), C+D cross (10), B returns (2), A+B cross (2): 2 + 1 + 10 + 2 + 2 = 17. Alternative: A+B (2), B returns (2), C+D (10), A returns (1), A+B (2) = 17. The key idea: the two slowest people cross together so that the 10 minutes is paid only once. Verified with an exhaustive search: 17 is the minimum.",
+    hints: ['Who should bring the flashlight back?', "Pair the two slowest people so that their time is counted only once."],
     labels: ['Minutes'],
   }, bw: [['That is the "fastest person escorts everyone" strategy (2+1+5+1+10 = 19). There is a better one: let the two slowest cross together.']] },
   'ctl-timbangan-a': { en: {
@@ -457,7 +457,7 @@ const PATCH: Record<string, EnPatch> = {
   } },
   'ctl-arabot-a': { en: {
     explanation: 'Answer: **L, R, L, R, R, L**. Box 1 (from B): L so as not to go to C. Box 2 (from C): R so as not to go to B. Box 3 (from B or C): L so as not to go to A. Box 4: R, because L makes Arabot loop back without reaching the red point; box 6 = L so that it heads to the red point. Box 5 is passed from A (because box 3 = L) so it must be R. Framework of thinking: sequential activities are modelled as a graph (a data structure).',
-    hints: ['Start with the boxes that have only one cause (1, 2, 3): the label must avoid the other starting points.', 'Then trace from A and from the last junction to the red point.'],
+    hints: ['Start with the boxes that have only one cause (1, 2, 3): the label must avoid the other starting points.', "Then trace from A and from the last junction to the red point."],
   } },
   'ctl-mobil-a': { en: {
     options: ['Yellow', 'Red', 'Blue', 'White'],

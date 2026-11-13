@@ -116,7 +116,7 @@ problems.push({
       rubric: openRubric, difficulty: 1,
       explanation: 'Jawaban terbuka: definisikan CT, sebut pilar-pilarnya, lalu kaitkan dengan kebutuhan abad 21 (data, otomasi, lintas bidang).',
       refs: [{ src: S18, page: 2 }],
-      en: { stem: 'Explain why computational thinking is an important skill in the 21st century.' },
+      en: { stem: "Explain why computational thinking ability has become one of the important skills in the 21st century." },
     },
     {
       id: 'k18-s1b', kind: 'open', label: 'b', decks: ['D11'], topic: 'Ethics: software piracy',
@@ -126,7 +126,7 @@ problems.push({
       rubric: openRubric, difficulty: 1,
       explanation: 'Ini soal etika computing: pembajakan melanggar hak cipta. Jawaban baik menolak, beralasan, dan menawarkan alternatif legal.',
       refs: [{ src: S18, page: 2 }],
-      en: { stem: 'You need expensive paid software for coursework. The campus lab has it but you must share it. A cheap pirated copy with an easy crack exists online. What would you do?' },
+      en: { stem: "To finish a coursework assignment, you need expensive paid software. The campus provides that software in the computer laboratory, but you have to share it with other students and cannot use it at any time. You know that you can buy a pirated version of that software fairly cheaply and that a *crack* is also easy to find on the internet. What would you do?" },
     },
     {
       id: 'k18-s1c', kind: 'open', label: 'c', decks: ['D11'], topic: 'Ethics: accessing others\' accounts, cyber-bullying',
@@ -136,7 +136,7 @@ problems.push({
       rubric: openRubric, difficulty: 2,
       explanation: 'Akses tanpa izin ke akun orang lain tetap salah walau pemiliknya pelaku perundungan. Jawaban baik: tidak bertindak, mengamankan akun, dan melapor lewat jalur resmi.',
       refs: [{ src: S18, page: 2 }],
-      en: { stem: 'You find a lab computer with someone\'s social-media account still logged in. The owner is someone you dislike who cyber-bullies others (including you). Others would be happy if you posted or deleted things from that account. What would you do?' },
+      en: { stem: "One day, when about to start a PTI practicum, you find that the computer you will use is still on and, in the *browser*, a social media application is still open. You know the owner of the account that is active in the application, and he happens to be someone you really dislike. This person often uses this social media account to bully others (*cyber-bullying*), including you. You think that if you did something to that account, for example sending inappropriate messages, deleting *files* and pictures, etc., many people would be happy, even thank you. Besides, it is his own fault that he did not *log out* properly from the application on a public computer. What would you do?" },
     },
   ],
 })
@@ -443,7 +443,7 @@ problems.push({
   parts: [
     mcq19('k19-s1a-01', 1, 2, 'Peranti di bawah ini yang merupakan peranti computing adalah:', ['Elevator', 'Microwave ovens', 'Lemari pendingin', 'Smartphone'], 3,
       ['Elevator memang punya pengendali tetapi bukan perangkat computing umum.', 'Oven mikrowave: peralatan rumah tangga, bukan perangkat computing.', 'Lemari pendingin: bukan perangkat computing.', 'Smartphone adalah komputer genggam: menerima input, memproses, menyimpan, menampilkan.'],
-      'Smartphone adalah perangkat computing (punya CPU, memori, OS, dan aplikasi). Pilihan lain adalah peralatan non-komputasi umum.', ['D11'], 'Computing devices', { en: { stem: 'Which of these is a computing device?' } }),
+      'Smartphone adalah perangkat computing (punya CPU, memori, OS, dan aplikasi). Pilihan lain adalah peralatan non-komputasi umum.', ['D11'], 'Computing devices', { en: { stem: "The device below that is a computing device is:" } }),
     mcq19('k19-s1a-02', 2, 2, 'Di bawah ini yang bukan merupakan contoh hardware adalah:', ['Motherboard', 'CPU', 'RAM', 'Operating System'], 3,
       ['Perangkat keras.', 'Perangkat keras.', 'Perangkat keras.', 'Sistem operasi adalah perangkat lunak (software).'],
       'Motherboard, CPU, dan RAM adalah hardware; *Operating System* adalah software.', ['D11'], 'Hardware vs software', { en: { stem: 'Which of these is NOT an example of hardware?' } }),
@@ -482,7 +482,7 @@ problems.push({
       rubric: openRubric, difficulty: 1,
       explanation: 'Pilih satu ancaman (mis. phishing), jelaskan mekanismenya, lalu beri pencegahan dan penanganan.',
       refs: [{ src: S19, page: 2 }],
-      en: { stem: 'Explain 1 example of a threat to your data security on social media and how to prevent/handle it.' },
+      en: { stem: "Explain 1 (one) example of a threat to the security of your data on social media and explain how to prevent/overcome it." },
     },
     {
       id: 'k19-s1b-2', kind: 'open', label: '2', decks: ['D11'], topic: 'Netiquette',
@@ -492,7 +492,7 @@ problems.push({
       rubric: openRubric, difficulty: 1,
       explanation: 'Definisikan netiquette, alasannya (komunikasi daring rawan salah paham dan merugikan), lalu satu contoh konkret.',
       refs: [{ src: S19, page: 2 }],
-      en: { stem: 'Explain what netiquette is and why it matters. Give 1 example of applying it.' },
+      en: { stem: "Explain what netiquette is and why netiquette is important. Give 1 (one) example of its application." },
     },
   ],
 })
@@ -509,13 +509,13 @@ problems.push({
       { refs: [{ src: S19, page: 3 }], en: { stem: 'Which statement about computational thinking is correct?' } }),
     mcq19('k19-s2a-02', 2, 3, 'Salah satu proses dalam membuat emoticon smiley adalah dengan menghilangkan semua fitur pada wajah kecuali mata dan mulut. Proses ini disebut sebagai:', ['abstraksi', 'generalisasi', 'pengenalan pola', 'dekomposisi'], 0,
       ['Abstraksi: membuang detail yang tidak relevan dan menyisakan yang penting (mata dan mulut).', 'Generalisasi: merumuskan solusi/aturan umum.', 'Pengenalan pola: mencari kesamaan/keteraturan.', 'Dekomposisi: memecah masalah menjadi bagian kecil.'],
-      'Menghilangkan fitur wajah yang tak penting dan menyisakan yang esensial adalah abstraksi. (Pada lembar soal opsi terakhir berlabel "e", seharusnya "d".)', ['D03'], 'Abstraction', { refs: [{ src: S19, page: 3 }], en: { stem: 'Making a smiley emoticon by removing every facial feature except the eyes and mouth is called:' } }),
+      'Menghilangkan fitur wajah yang tak penting dan menyisakan yang esensial adalah abstraksi. (Pada lembar soal opsi terakhir berlabel "e", seharusnya "d".)', ['D03'], 'Abstraction', { refs: [{ src: S19, page: 3 }], en: { stem: "One of the processes in making a smiley emoticon is removing all the features of the face except the eyes and the mouth. This process is called:" } }),
     mcq19('k19-s2a-03', 3, 3, 'Mengenali berbagai persamaan dan perbedaan karakteristik dari berbagai jenis data dapat dikategorikan sebagai kegiatan berpikir komputasional sbb.', ['abstraksi', 'generalisasi', 'pengenalan pola', 'dekomposisi'], 2,
       ['Abstraksi membuang detail.', 'Generalisasi merumuskan aturan umum.', 'Pengenalan pola = menemukan persamaan dan perbedaan/keteraturan pada data.', 'Dekomposisi memecah masalah.'],
-      'Mengenali persamaan dan perbedaan (kemiripan, keteraturan) adalah pengenalan pola.', ['D01'], 'Pattern recognition', { refs: [{ src: S19, page: 3 }], en: { stem: 'Recognising similarities and differences among kinds of data is which computational-thinking activity?' } }),
+      'Mengenali persamaan dan perbedaan (kemiripan, keteraturan) adalah pengenalan pola.', ['D01'], 'Pattern recognition', { refs: [{ src: S19, page: 3 }], en: { stem: "Recognising the various similarities and differences in the characteristics of various kinds of data can be categorised as the following computational thinking activity." } }),
     mcq19('k19-s2a-04', 4, 3, 'Manakah yang bukan merupakan perintah control flow pada algoritma?', ['Repetisi/pengulangan', 'Selection/pilihan', 'Perintah/instruksi', 'Sequence/urutan'], 2,
       ['Control flow: pengulangan.', 'Control flow: percabangan.', 'Perintah/instruksi tunggal bukan struktur kendali alur.', 'Control flow: urutan.'],
-      'Struktur kendali alur ada tiga: urutan (sequence), pilihan (selection), dan pengulangan (repetition). Instruksi tunggal bukan control flow.', ['D02'], 'Control flow', { refs: [{ src: S19, page: 3 }], en: { stem: 'Which is NOT a control-flow construct in an algorithm?' } }),
+      'Struktur kendali alur ada tiga: urutan (sequence), pilihan (selection), dan pengulangan (repetition). Instruksi tunggal bukan control flow.', ['D02'], 'Control flow', { refs: [{ src: S19, page: 3 }], en: { stem: "Which of the following is not a control flow command in an algorithm?" } }),
     mcq19('k19-s2a-05', 5, 3, 'Diberikan flowchart/pseudocode di bawah ini. Jika temperatur air adalah 80°C, apa langkah berikutnya?\n\n```\nPut the pan on the stove\nTurn on the stove\nPour water on the pan\nBoil water for 3 minutes\nMeasure water temperature\nwhile Temperature more than 90°C = No do\n    Boil water for 3 minutes\n    Measure water temperature\n{ Temperature more than 90°C = Yes }\nTurn off the stove\n```',
       ['Turn off the stove', 'Increase the fire', 'Boil water for 3 minutes', 'Measure water temperature'], 2,
       ['Hanya dilakukan setelah suhu > 90°C.', 'Tidak ada langkah ini pada algoritma.', 'Suhu 80°C belum > 90°C (jawaban "No"), jadi badan loop dijalankan: langkah pertama adalah merebus air 3 menit.', 'Pengukuran adalah langkah kedua dalam badan loop, setelah merebus.'],
@@ -911,7 +911,7 @@ problems.push({
     rubric: openRubric, difficulty: 1,
     explanation: 'Definisikan green computing (efisiensi energi dan pengurangan limbah elektronik), lalu dua contoh konkret dengan penjelasan manfaatnya.',
     refs: [{ src: S21, page: 2 }],
-    en: { stem: 'Explain what green computing is and give 2 example applications.' },
+    en: { stem: "Explain what is called *green computing* and explain 2 (two) example applications of *green computing*." },
   }],
 })
 
@@ -926,7 +926,7 @@ problems.push({
     rubric: openRubric, difficulty: 1,
     explanation: 'Soal terbuka tentang perangkat lunak pendukung kuliah daring; di luar silabus WI1102 (dianggap pengetahuan umum).',
     refs: [{ src: S21, page: 2 }],
-    en: { stem: 'Name 2 examples of software (online or offline) that support online lectures and explain how each supports you.' },
+    en: { stem: "Name 2 (two) examples of software, both those available online (in the form of a web or mobile application) and offline (desktop applications), that support the conduct of online lectures. For each example, explain how the software supports you in carrying out online lectures." },
   }],
 })
 
@@ -941,7 +941,7 @@ problems.push({
     rubric: openRubric, difficulty: 1,
     explanation: 'Dua ancaman privasi (mis. pelacakan/pengumpulan data dan kebocoran/phishing) masing-masing dengan satu tindakan pribadi yang konkret.',
     refs: [{ src: S21, page: 2 }],
-    en: { stem: 'Name and explain 2 threats to privacy brought by computing, each with 1 action an individual can take.' },
+    en: { stem: "Name and explain 2 (two) examples of threats to privacy due to the development of *computing* technology and, for each example, give 1 (one) example of an action that can be taken by an individual to avoid/overcome it." },
   }],
 })
 
@@ -1943,7 +1943,7 @@ problems.push({
       rubric: progRubric, difficulty: 2,
       explanation: 'Fungsi tanpa parameter yang membuat array 100 elemen, mengisinya lewat `int(input())`, dan mengembalikannya. Dipakai di 8b.',
       refs: lsRef(10),
-      en: { stem: 'Write a procedure/function BacaArray that fills a 100-element integer array from user input.' },
+      en: { stem: "Given an *array of integer* `T1` and `T2`, each with 100 elements. A check will be made of whether T1 and T2 are the same array or not (see question 8b). In that program, write a procedure/function `BacaArray` that is used to fill an *array of integer* with 100 elements from the user's input and to store the result of the reading in an *array of integer*." },
     },
     {
       id: 'kls-s8b', kind: 'program', label: 'b', decks: ['D10', 'D06'], topic: 'Are two arrays equal? with a subprogram', patterns: ['function-def-call', 'array-compare', 'search-flag'], misconceptions: ['scope-local', 'return-vs-print'],
@@ -2078,7 +2078,7 @@ const TR: Record<string, Tr> = {
     keyPoints: ['Does not misuse the account (unauthorised access)', 'Legal/ethical basis: ITE Law, privacy', 'Logs out / tells the owner or assistant', 'Reports the bullying through official channels with evidence'],
     explanation: 'Unauthorised access to someone else\'s account is still wrong even if the owner is a bully. A good answer: take no action on the account, secure it, and report through official channels.' } },
   'k18-s2a': { en: {
-    stem: 'Write a program that computes the hypotenuse of a right triangle with the Pythagorean formula. The program reads 2 real numbers, say $a$ (the base) and $b$ (the height), and prints the hypotenuse $c$, computed as $c = \\sqrt{a^2 + b^2}$. Assume $a > 0$ and $b > 0$. To compute $x^2$ use `x ** 2`, and for $\\sqrt{x}$ use `x ** 0.5`.',
+    stem: "Write a program to compute the hypotenuse of a right triangle using the Pythagorean formula. The program reads input of 2 real numbers, for example $a$ (the base of the triangle) and $b$ (the height of the triangle), and prints to the screen the computed hypotenuse $c$, calculated with the following formula: $c = \\sqrt{a^2 + b^2}$. Assume $a > 0$ and $b > 0$. To compute $x^2$ use `x ** 2` and for $\\sqrt{x}$ use `x ** 0.5`.",
     explanation: 'c = (a ** 2 + b ** 2) ** 0.5. The key points: parentheses around the sum of squares before raising to 0.5, and reading the inputs as `float`.',
     hints: ['Which input type is used for real numbers?', 'Square root with the power operator: which exponent?', 'Watch operator precedence: what must be in parentheses before raising to 0.5?'],
     work: ['Read a and b with `float(input())` because they are real numbers.', 'Add their squares: `a ** 2 + b ** 2`.', 'Take the root of the whole sum with `** 0.5` (use parentheses).', 'Print the result with `print(c)`.'],
@@ -2094,7 +2094,7 @@ const TR: Record<string, Tr> = {
     lineNotes: ['Weight is an integer: `int(input())`.', 'First branch: below the qualification. It must be checked first so it does not fall into class A.', 'Since bb ≥ 45 is certain in this branch, only the upper bound ≤ 50 is needed (45 belongs to class A).', '`elif` is only checked when the branch above is false, so the lower bound (>50) need not be written. The upper bound is ≤ (inclusive).', 'Remaining case: bb > 70, class F. `else` covers all complementary cases.'],
     wrong: ['The upper bound of each class is included (≤). With `<`, weights 50, 55, 60, 65, 70 fall into the next class up. Use `<=`.', 'The case bb < 45 (not qualified) is not handled; 30 kg becomes class A. Add a first branch for bb < 45.'] },
   'k18-s2c': { en: {
-    stem: 'A series is given as follows: $f(x) = 1 + x + x^2 + x^3 + \\cdots + x^n$. Write a program that prints $f(x)$ for the values $x$ (a real number) and $n$ (an integer) entered by the user, using the series above. Assume $-1 < x < 1$ and $n > 1$. To compute $x^y$ use `x ** y`.\n\n(Input order: x then n. The series must be computed with a loop.)',
+    stem: "A series is given as follows: $f(x) = 1 + x + x^2 + x^3 + \\cdots + x^n$. Write a program used to print to the screen the result of $f(x)$ based on the input values $x$ (a real number) and $n$ (an integer) from the user, using the series above. Assume: $-1 < x < 1$ and $n > 1$. To compute $x^y$, use `x ** y`.\n\n(Input order: x then n. The series must be computed with a loop.)",
     explanation: 'f = 1, then for i = 1..n add x**i. Make sure to use `range(1, n+1)` and start f at 1.',
     hints: ['Term 0 is 1. Where does the accumulator start?', 'Which pattern: summing a number of terms known in advance (n)?', 'The upper bound of `range` is not processed.'],
     work: ['Read x (float) and n (int).', 'Initialise f = 1 (the x⁰ term) before the loop.', 'Loop i = 1..n: add `x ** i`.', 'Print f after the loop.'],
@@ -2110,7 +2110,7 @@ const TR: Record<string, Tr> = {
     lineNotes: ['An array of N elements, indices 0..N−1.', 'Filling the array (assumed to exist in the problem): read each element.', 'The counter is initialised before the loop.', 'Two conditions at once with `and`: positive (> 0, zero excluded) and even (remainder 0 on division by 2).', 'Increment only when the condition holds.', 'After the loop, print the count.'],
     wrong: ['The "positive" condition is missing: -2, -4 and 0 are counted too. Add `T[i] > 0`.', '0 is not a positive number. Use `> 0`, not `>= 0`.'] },
   'k18-s3a': { en: {
-    stem: '**Average height of students.** The principal of a high school wants the average height of the students in a class. He calls all the students of the class to the sick bay to have their height measured one by one. Not knowing how many students there are, the principal plans to count them while measuring. Height is measured in cm, and by a quick look it is known that no student is shorter than 100 cm or taller than 200 cm.\n\nA teacher helps the principal measure and record the heights. This teacher is rather careless and often enters wrong data. Wrong data, i.e. less than 100 cm or greater than 200 cm, is not used to compute the average height.\n\nWrite a program that helps the principal compute the average height of the students in the class. The program reads a number of integers representing student heights. Input ends with the value -999 (not processed). The program then prints the average height of the students, based on the entered data, without counting wrong data (i.e. values < 100 cm or > 200 cm). If there is no usable data, print the message “Tidak ada data” (no data).\n\nExamples (the number of decimals is free):\n\n| Input (one per line) | Output | Note |\n|---|---|---|\n| 120, 145, 150, -999 | 138.3333 | |\n| 120, 78, 167, 150, 201, -999 | 145.6667 | 78 and 201 are not counted because 78 < 100 and 201 > 200 |\n| -999 | Tidak ada data | -999 entered right at the start |\n| 78, 201, -999 | Tidak ada data | no valid data |',
+    stem: "**Average Height of Students.** The principal of a senior high school wants to get the average height of the students in a class. For that, he calls all the students in the class and gathers them in the school health room to have their height measured one by one. Because he does not know the number of students in the class, the principal intends to count them while measuring the students' heights. The students' height is measured in cm, and by a quick observation it can be known that there is no student whose height is less than 100 cm or more than 200 cm.\n\nA teacher helps the principal measure the heights and record them. This teacher is rather careless, so he often enters wrong data. Wrong data, that is, less than 100 cm or greater than 200 cm, is not used to compute the average height.\n\nWrite a program that helps the principal compute the average height of the students in the class. The program receives as input a number of integers representing the students' heights. Reading input ends by entering the value -999 (not processed). Next, the program prints the average height of the students in the class based on the data entered, without taking into account the wrongly entered data (that is, if the value is < 100 cm or > 200 cm). If there is no data that can be used to compute the average height, print the message “Tidak ada data” (no data).\n\nExamples (the number of digits after the decimal point is free):\n\n| Input (one per line) | Output | Note |\n|---|---|---|\n| 120, 145, 150, -999 | 138.3333 | |\n| 120, 78, 167, 150, 201, -999 | 145.6667 | 78 and 201 are not counted because 78 < 100 and 201 > 200 |\n| -999 | Tidak ada data | -999 entered right at the start |\n| 78, 201, -999 | Tidak ada data | no valid data |",
     explanation: 'Sentinel pattern: read first, loop until -999, filter 100–200 (inclusive), count the sum and the number of valid data, then divide only if the count > 0. The message "Tidak ada data" means "no data".',
     hints: ['The number of inputs is unknown: which pattern is used?', 'Read the first element before the loop and the next element at the end of the loop body.', 'Average = sum / count. What happens when the count is 0?'],
     work: ['Initialise sum = 0 and count = 0.', 'Read the first t (First-Element) before the loop.', 'Loop while t ≠ −999: if valid, add it to sum and count.', 'At the end of the loop body read the next t (Next-Element).', 'After the loop: if count > 0 print sum / count; otherwise print the message.'],
@@ -2163,7 +2163,7 @@ const TR: Record<string, Tr> = {
   'k19-s2a-01': { en: { options: ['Computational thinking techniques consist of decomposition, pattern recognition, abstraction, and algorithm design.', 'Computational thinking is only related to developing programs or applications for computers.', 'Computational thinking involves the process of formulating a problem and expressing its solution.', 'Computational thinking can be learned without having to use a machine.'],
     why: ['Correct: the four pillars of CT in the course.', 'Wrong: CT applies to all fields, not only programming.', 'This statement is also correct (the CT definition on the slides), but the question asks for one answer.', 'This statement is also correct (slides: people can learn CT without a machine), but the question asks for one answer.'],
     explanation: 'Option a is the most typical statement of the CT techniques in the course. Note: the source key is not available; options c and d are also true statements according to slide D01 (the CT definition; CT can be learned without a machine), so this question is ambiguous. Choose a if only one is allowed.' } },
-  'k19-s2a-02': { en: { stem: 'One step in making a smiley emoticon is removing all facial features except the eyes and the mouth. This process is called:', options: ['abstraction', 'generalisation', 'pattern recognition', 'decomposition'],
+  'k19-s2a-02': { en: { stem: "One of the processes in making a smiley emoticon is removing all the features of the face except the eyes and the mouth. This process is called:", options: ['abstraction', 'generalisation', 'pattern recognition', 'decomposition'],
     why: ['Abstraction: dropping irrelevant detail and keeping what is important (eyes and mouth).', 'Generalisation: formulating a general solution/rule.', 'Pattern recognition: looking for similarities/regularities.', 'Decomposition: breaking a problem into small parts.'],
     explanation: 'Removing the unimportant facial features and keeping the essential ones is abstraction. (On the paper the last option is labelled "e"; it should be "d".)' } },
   'k19-s2a-03': { en: { options: ['abstraction', 'generalisation', 'pattern recognition', 'decomposition'],
@@ -2211,7 +2211,7 @@ const TR: Record<string, Tr> = {
     pseudoNotes: ['Declaration: all are real because they hold fractions.', 'Assignment uses ←.', 'The sphere-volume formula; `**` is the power operator.'],
     wrong: ['`4 // 3` is integer division (= 1), not 1.333…. Use `4 / 3`.', 'r³ is written `r ** 3`, not `r * 3`.'] },
   'k19-s3-2a': { en: {
-    stem: 'An Armstrong number of 3 (three) digits is an integer such that the sum of the cubes of its digits equals the number itself. For example, 371 is an Armstrong number because $3^3 + 7^3 + 1^3 = 371$. Write a program that asks the *user* for a three-digit (hundreds) integer, then prints whether the number is an Armstrong number or not.',
+    stem: "An Armstrong number of 3 (three) digits is an integer such that the sum of the cubes of each of its digits equals the number itself. For example, 371 is an Armstrong number because $3^3 + 7^3 + 1^3 = 371$. Write a program that asks the *user* for a hundreds integer (3 digits), then displays on the screen whether that number is an Armstrong number or not.",
     explanation: 'Extract the three digits with `//` and `%`, add up their cubes, and compare with n. (The output strings "adalah bilangan Armstrong" / "bukan bilangan Armstrong" mean "is an Armstrong number" / "is not an Armstrong number".)',
     hints: ['How do you take each digit of a 3-digit number using division and remainder?', 'Tens digit: first divide by 10, then take the remainder on division by 10.', 'Compare the sum of cubes with n using `==`, not `=`.'],
     work: ['Read n as an int.', 'ratusan = n // 100; puluhan = (n // 10) % 10; satuan = n % 10.', 'Compute the sum of the cubes of the three digits.', 'Compare with n; print Armstrong or not.'],
@@ -2278,7 +2278,7 @@ const TR: Record<string, Tr> = {
     pseudoNotes: ['Case O.', 'Case AB (either order) comes before B.', 'The result is printed after the chain of cases is done.'],
     wrong: ['The combination IA + IB must be AB, but the `B` branch intercepts it. Check the AB case first (IA with IB, both orders) before the B case.', 'The AB combination can appear in two orders: (IA, IB) and (IB, IA). Handle both.'] },
   'k21-s7a': { en: {
-    stem: 'A function is given as follows:\n\n$$f(x) = \\sum_{i=1}^{n} a x^i + b$$\n\nWrite a program that prints the result $f(x)$ for the values $a$, $b$ and $x$ (each a real number) and $n$ (an integer > 0) entered by the user.\nHint: use a loop.\n\n(Input order: a, b, x, n. The formula is read as $\\left(\\sum_{i=1}^{n} a x^i\\right) + b$.)',
+    stem: "A function is given as follows:\n\n$$f(x) = \\sum_{i=1}^{n} a x^i + b$$\n\nWrite a program used to print to the screen the result of $f(x)$ based on the input values $a$, $b$, and $x$ (each a real number) and $n$ (an integer > 0) from the user.\nHint: use a loop.\n\n(Input order: a, b, x, n. The formula is read as $\\left(\\sum_{i=1}^{n} a x^i\\right) + b$.)",
     explanation: 'Accumulate a·x^i for i = 1..n inside the loop, then add b once. Note: the layout of the formula on the paper is ambiguous (b inside or outside Σ); here b is read as outside Σ (Σ a·xⁱ, then + b). If b was meant to be inside Σ, add b in every iteration (the result grows by n·b − b).',
     hints: ['What is the pattern for summing n terms? A loop with an accumulator.', 'The variable i runs 1..n: what is the upper bound of `range`?', 'Where is b added: inside or outside the sigma?'],
     work: ['Read a, b, x as float and n as int.', 'jumlah = 0 before the loop.', 'Loop i = 1..n: jumlah += a * x ** i.', 'f = jumlah + b.', 'Print f.'],
@@ -2306,7 +2306,7 @@ const TR: Record<string, Tr> = {
     pseudoNotes: ['The first term of the series.', 'The inner loop computes i!.', 'Add the term 1/i!.', 'Years 1..x.'],
     wrong: ['The series starts from the term 1 (before 1/1!): e = 1 + 1/1! + …. Initialise e = 1, not 0.', 'The population model is exponential: P(t) = P0 · e^(k·t), not P0 · e · k · t. Use `e ** (k * t)`.', 'The years must be 1..x, not 0..x−1. Use `range(1, x + 1)`.'] },
   'kls-s1a': { en: {
-    stem: 'Write a program that computes the hypotenuse of a right triangle with the Pythagorean formula. The program reads 2 real numbers, say $a$ (the base) and $b$ (the height), and prints the hypotenuse $c$, computed with the formula $c = \\sqrt{a^2 + b^2}$. Assume $a > 0$ and $b > 0$.',
+    stem: "Write a program to compute the hypotenuse of a right triangle using the Pythagorean formula. The program reads input of 2 real numbers, for example $a$ (the base of the triangle) and $b$ (the height of the triangle), and prints to the screen the computed hypotenuse $c$, calculated with the formula $c = \\sqrt{a^2 + b^2}$. Assume $a > 0$ and $b > 0$.",
     explanation: 'c = (a ** 2 + b ** 2) ** 0.5 with a and b read as float.',
     hints: ['Which input type for real numbers?', 'Square root = power 0.5; what must go in parentheses?'],
     work: ['Read a and b as float.', 'Compute the sum of squares.', 'Take the root with `** 0.5`.', 'Print c.'],
@@ -2333,7 +2333,7 @@ const TR: Record<string, Tr> = {
     pseudoNotes: ['Three cases based on the code.', 'One output at the end.'],
     wrong: ['`9 // 5` is integer division (= 1), not 1.8. Use `/`.', 'The Réaumur formula is 4/5 × TC, not 5/4.'] },
   'kls-s4a': { en: {
-    stem: 'Write a program that reads 3 distinct integers, say a, b, c, and prints the 3 integers sorted from highest to lowest.\n\nExample input/output (from the slide; see the note):\n\n| a | b | c | Output |\n|---|---|---|---|\n| 3 | 4 | -1 | 3 2 -1 |\n| 4 | 10 | 11 | 11 10 4 |\n| 35 | -90 | 100 | -90 35 100 |\n\nNote: only conditionals must be used (arrays are not allowed).\n\n(Caution: the examples on the slide look wrong, e.g. (3, 4, −1) should give "4 3 -1", and (35, −90, 100) gives "100 35 -90" for descending order. This exercise follows the problem text: from highest to lowest. Input: a, b, c one per line.)',
+    stem: "Write a program that receives 3 different integers, for example a, b, c, and prints the 3 integers sorted from highest to lowest.\n\nExample input/output (from the slide; see the note):\n\n| a | b | c | Output |\n|---|---|---|---|\n| 3 | 4 | -1 | 3 2 -1 |\n| 4 | 10 | 11 | 11 10 4 |\n| 35 | -90 | 100 | -90 35 100 |\n\nNote: only conditionals must be used (arrays are not allowed).\n\n(Attention: the examples on the slide appear to be wrong, e.g. (3, 4, −1) should produce \"4 3 -1\", and (35, −90, 100) produces \"100 35 -90\" if the order is descending. This exercise follows the problem text: from highest to lowest. Input: a, b, c, one per line.)",
     explanation: 'A decision tree: compare a and b, then c against both; there are 6 leaves for the 6 orders.',
     hints: ['Three distinct numbers have 6 orders. Draw a decision tree with two levels of comparison.', 'Compare a and b first, then slot c into the right position.', 'No array/sort allowed: only `if`.'],
     work: ['If a > b: check b > c → a b c; otherwise check a > c → a c b; otherwise c a b.', 'If a < b: check a > c → b a c; otherwise check b > c → b c a; otherwise c b a.', 'Print separated by spaces.'],
@@ -2369,7 +2369,7 @@ const TR: Record<string, Tr> = {
     pseudoNotes: ['The initial value comes from the first element.', 'Indices 1..99 inclusive; one loop for both.', 'The choice branches after the loop.'],
     wrong: ['The initial value `maks = 0` (and `mini = 1000`) is wrong if all elements are negative. Start from `TI[0]`.', 'The choice has not been used: choice 1 is the maximum only and choice 2 the minimum only.'] },
   'kls-s8a': { en: {
-    stem: 'Given *arrays of integer* `T1` and `T2`, each with 100 elements. We will check whether T1 and T2 are the same array or not (see question 8b). In that program, write a procedure/function `BacaArray` that fills an *array of integer* with 100 elements from the user\'s input and stores the result in an *array of integer*.',
+    stem: "Given an *array of integer* `T1` and `T2`, each with 100 elements. A check will be made of whether T1 and T2 are the same array or not (see question 8b). In that program, write a procedure/function `BacaArray` that is used to fill an *array of integer* with 100 elements from the user's input and to store the result of the reading in an *array of integer*.",
     answer: kls8a + '\n\nNote: it can also be a procedure that takes the array as a parameter (`def BacaArray(T): for i in range(100): T[i] = int(input())`) since the list is modified in place. The function version (returning the array) is preferred.',
     keyPoints: ['A subprogram is defined with def and named BacaArray', 'A local 100-element array is created inside the function', 'A loop of 100 iterations uses int(input())', 'The function returns the array (return T)'],
     explanation: 'A function without parameters that creates a 100-element array, fills it via `int(input())`, and returns it. It is used in 8b.' },

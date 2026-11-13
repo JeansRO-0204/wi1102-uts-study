@@ -185,7 +185,7 @@ ALGORITMA
           stem: 'Pak Dani uses electricity at home with a 1300 watt power rating. In one month he records a total usage of x kWh (kilowatt-hours). Electricity costs Rp. 1,444.70 per kWh. Write a program to compute Pak Dani\'s total electricity bill for the month.\n\nConversion notes:\n- 1 kWh = using 1000 watts for 1 hour\n- Input: the number of kWh per month\n- Output: the total electricity bill',
           explanation: 'Abstraction: the 1300 watt rating does not affect the bill because the input is already in kWh. Total = x × 1444.70. Note: the output format is not fixed; only the number is compared.',
           hints: ['Which information is really needed to compute the bill?', 'Use a type that holds fractions for the tariff (and possibly the kWh).'],
-          work: ['Abstraction: only the kWh and the tariff per kWh are used; the 1300 watt rating is not needed.', 'Read x as a float.', 'total = x × 1444.70.', 'Print the total.'],
+          work: ['Abstraction: only the kWh and the tariff per kWh are used; the 1300 watt rating is not needed.', 'Read x as a float.', 'total = x × 1444,70 (written 1444.70).', 'Print the total.'],
           plan: 'read x (kWh); total ← x * 1444.70; print total',
         },
       }],

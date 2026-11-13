@@ -83,7 +83,7 @@ const A22 = 'Bagian A. Computing System, Network, and Impact of Computing. Untuk
 problems.push({
   id: 'ku22-s1', archetype: 'concept', title: 'Soal 1 – Kecanduan game', source: prov(S22, 'Soal 1', [2], 2022, true),
   intro: A22,
-  en: { title: 'Q1 – Game addiction', intro: 'Part A. Computing Systems, Networks, and Impact of Computing. For questions 1 to 3, write short, concise but clear answers. Use proper Indonesian.' },
+  en: { title: 'Q1 – Game addiction', intro: 'Part A. Computing Systems, Networks, and Impact of Computing. For questions 1 to 3, write short, concise but clear answers. Use good and correct Indonesian.' },
   parts: [{
     id: 'ku22-s1a', kind: 'open', decks: ['D11'], topic: 'Technology addiction',
     stem: 'Kecanduan game adalah salah satu problem remaja masa kini. Sebutkan (minimal 3) cara atau kiat untuk menghindari kecanduan game.',
@@ -532,7 +532,7 @@ const A23 = 'Bagian A. Computing System, Network, and Impact of Computing (25%).
 problems.push({
   id: 'ku23-s1', archetype: 'concept', title: 'Soal 1 – Green computing', source: prov(S23, 'Soal 1', [1], 2023, true),
   intro: A23,
-  en: { title: 'Q1 – Green computing', intro: 'Part A. Computing Systems, Networks, and Impact of Computing (25%). For questions 1 to 3, write short, concise but clear answers with clear arguments. Use proper Indonesian.' },
+  en: { title: 'Q1 – Green computing', intro: 'Part A. Computing Systems, Networks, and Impact of Computing (25%). For questions 1 to 3, write short, concise but clear answers with clear arguments. Use good and correct Indonesian.' },
   parts: [{
     id: 'ku23-s1a', kind: 'open', decks: ['D11'], topic: 'Green computing',
     stem: 'Jelaskan apa yang disebut green computing. Berikan 2 (dua) contoh perilaku kebiasaan yang mendukung green computing yang dapat Anda lakukan sebagai mahasiswa.',

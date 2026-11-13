@@ -1223,10 +1223,10 @@ const mc = (id: string, title: string, stem: string, options: string[], explanat
 }
 
 /* ---- mfti ---- */
-mc('mfti-a-01', 'Part A no. 1 – Netiquette', 'Which of the following is NOT part of *netiquette and messaging etiquette*?',
+mc('mfti-a-01', 'Part A no. 1 – Netiquette', "The following are included in *netiquette and messaging etiquette*, except:",
   ['*Keep it short*', '*Keep your cool*', '*Assume you are anonymous*', '*Say what you mean*'],
   'Slide D11 (slide 26) lists: *say what you mean*, *keep it short*, *keep your cool*, and *don\'t assume you are anonymous*. So "Assume you are anonymous" is the opposite of the rule (do not assume you are anonymous). The mock\'s key (C) is correct.')
-mc('mfti-a-02', 'Part A no. 2 – Factory automation', 'Look at the picture (a factory full of robot arms and no workers). It shows one impact of *automation*, called…',
+mc('mfti-a-02', 'Part A no. 2 – Factory automation', "Look at the following picture (a factory full of robot arms and no workers). The following picture is one of the impacts of *automation*, called…",
   ['*Humanless factory*', '*AI factory*', '*Dark factory*', '*24-hour factory*'],
   'A *dark factory* (*lights-out factory*) is fully automated, so it needs neither lights nor workers. Note: this term is not in slide D11 (slide 32 only covers "The Automated Factory": robots for painting, welding and repetitive assembly); "Humanless factory" is not a standard term. The mock\'s key (C) is followed as the common term.')
 mc('mfti-a-03', 'Part A no. 3 – Software piracy', 'The country with the highest *software piracy rate* is…', ['Libya', 'Sri Lanka', 'Venezuela', 'Bolivia'],
@@ -1234,38 +1234,38 @@ mc('mfti-a-03', 'Part A no. 3 – Software piracy', 'The country with the highes
 mc('mfti-a-04', 'Part A no. 4 – IPR', 'The main function of IPR (Intellectual Property Rights) is',
   ['Protecting symbols, images, sounds, colours and smells', 'Protecting books, songs, stage performances, paintings, photos and films', 'Protecting trade secrets', 'The results of intellectual activity in art, science and industry'],
   'Option A = trademarks, B = copyright, C = trade secrets; each covers only one kind of IPR. Option D states the scope of IPR in general (the results of intellectual work in art, science and industry). Note: IPR is not in slide D11 (2026), so it cannot be verified; the mock\'s key (D) is followed because it is the most general.')
-mc('mfti-a-05', 'Part A no. 5 – ITE Law', 'The law that covers freedom of speech on social media exercised responsibly is…',
+mc('mfti-a-05', 'Part A no. 5 – ITE Law', "The law that discusses freedom of speech on social media, exercised responsibly, is…",
   ['ITE Law No. 22 of 2012', 'ITE Law No. 11 of 2008', 'ITE Law No. 33 of 2019', 'ITE Law No. 01 of 2021'],
   'Slide D11 (slide 27, *Freedom vs. Social Responsibility*): Law No. 11 of 2008 on ITE. Its amendments are Law No. 19/2016 and Law No. 1/2024 (not "No. 01 of 2021"). The mock\'s key (B) is correct.')
-mc('mfti-a-06', 'Part A no. 6 – Software licences', 'Which statement correctly contrasts *proprietary software* and *free software*?',
+mc('mfti-a-06', 'Part A no. 6 – Software licences', "The correct statement about *proprietary software* and *free software* is…",
   ['*Proprietary software* is not free to use and not free to modify, while *free software* is free to use but not free to modify', '*Proprietary software* is free to use but not free to modify, while *free software* is not free to use and not free to modify', '*Proprietary software* is free to use but not free to modify, while *free software* is free to use and free to modify', 'Both *proprietary* and *free software* are free to modify and free to use'],
   'Note: this question is flawed. By definition *free software* is free to modify (so option A is wrong in its second half), but *proprietary software* is not free of charge (so option C is wrong in its first half). Because the first half of A is correct and C is wrong, the mock\'s key (A) is followed as "closest". This topic is not in slide D11 (2026).')
-mc('mfti-a-07', 'Part A no. 7 – Social engineering & fraud', 'Consider the *terms* and their definitions: A. *Social engineering*, B. *Spoofing*, C. *Phishing*; 1. Pretending to be someone else and performing disruptive actions; 2. Using deceptive methods to obtain sensitive information from other people; 3. Obtaining important information by pretending to be a trusted party *online*. The correct pairing is:',
+mc('mfti-a-07', 'Part A no. 7 – Social engineering & fraud', "Look at the *terms* and their definitions: A. *Social engineering*, B. *Spoofing*, C. *Phishing*; 1. Pretending to be someone else and carrying out disruptive actions; 2. Obtaining deceptive ways to get sensitive information from other people; 3. Obtaining important information by pretending to be a trusted party *online*. The correct pairing is:",
   ['A1, B2, C3', 'A2, B3, C1', 'A2, B1, C3', 'A3, B1, C2'],
   '*Social engineering* = manipulating people into revealing sensitive information (2); *spoofing* = impersonating someone else (1); *phishing* = posing as a trusted party to steal information (3). Pairing: A2, B1, C3. The mock\'s key (C) is correct by the usual definitions (these terms are not covered in slide D11 2026).')
-mc('mfti-a-08', 'Part A no. 8 – Computer viruses', 'Which virus attacks by instructing users to click a link and attacks JPEG, JPG and similar files?',
+mc('mfti-a-08', 'Part A no. 8 – Computer viruses', "The type of virus that attacks by instructing users to click a link and attacks JPEG, JPG, and similar documents is named…",
   ['Iloveyou', 'Ransomware', 'Code Red', 'CryptoLocker'],
   'The ILOVEYOU worm (2000) spread through an "I LOVE YOU" email asking the victim to open an attachment, then overwrote image files (JPG/JPEG) and others. Ransomware/CryptoLocker encrypt files for ransom; Code Red attacked web servers. The mock\'s key (A) matches common knowledge; it is not in slide D11 (2026).')
-mc('mfti-a-09', 'Part A no. 9 – Technology & politics', 'A form of political movement, usually carried out before elections, that uses technology to shape public opinion is called…',
+mc('mfti-a-09', 'Part A no. 9 – Technology & politics', "A form of political movement, generally carried out ahead of elections, that uses technology to shape public opinion is called…",
   ['*Gerrymandering*', '*Grassroot movement*', 'Dawn raid (*serangan fajar*)', '*Black campaign*'],
   'A *black campaign* spreads negative/false information through digital media to shape public opinion. *Gerrymandering* = manipulating electoral district boundaries; *serangan fajar* = vote buying; a *grassroot movement* = a bottom-up movement from ordinary people. Note: this term is not in slide D11 (2026); the mock\'s key (D) is followed.')
 mc('mfti-a-10', 'Part A no. 10 – Definition of AI', '"*Computational intelligence is the study of the design of intelligence agents*": this definition of AI belongs to the approach…',
   ['*Thinking humanly*', '*Acting humanly*', '*Thinking rationally*', '*Acting rationally*'],
   'Slide D11 (slide 39) gives 8 definitions in 4 approaches. The "design of intelligent agents" definition (Poole et al.) belongs to the *acting rationally* approach (agents that act to achieve the best outcome). The mock\'s key (D) is correct.')
 mc('mfti-a-11', 'Part A no. 11 – Computer security', 'The concept of a *firewall* as a computer security technology is to…',
-  ['Detect potential security breaches', 'Monitor and store computer transactions so that the trail of activity can be traced', 'Transmit data in scrambled form to secure it during delivery', 'Prevent unauthorised access to the internal network'],
+  ['Detect potential security breaches', 'Monitor and store computer transactions so that the trail of activity can be traced', "A form of data transmission in scrambled form to secure it during the sending process", 'Prevent unauthorised access to the internal network'],
   'A *firewall* filters network traffic and prevents unauthorised access to the internal network. Option A = IDS, B = *audit log*, C = encryption. The mock\'s key (D) is correct (not in slide D11 2026).')
 mc('mfti-a-12', 'Part A no. 12 – AI in traffic', 'Look at the picture (a Google map with the *Typical traffic* layer, Friday 16:20). The picture shows an application of AI called…',
   ['*Traffic pattern*', '*Path finding*', '*Fastest route determination*', '*Time estimation*'],
   'Slide D11 (slide 48, *AI in Life: AI in Traffic*) labels route maps as *Path finding / Direction*, and the colour-coded congestion map "Typical traffic", as in the picture, as *Traffic pattern*. The mock\'s key (A) is correct.')
-mc('mfti-a-13', 'Part A no. 13 – Addiction & digital violence', 'One way to avoid addiction and violence on social media is…',
+mc('mfti-a-13', 'Part A no. 13 – Addiction & digital violence', "The following is one way to avoid addiction and violence on social media…",
   ['Discussing problems face to face rather than on social media', 'Cutting off contact with family and friends', 'Spending 25 hours per week on digital media', 'Reducing social activities such as student activity units, student associations, clubs and so on'],
   'Slide D11 (slide 15, *Avoiding Addiction & Violence*): if there is a problem, talk about it directly (face to face); keep up relationships with family and friends; join social activities such as student clubs/associations; limit screen time. B, C and D contradict this advice. The mock\'s key (A) is correct.')
 mc('mfti-a-14', 'Part A no. 14 – History of AI', 'According to the history of AI, one thing that happened during the period called *The First Burst* was…',
-  ['The emergence of a system called XCON, built by Carnegie Mellon University', 'IBM\'s *Deep Blue* beating a human at chess', 'The rise of Apple Siri, Google Driverless and AlphaGo', 'The emergence of an ordinary humanoid robot that can play music'],
+  ['The emergence of a system called XCON, built by Carnegie Mellon University', "IBM's *Deep Blue*, which could defeat humans in a chess match", 'The rise of Apple Siri, Google Driverless and AlphaGo', 'The emergence of an ordinary humanoid robot that can play music'],
   'Note: the term "The First Burst" is not used in slide D11 (2026), which uses a timeline (slide 40) with expert systems in the 1980s, Deep Blue in 1997, personal assistants in 2011-2014, and AlphaGo in 2016. Options A (XCON, an early-1980s expert system), B (1997) and C (2010s) are clearly not the earliest period, so the mock\'s key (D) is accepted by elimination.')
 mc('mfti-a-15', 'Part A no. 15 – AI in games', 'OpenAI\'s use in Dota 2 is as…',
-  ['A platform that automates the creation of items and cheat scripts in Dota 2 so players can win more easily', 'A public server provider so that Dota 2 players can play together with AI algorithms', 'A bot trained through *reinforcement learning* to play Dota 2 that can face, and even beat, human players', 'An alternative *map editor* so the community can create new maps for Dota 2'],
+  ["A platform to automate the creation of *items* and *cheat scripts* in Dota 2 so that players can win more easily", "A public server provider for Dota 2 players so that they can play together with AI algorithms", "A bot trained through *reinforcement learning* to play Dota 2 that is able to face and even defeat human players", "An alternative *editor* for maps (*map editor*) so that the community can create new maps for Dota 2"],
   'Slide D11 (slide 44): *OpenAI Five* plays Dota 2 against human players (winning 99.4% in competitive play) and also plays cooperatively alongside humans. So it is a bot trained with *reinforcement learning*. The mock\'s key (C) is correct.')
 
 PEN['mfti-b-1'] = { title: 'Part B no. 1 – Area of a trapezoid-shaped boarding-house room' }
@@ -1289,7 +1289,7 @@ EN['mfti-b-1a'] = {
 }
 PEN['mfti-b-2'] = { title: 'Part B no. 2 – Numbers 1 to 50 and their sum' }
 EN['mfti-b-2a'] = {
-  stem: 'Write Python code to display the numbers 1 to 50 and also compute the sum of the numbers from 1 to 50 (1+2+3+.....+49+50)!',
+  stem: "Write Python programming code to display the numbers 1 to 50 and also compute the result of adding up the numbers from 1 to 50 (1+2+3+.....+49+50)!",
   wrong: [
     '`range(1, 50)` stops at 49. The upper bound is not included; use `range(1, 51)`.',
     '`total = 0` is inside the loop, so it is reset every iteration. Initialise before the loop.',
@@ -1337,7 +1337,7 @@ PEN['mfti-b-5'] = {
   intro: 'The principal of a high school wants to find the average height of the students in a class. To do so, he calls all the students in that class and gathers them in the school health room to have their heights measured one by one. Because he does not know how many students are in the class, the principal intends to count them while measuring. Heights are measured in cm, and from a quick look it is clear that no student is shorter than 100 cm or taller than 200 cm.\n\nA teacher helps the principal measure the heights and record them. This teacher is rather careless and often enters wrong data. Wrong data (the problem says "weight", but it means height), i.e. less than 100 cm or greater than 200 cm, is not used to compute the average height.',
 }
 EN['mfti-b-5a'] = {
-  stem: 'Draw a flowchart that helps the principal compute the average height of the students in the class, where the input is a series of integers representing the students\' heights. Reading input ends when the value -999 is entered (it is not processed). The result is the average height of the students in the class based on the entered data, without counting wrongly entered data (i.e. values < 100 cm or > 200 cm). If there is no usable data to compute the average height, show the message "Tidak ada data" (no data).',
+  stem: "Draw a flowchart that helps the Principal as a guide for computing the average height of the students in the class, where the input is a number of integers representing the students' heights. Reading input ends by entering the value -999 (not processed). Next, the result is the average height of the students in the class based on the data entered, without taking into account the wrongly entered data (that is, if the value is < 100 cm or > 200 cm). If there is no data that can be used to compute the average height, make the message \"Tidak ada data\" (no data).",
   wrong: [
     'Data outside 100..200 is also counted. Add a conditional: only process if 100 ≤ tinggi ≤ 200.',
     'Wrong data is < 100 or > 200, so 100 and 200 themselves are valid. Use ≥ and ≤.',
@@ -1378,7 +1378,7 @@ EN['mfti-b-5a'] = {
 }
 PEN['mfti-b-6'] = { title: 'Part B no. 6 – Why computational thinking matters' }
 EN['mfti-b-6a'] = {
-  stem: 'Explain why computational thinking is an important skill, especially in the 21st century!',
+  stem: "Explain why computational thinking ability is an important skill, especially in the 21st century!",
   answer: 'Many answers are valid. Example: the 21st century is marked by a digital world and by complex, data-driven problems. Computational thinking (decomposition, pattern recognition, abstraction, algorithms) trains us to break big problems into small parts, look for patterns, focus on what matters, and write clear solution steps. This ability is not limited to programmers: it is useful in every field (science, business, health, the arts), helps us work with computers/AI, make data-driven decisions, and solve new problems systematically.',
   rub4: 'Explains the reasons clearly: (1) relevance to the 21st century (digital, complex, data) and (2) the link to the CT pillars (decomposition, pattern recognition, abstraction, algorithms), with an example or benefit',
   keyPoints: ['Mentions the 21st-century context (technology/digital, complex problems, big data)', 'Mentions the CT pillars and their function', 'Benefits across fields, not just programming', 'A concrete example'],
@@ -1396,13 +1396,13 @@ mc('mgem-a-03', 'Part A no. 3 – Identity theft', 'Someone uses another person\
   ['*Cyberbullying*', '*Identity Theft*', '*Digital Divide*', 'Plagiarism'],
   'Slide D11 (slide 17): *identity theft* includes using someone else\'s account/data to spread slander or threats; here personal data is used for fraud. *Cyberbullying* is harassment; the *digital divide* is the gap in access.')
 mc('mgem-a-04', 'Part A no. 4 – Social media ethics', 'According to the ITE Law and cyber ethics, what is the first step you should take if you find a provocative news item of unclear truth in the family WhatsApp group?',
-  ['Immediately *forward* it to other groups so people stay alert.', 'Leave it alone to avoid conflict.', 'Verify the truth (*fact-checking*) before deciding whether to share or correct it.', 'Save it as a personal archive.'],
+  ['Immediately *forward* it to other groups so people stay alert.', 'Leave it alone to avoid conflict.', "Performing verification of the truth (*fact-checking*) before deciding to share or correct it.", 'Save it as a personal archive.'],
   'Slide D11 (slide 29): *Think before you post*; ITE Law Article 28 prohibits spreading false and misleading news. The right first step is to verify, not to forward.')
 mc('mgem-a-05', 'Part A no. 5 – Generative AI ethics', 'In the context of *Generative AI* (such as ChatGPT or Midjourney), which ethical issue is most often debated regarding copyright?',
   ['AI cannot work without electricity.', 'AI uses the works of original artists/writers as training data without permission or compensation.', 'AI output is always worse than human work.', 'AI will take over the military world.'],
   'Slide D11 (slide 56): generative models learn from patterns in their training data. The copyright issue arises because original works are used as training data without permission/compensation. The other options are not copyright issues.')
 mc('mgem-a-06', 'Part A no. 6 – Netiquette', 'What is the main function of *Netiquette* in digital communication?',
-  ['As a formal law that is criminally binding.', 'As an unwritten code of conduct to keep digital spaces comfortable and courteous.', 'To increase internet connection speed.', 'To restrict freedom of expression completely.'],
+  ['As a formal law that is criminally binding.', "As an unwritten guide to manners for maintaining comfort and politeness in the digital space.", 'To increase internet connection speed.', 'To restrict freedom of expression completely.'],
   'Slide D11 (slides 24, 26): norms and ethics are only "guidelines" related to morality, unlike rules/laws, which carry sanctions. *Netiquette* is a norm/ethic.')
 mc('mgem-a-07', 'Part A no. 7 – Smart Grid', '*Smart Grid* technology in power systems is an example of applying computing to...',
   ['Replace all electric cables with wireless ones.', 'Manage power distribution efficiently and automatically based on *real-time* data.', 'Permanently lower the electric voltage.', 'Remove the need for power plants.'],
@@ -1419,13 +1419,13 @@ mc('mgem-a-10', 'Part A no. 10 – Impact of social media algorithms', 'One nega
 mc('mgem-a-11', 'Part A no. 11 – Grooming', '*Grooming* practices on the internet usually target victims who...',
   ['Have strong cybersecurity.', 'Are young or emotionally vulnerable.', 'Do not have a social media account.', 'Use pirated software.'],
   'Slide D11 (slide 11): *grooming* is a predator\'s effort to build a relationship with young or vulnerable individuals through technology for exploitation.')
-mc('mgem-a-12', 'Part A no. 12 – Computing in geophysics', 'In Geophysics, computing is used to process *Remote Sensing* data. What is the purpose?',
+mc('mgem-a-12', 'Part A no. 12 – Computing in geophysics', "In the field of Geophysics, computing is used to process *Remote Sensing* data. What is its purpose?",
   ['Making maps by hand.', 'Monitoring environmental change, weather and potential disasters remotely using satellite/sensor data.', 'Controlling the movement of tectonic plates.', 'Sending astronauts to the moon.'],
   '*Remote sensing* uses satellites/sensors to monitor the environment, weather and disasters. Note: this field example is not in slide D11 (2026), but it is consistent with "Computing Technology in Daily Lives".')
-mc('mgem-a-13', 'Part A no. 13 – PDP Law', 'Law No. 27 of 2022 in Indonesia specifically regulates...',
+mc('mgem-a-13', 'Part A no. 13 – PDP Law', "Law No. 27 of 2022 in Indonesia specifically regulates about...",
   ['Digital Copyright.', '*E-Commerce* transactions.', 'Personal Data Protection (PDP).', 'Banking crime.'],
   'Slide D11 (slide 21): *Law No. 27 of 2022 concerning Personal Data Protection*.')
-mc('mgem-a-14', 'Part A no. 14 – Algorithmic bias', 'What is meant by *Algorithmic Bias*?',
+mc('mgem-a-14', 'Part A no. 14 – Algorithmic bias', "What is meant by *Algorithmic Bias* (Bias Algoritma)?",
   ['An algorithm that runs very slowly.', 'A systematic error in a computer system that creates unfair outcomes for certain groups of people (e.g. race or gender).', 'An algorithm that can only process even numbers.', 'Voltage bias in a computer\'s electric circuits.'],
   'Slide D11 (slide 58, *AI Dangers*): *Bias and Inaccuracies*; AI systems can reinforce bias when their training data is flawed or biased.')
 mc('mgem-a-15', 'Part A no. 15 – Internet of Things', 'Which is an example of the *Internet of Things* (IoT) in a household?',
@@ -1437,7 +1437,7 @@ PEN['mgem-b-1'] = {
   intro: 'Imagine you are asked to design a "Smart Traffic Light" system at a four-way intersection that is often congested. The light no longer just uses a fixed timer (red 60 seconds, green 30 seconds) but must be adaptive.',
 }
 EN['mgem-b-1a'] = {
-  stem: 'Use Decomposition to break this problem into 3 main sub-components.',
+  stem: "Use Decomposition to break this problem down into 3 main sub-components.",
   answer: 'Many answers are valid. Example: (1) Sensing/data collection: cameras or weight sensors on each approach count the number and type of waiting vehicles. (2) Decision making: an algorithm that decides which direction gets green and for how long based on the data (e.g. the longest queue, ambulance priority, a maximum time limit for fairness). (3) Light controller: switches the red-yellow-green lights, including safety gaps between phases and a backup mode if a sensor fails.',
   rubric: [
     'Breaks the problem into exactly 3 clear sub-components that are separate from each other and together make up the whole system (e.g. sensor/data, decision logic, light controller)',
@@ -1586,7 +1586,7 @@ EN['mgem-b-6a'] = {
     'Initialising t2 = 0 makes "no second" read as 0; use a marker -1 that can never be a price.',
   ],
   plan: 'function: t1 ← arr[0], t2 ← -1; for i from 1 to the end: if arr[i] > t1 then t2 ← t1, t1 ← arr[i]; otherwise, if arr[i] < t1 and arr[i] > t2 then t2 ← arr[i]; return t1, t2',
-  hints: ['Keep two variables: the largest and the second largest, in a single pass over the array.', 'When a value larger than t1 is found, the old t1 becomes the candidate for second.', 'A value EQUAL to t1 must not become t2: use `<`, not `<=`.'],
+  hints: ['Keep two variables: the largest and the second largest, in a single pass over the array.', 'When a value larger than t1 is found, the old t1 becomes the candidate for second.', "A value that is EQUAL to t1 must not become t2: use `<` instead of `<=`."],
   notes: [
     'Specification and DECLARATIONS of the main program.',
     'Function definition with the parameter `arr`; the function returns values (not `print`), as the question says "returns two pieces of information".',
@@ -1606,23 +1606,23 @@ EN['mgem-b-6a'] = {
 
 /* ---- mpk: Part A ---- */
 const pkA: [number, string, string, string[], string][] = [
-  [1, 'Computing device', 'Which of the following is a *computing device*?', ['Lamp', 'Refrigerator', 'Smartphone', 'Air conditioner'], 'A smartphone processes data (it has a CPU, memory and programs). An ordinary lamp, refrigerator or air conditioner is not a computing device (unless it is a "smart" version).'],
-  [2, 'Operating system', 'Software that acts as the interface between the user and the hardware is ...', ['*Word processor*', '*Web browser*', 'Operating system', '*Spreadsheet*'], 'The operating system mediates between the user/applications and the hardware. The other options are applications.'],
+  [1, 'Computing device', "The device that falls into the category of *computing device* is ...", ['Lamp', 'Refrigerator', 'Smartphone', 'Air conditioner'], 'A smartphone processes data (it has a CPU, memory and programs). An ordinary lamp, refrigerator or air conditioner is not a computing device (unless it is a "smart" version).'],
+  [2, 'Operating system', "Software that functions as the interface between the user and the hardware is ...", ['*Word processor*', '*Web browser*', 'Operating system', '*Spreadsheet*'], 'The operating system mediates between the user/applications and the hardware. The other options are applications.'],
   [3, 'Input device', 'Which of the following is NOT an example of an *input device*?', ['*Keyboard*', '*Mouse*', '*Scanner*', 'Monitor'], 'A monitor is an output device.'],
-  [4, 'Hardware', 'The hardware that performs arithmetic and logic operations is ...', ['*Hard disk*', 'RAM', 'CPU', '*Motherboard*'], 'The CPU (the ALU inside it) performs arithmetic and logic operations.'],
+  [4, 'Hardware', "The hardware whose task is to perform arithmetic and logic operations is ...", ['*Hard disk*', 'RAM', 'CPU', '*Motherboard*'], 'The CPU (the ALU inside it) performs arithmetic and logic operations.'],
   [5, 'Malware', 'Software designed to damage a computer system is called ...', ['*Malware*', '*Firmware*', '*Freeware*', '*Shareware*'], '*Malware* (*malicious software*) is designed to damage or infiltrate systems. *Firmware* = embedded software; *freeware* is free; *shareware* is try-before-you-buy.'],
   [6, 'Web protocol', 'The protocol used to access a *website* is ...', ['HTTP', 'FTP', 'SMTP', 'TCP/IP'], 'HTTP (HTTPS) is used by browsers to access the web. FTP is for file transfer, SMTP for email, and TCP/IP is the basic suite of internet protocols.'],
   [7, 'Computer networks', 'A computer network whose coverage is limited to a small geographic area is called ...', ['LAN', 'MAN', 'WAN', 'Internet'], 'LAN = *Local Area Network* (a building/small campus); MAN = a city; WAN = a wide area.'],
-  [8, 'Digital privacy threats', 'Which of the following is a threat to privacy in the digital world?', ['*Phishing*', '*Spam*', '*Cyberbullying*', 'All of the answers are correct'], 'Slide D11 covers threats in the digital world: identity theft, privacy threats (slides 17-20), and violence through the internet such as *cyberbullying* (slide 11). This question is a loose older version; the "all correct" option is chosen following the most plausible key.'],
+  [8, 'Digital privacy threats', "The following is a threat to privacy in the digital world ...", ['*Phishing*', '*Spam*', '*Cyberbullying*', 'All of the answers are correct'], 'Slide D11 covers threats in the digital world: identity theft, privacy threats (slides 17-20), and violence through the internet such as *cyberbullying* (slide 11). This question is a loose older version; the "all correct" option is chosen following the most plausible key.'],
   [9, 'Green computing', '*Green computing* is ...', ['The concept of using computing technology in an environmentally friendly way', 'Using computers to study the environment', 'Using computers for farming', 'Software for managing waste'], '*Green computing* = using computing in an energy-efficient and environmentally friendly way. This topic is not in slide D11 (2026) (only the discussion of AI\'s environmental impact on slide 61).'],
   [10, 'Copyright', 'Copyright falls into the category of ...', ['IPR', 'Human rights', 'ITE Law', 'Patent rights'], 'Copyright is one type of IPR (Intellectual Property Rights), besides patents and trademarks.'],
   [11, 'Open-source software', 'Software whose source code is open and can be modified is called ...', ['*Proprietary software*', '*Freeware*', '*Open-source software*', '*Shareware*'], '*Open-source* = the source code is open and may be modified. *Freeware* is free of charge but its code is closed.'],
   [12, 'Output device', 'Which of the following is NOT an example of an *output device*?', ['Monitor', '*Printer*', '*Speaker*', '*Keyboard*'], 'A *keyboard* is an input device.'],
   [13, 'Cybersecurity', '*Cybersecurity* is ...', ['Safety when surfing in cyberspace', 'Protection of computer systems and networks from digital attacks', 'Antivirus *software*', '*Firewall*'], '*Cybersecurity* = protecting systems and networks from digital attacks. Antivirus and firewalls are only tools within it.'],
-  [14, 'CT pillars', 'Which of the following is NOT a pillar of computational thinking?', ['Decomposition', 'Abstraction', 'Pattern recognition', 'Programming'], 'Slide D01 (slide 7): the 4 CT pillars = decomposition, pattern recognition, abstraction, algorithms. Programming is a way to apply them, not a pillar.'],
+  [14, 'CT pillars', "The following is not a pillar of computational thinking ...", ['Decomposition', 'Abstraction', 'Pattern recognition', 'Programming'], 'Slide D01 (slide 7): the 4 CT pillars = decomposition, pattern recognition, abstraction, algorithms. Programming is a way to apply them, not a pillar.'],
   [15, 'Decomposition', 'Dividing a big problem into smaller sub-problems is called ...', ['Abstraction', 'Decomposition', 'Algorithm', 'Generalisation'], 'Slide D01 (slide 19): decomposition = dividing a problem into sub-problems that are solved separately.'],
   [16, 'Pattern recognition', 'Identifying shared characteristics among various problems is called ...', ['Abstraction', 'Decomposition', 'Algorithm', 'Pattern recognition'], 'Pattern recognition = finding similarities/patterns in problems (slide D01 slide 14 onwards).'],
-  [17, 'Abstraction', 'Simplifying a problem by removing unimportant details is called ...', ['Abstraction', 'Decomposition', 'Algorithm', 'Generalisation'], 'Slide D01 (slide 20): abstraction = removing the unimportant parts of a problem.'],
+  [17, 'Abstraction', "Simplifying a problem by removing details that are not important is called ...", ['Abstraction', 'Decomposition', 'Algorithm', 'Generalisation'], 'Slide D01 (slide 20): abstraction = removing the unimportant parts of a problem.'],
   [18, 'Generalisation', 'Finding a general solution that can be applied to many similar problems is called ...', ['Abstraction', 'Decomposition', 'Algorithm', 'Generalisation'], 'Slide D01 (slide 20): abstraction used to obtain a general solution for similar problems is called generalisation.'],
   [19, 'Algorithm', 'A series of step-by-step instructions for solving a problem is called ...', ['Abstraction', 'Decomposition', 'Algorithm', 'Generalisation'], 'Definition of an algorithm: a clear, finite sequence of steps for solving a problem.'],
   [20, 'Flowchart', 'A *flowchart* is ...', ['A graphical representation of an algorithm', 'A programming language', 'An operating system', 'Application software'], 'A *flowchart* depicts an algorithm with symbols and arrows (slide D02).'],
@@ -1637,7 +1637,7 @@ const pkA: [number, string, string, string[], string][] = [
   [29, 'Sorting', 'The process of ordering the elements in an *array* is called ...', ['*Sorting*', '*Searching*', '*Indexing*', '*Looping*'], '*Sorting* = ordering the elements.'],
   [30, 'Function', 'A *function* in programming is ...', ['A reusable block of code', 'A variable', 'A data type', 'A *loop*'], 'Slide D10: a subprogram (function/procedure) is a named block of code that can be reused; a function returns a value through `return`.'],
   [31, 'Procedure', 'A *procedure* in programming is ...', ['A reusable block of code', 'A variable', 'A data type', 'A *loop*'], 'A procedure is also a reusable block of code; unlike a function, a procedure does not return a value (slide D10). The other options are clearly wrong.'],
-  [32, 'Programming languages', 'Which of the following is NOT a programming language?', ['Python', 'HTML', 'Java', 'C++'], 'HTML is a *markup language* (it marks up how a web page is displayed), not a programming language.'],
+  [32, 'Programming languages', "The following is not a programming language ...", ['Python', 'HTML', 'Java', 'C++'], 'HTML is a *markup language* (it marks up how a web page is displayed), not a programming language.'],
   [33, 'Interpreter', 'An *interpreter* is ...', ['*Software* that translates program code line by line', '*Software* that translates the whole program code at once', 'A programming language', 'An operating system'], 'An *interpreter* translates and runs code line by line (e.g. Python); a compiler translates the whole thing at once.'],
   [34, 'Compiler', 'A *compiler* is ...', ['*Software* that translates program code line by line', '*Software* that translates the whole program code at once', 'A programming language', 'An operating system'], 'A *compiler* translates the entire program into machine code at once before it runs.'],
   [35, 'OOP paradigm', 'The programming paradigm that focuses on objects and their interactions is called ...', ['Procedural programming', 'Object-oriented programming', 'Functional programming', 'Logic programming'], 'Object-oriented programming (OOP). Outside the WI1102 syllabus.'],
@@ -1657,7 +1657,7 @@ const pkOpenEn = (n: number, topic: string, stem: string, answer: string, keyPoi
     rub4: 'Complete and correct answer as asked (the number of items and examples, if requested)',
   }
 }
-pkOpenEn(1, 'Python data types', 'Name 3 (three) basic data types in Python and give 1 (one) example of each.',
+pkOpenEn(1, 'Python data types', "Name 3 (three) basic data types in Python and give 1 (one) example of each.",
   '`int` (whole number): `42`; `float` (fractional number): `3.14`; `str` (text): `"halo"`; `bool`: `True`. Any three of these are enough.', ['Three correct types (int, float, str, bool)', 'Each with a suitable example value'])
 pkOpenEn(2, 'Python operators', 'Name 2 (two) kinds of operators in Python and give 1 (one) example of each.',
   'Arithmetic operators: `+`, `-`, `*`, `/`, `//`, `%`, `**` (e.g. `7 % 2`). Relational operators: `==`, `!=`, `<`, `>`, `<=`, `>=` (e.g. `a > b`). Logical operators: `and`, `or`, `not` (e.g. `x > 0 and x < 10`). Assignment operators: `=`, `+=`. Two kinds with examples are enough.', ['Two correct kinds of operators', 'An example expression for each'])
@@ -1679,7 +1679,7 @@ PEN['mpk-b-9'] = { title: 'Part B no. 9 – Area of a 5 cm × 3 cm rectangle' }
 EN['mpk-b-9a'] = {
   stem: 'Write Python program code to compute the area of a rectangle with a length of 5 cm and a width of 3 cm.',
   wrong: ['That is the perimeter formula (16). Area = length × width.', 'Area is computed with multiplication, not addition.'],
-  hints: ['Area of a rectangle = length × width. Store both in variables first.'],
+  hints: ["Area of a rectangle = length × width. Store both in variables first."],
   notes: [
     'Title, specification and DECLARATIONS.',
     'Value assignment (`=`): the length and width are stored in variables rather than written directly in the formula so they are easy to change.',
@@ -1691,7 +1691,7 @@ EN['mpk-b-9a'] = {
 }
 PEN['mpk-b-10'] = { title: 'Part B no. 10 – Even or odd' }
 EN['mpk-b-10a'] = {
-  stem: 'Write Python program code to determine whether a number is even or odd.',
+  stem: "Write Python program code to determine whether a number is even or odd.",
   wrong: ['The result is reversed: a remainder of 0 means even.', 'Use `%` (remainder), not `/` (quotient).', '`=` is assignment; comparison uses `==`.'],
   plan: 'read N; if N mod 2 = 0 display "Genap" (even), otherwise "Ganjil" (odd)',
   hints: ['Even numbers are divisible by 2. Which operator gives the remainder?'],
@@ -1723,7 +1723,7 @@ EN['mpk-c-1a'] = {
 }
 PEN['mpk-c-2'] = { title: 'Part C no. 2 – Largest of 3 numbers' }
 EN['mpk-c-2a'] = {
-  stem: 'Write a program to find the largest of 3 (three) numbers entered by the user.',
+  stem: "Write a program to determine the largest number among 3 (three) numbers entered by the user.",
   wrong: [
     '`maks = 0` is wrong if all the numbers are negative. Start from one of the numbers (A).',
     'The third number (C) is not compared.',
@@ -1743,7 +1743,7 @@ EN['mpk-c-2a'] = {
 }
 PEN['mpk-c-3'] = { title: 'Part C no. 3 – Factorial' }
 EN['mpk-c-3a'] = {
-  stem: 'Write a program to compute the factorial of a number entered by the user.',
+  stem: "Write a program to compute the factorial of a number that is entered by the user.",
   wrong: [
     'The multiplication accumulator must start at 1, not 0 (the result is always 0).',
     '`range(1, N)` does not process N; use `range(1, N+1)`.',
