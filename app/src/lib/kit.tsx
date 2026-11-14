@@ -59,7 +59,7 @@ export function srcShort(src: string) {
 export function PageChip({ r }: { r: PageRef }) {
   const open = useContext(PageCtx)
   // practicum sheets are local-only: no page image on the public site, so no chip there
-  if (!import.meta.env.DEV && /^(Praktikum|Module_Python)/.test(r.src)) return null
+  if (!import.meta.env.DEV && /^Praktikum/.test(r.src)) return null
   return <button className="slide-ref" onClick={() => open(r)} title="Open the source page">{srcShort(r.src)} p{r.page}</button>
 }
 export function PageLightbox({ at, onClose, onNav }: { at: PageRef | null; onClose: () => void; onNav: (n: number) => void }) {

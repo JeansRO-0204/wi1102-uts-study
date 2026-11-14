@@ -11,12 +11,13 @@ interface Doc { src: string; title: string; group: GroupId; lang: 'en' | 'id'; n
 type GroupId = 'slides' | 'practicum' | 'practice' | 'past' | 'older'
 const GROUPS: { id: GroupId; title: string; blurb: string }[] = [
   { id: 'slides', title: 'Lecture slides', blurb: 'WI1102 decks, in English (the course intro is in Indonesian). Decks 03 and 07–09 are not in the library yet.' },
-  { id: 'practicum', title: 'Practicum', blurb: 'Python module and the four practicum sheets, in English.' },
+  { id: 'practicum', title: 'Python module', blurb: 'The CT team’s Python module: exercises and worked examples, in English.' },
   { id: 'practice', title: 'Practice sets & mocks', blurb: 'Exercise sheets, tutor-made sets and mock exams. Tutor sets and mocks are unofficial.' },
   { id: 'past', title: 'Past papers', blurb: 'Previous WI1102 exams and the official marking guide.' },
   { id: 'older', title: 'Older KU1102 papers', blurb: 'From the predecessor course. Partly out of scope for WI1102.' },
 ]
 const DOCS: Doc[] = [
+  { src: 'Module_Python', title: 'Python Module', group: 'practicum', lang: 'en' },
   { src: 'D00_CourseIntro', title: '00 · Course Introduction', group: 'slides', lang: 'id' },
   { src: 'D01_ComputationalThinking', title: '01 · Computational Thinking', group: 'slides', lang: 'en' },
   { src: 'D02_AlgorithmicThinking', title: '02 · Algorithmic Thinking', group: 'slides', lang: 'en' },
@@ -48,7 +49,6 @@ const DOCS: Doc[] = [
 ]
 // the practicum sheets are course-internal: listed only on a local dev server, never on the public site
 if (import.meta.env.DEV) DOCS.push(
-  { src: 'Module_Python', title: 'Python Module', group: 'practicum', lang: 'en' },
   { src: 'Praktikum1_BasicStructure', title: 'Practicum 1 · Basic Structure', group: 'practicum', lang: 'en' },
   { src: 'Praktikum2_Conditionals', title: 'Practicum 2 · Conditionals', group: 'practicum', lang: 'en' },
   { src: 'Praktikum3_LoopArray', title: 'Practicum 3 · Loops & Arrays', group: 'practicum', lang: 'en' },

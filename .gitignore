@@ -8,8 +8,10 @@ ref/
 materials/past/UTS2025_attempt_scan.pdf
 app/public/materials/
 app/public/library.json
-# practicum sheets + Python module: course-internal, kept locally only (not in the repo or on the public site)
+# practicum sheets: course-internal, kept locally only (not in the repo or on the public site)
 materials/practicum/
 app/public/pages/Praktikum*/
-app/public/pages/Module_Python/
 knowledge/local/
+# practicum questions transcribed from the sheets: local only, like the sheets themselves
+app/src/bank/practicum.ts
+app/src/bank/_expected.local.json

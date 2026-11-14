@@ -333,8 +333,15 @@ for (const { p, file } of problems) {
 }
 pyProc.stdin!.end()
 
+// local-only bank files (gitignored, never on the public site): their expected results go to a gitignored file too
+const LOCAL_BANK = new Set(['practicum.ts'])
+const localIds = new Set(problems.filter((x) => LOCAL_BANK.has(x.file)).flatMap((x) => x.p.parts.map((q) => q.id)))
+const pick = (local: boolean) => Object.fromEntries(Object.entries(expected).filter(([id]) => localIds.has(id) === local))
 const out = path.join(BANK, '_expected.json')
-if (!only) writeFileSync(out, JSON.stringify(expected, null, 0) + '\n')
+if (!only) {
+  writeFileSync(out, JSON.stringify(pick(false), null, 0) + '\n')
+  if (localIds.size) writeFileSync(path.join(BANK, '_expected.local.json'), JSON.stringify(pick(true), null, 0) + '\n')
+}
 const bySrc = new Map<string, number>()
 for (const { p } of problems) bySrc.set(p.source.kind, (bySrc.get(p.source.kind) ?? 0) + p.parts.length)
 console.log(`${stats.problems} problems, ${stats.questions} questions, ${stats.ran} Python runs · by source: ${[...bySrc].map(([k, v]) => `${k} ${v}`).join(', ')}`)

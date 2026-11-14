@@ -6,7 +6,9 @@
 import type { BankFile, Expected, Flashcard, Paper, Problem, Question } from '../types'
 import expectedJson from './_expected.json'
 
+// practicum.ts (+ _expected.local.json) are gitignored, local-only: present on your machine, absent from the public build
 const files = import.meta.glob<{ bank: BankFile }>(['./*.ts', '!./index.ts', '!./_*.ts'], { eager: true })
+const localExpected = import.meta.glob<Record<string, Expected>>('./_expected.local.json', { eager: true, import: 'default' })
 
 export const PROBLEMS: Problem[] = []
 export const PAPERS: Paper[] = []
@@ -23,4 +25,4 @@ export const PROBLEM = new Map(PROBLEMS.map((p) => [p.id, p]))
 export const QUESTIONS: { q: Question; p: Problem }[] = PROBLEMS.flatMap((p) => p.parts.map((q) => ({ q, p })))
 export const QUESTION = new Map(QUESTIONS.map((x) => [x.q.id, x]))
 /** Reference results computed by build/verify.ts (outputs, traces, robot paths). */
-export const EXPECTED = expectedJson as Record<string, Expected>
+export const EXPECTED: Record<string, Expected> = Object.assign({}, expectedJson as Record<string, Expected>, ...Object.values(localExpected))

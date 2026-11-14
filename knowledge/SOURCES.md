@@ -32,3 +32,4 @@ Page images: `app/public/pages/<src>/NNN.jpg` (1-based, 3 digits). Text: `knowle
 | slides | `D06_Array` | 34 | 2753 |  |
 | slides | `D10_Subprogram` | 36 | 3212 |  |
 | slides | `D11_ComputingImpact` | 62 | 3025 |  |
+| module | `Module_Python` | 25 | 6733 |  |
